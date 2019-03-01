@@ -1,0 +1,133 @@
+vaje - 25%
+	- 4 domače naloge - programerske (se avtomatsko preverjajo)
+	- vsaka 10 točk
+	- minimalno 3 domače naloge, na vsaki vsaj 1 točko
+	- skupaj vsaj 16 točk -> vaje opravljene (morjo bit)
+2 kolokvija - 25% koncni oceni:
+	- 12,5% teoreticni
+	- 12,5% racunski
+	* minimalno 25% vse skp na kolokviju
+izpit - 50%
+	- 25% teoreticni
+	- 25% racunski
+	* če ne nardiš enega dela ti drugi propade (tudi če si s kolokviji prej naredil določen del)
+
+Ce pises oba kolokvija dost dobr, ni treba na izpit.
+
+OCTAVE
+pwd = trenutni directory
+dir = vsebina directorya (standard stvari delajo)
+dela s kompleksnimi števili
+na koncu ukaza ";" -> se rezultat ne izpise
+a^b - potenciranje
+~f - negiranje (logicni operatorji)
+a | b - OR
+a & b - AND
+xor(a, b) - XOR
+
+DELO z vektorji in matrikami (oz. tabelami / polji)
+A=[5, 6, 7] loh tut A = [5 6 7]
+B = [1,2,3; 4,5,6; 7,8,9] (več vrstična matrika)
+C = [5, 6, 7]' - transponiramo == C = [5; 6; 7]
+A(1), A(3) == A(7) - vrne element na i-tem mestu
+A(1:2) - elementi od 1 do 2
+B(1,2) - prva vrstica, drugi stolpec
+B(1:end, 2) - drugi stolpec
+B(2, 1:end) - druga vrstica
+B(2:3, 2:3)  - 5,6;8,9
+B(3, :) = A - zamenjamo 3. vrstico s A
+B(3, :) = [] - zbrišemo 3. vrstico
+length(A)
+length(B) - vrne večjo dimenzijo
+B = B' -> length(B) še vedno 3
+size(A) -> vrne dve števili, {št_vrstic, št_stolpcev}
+size(A, 1) -> št_vrstic
+size(A, 2) -> št_stolpcev
+numel(B) -> št. elementov v podatkovni strukturi B
+A1 = zeros(3) -> matrika ničel 3x3
+A1 = zeros(1,3) -> vektors 1x3
+ones - napolni s enkami
+rand - z naključnimi števili
+
+RAČUNANJE s VEKTORJI in MATRIKAMI
+C = A + 1
+C = A * 2
+C = A.^2 (pika pomeni da se operacija izvede nad vsakim elementom)
+A * B = [1 * 3] x [3 * 3] = [1 * 3] (notranji se morta ujemat, rezultat je zunanjih dimenzij)
+A * A' -> v bistvu skalarni produkt
+
+V = A >= 6 -> vektor kjer je ta pogoj resničen / ne resničen (1 / 0)
+A(V) -> dobimo tiste elemente kjer je bila enka
+A(A >= 6) - isto, v eni vrstici
+find(A >= 6) vrne indekse kjer se nahajajo takšna števila
+
+IF
+d = 0;
+if (d > 0)
+niz = "pozitiven"
+elseid (d < 0)
+niz = "negativen"
+else
+niz = "enak nic"
+end
+
+FOR
+vsota = 0;
+for i=1:2:20
+vsota = vsota+i;
+end
+
+WHILE
+vsota = 0;
+while i < 20
+vsota = vsota + i;
+i = i + 2;
+end
+
+
+FUNKCIJE
+function return = ime(arg)
+	V=0;
+	for i=1:numlen(A)
+		V = V + A(i);
+	endfor
+endfunction
+
+
+
+clear vsota
+
+!! Lahko povoziš ime funckije s svojo
+sum = 5
+clear sum
+sum(A)
+
+
+clear all -> pobriše vse spremenljivke ki smo ustvarili
+clc -> cleara ukazno okno
+
+X = [1:10]
+Y = 2*X+1
+plot(X, Y)
+plot(X, Y, '*')
+
+
+1. DOMAČA NALOGA
+tema: entropija naključne spremenljivke
+
+H(x) = - sum(1:n)[pi * log pi]
+
+primer: kocka
+x = {  1, 	2, 	 3,   4,   5,   6}
+p = {1/6, 1/6, 1/6, 1/6, 1/6, 1/6}
+
+octave
+P = [1/6, 1/6, 1/6, 1/6, 1/6, 1/6]
+skalarni produkt med verjetnostmi in logaritmom verjetnosti
+-P*log2(P') = 2.585 bita
+
+
+
+
+
+
