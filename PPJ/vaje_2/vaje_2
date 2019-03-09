@@ -1,0 +1,296 @@
+# Iz zanke FOR v zanko WHILE
+
+# primer
+
+for (A; P; C) {
+	B;
+}
+
+# rešitev
+
+{	A;
+	while(P) {
+		B;
+		C;
+	}
+}
+
+# še en scope da A ni viden (v bistvu ni potreben)
+
+-------------------------------------------------
+
+# Iz zanke DO v WHILE
+
+# primer
+
+do {
+	A;
+} while(p)
+
+# rešitev
+
+{
+	A;
+	while(p) {
+		A;
+	}
+}
+
+-------------------------------------------------
+
+# Odstranjevanje mrtve kode
+
+# primer 1
+
+print("Kdor to bere je ");
+a = 3;
+if (a * a < 10) {
+    print("mula");
+} else {
+    print("osel");
+}
+
+# rešitev
+
+print("Kdor to bere je ");
+a = 3
+print("mula")
+
+# primer 2
+
+k = n + (n - 1);
+if (k % 2 == 0) {
+    print("foo");
+} else {
+    print("bar");
+}
+m = k * (-k);
+while (m > 0) {
+    m = m - 1;
+    print(m);
+}
+
+# rešitev
+
+k = n + (n - 1)
+# k = 2n - 1
+print("bar")
+m = k * (-k)
+# m je vedno < 0
+
+# primer 3
+
+i = 0;
+while (i < 100) {
+    if (i % 2 == 0) {
+        p = i * (i - 1) * (i - 2);
+    } else {
+        p = i * (i + 1) * (i + 2);
+    }
+
+    if (p % 3 == 0) {
+        break;
+    } else {
+    }
+    i = i + 1;
+}
+
+if (i >= 100) {
+    print("ni zanimivih števil");
+} else {
+    print("našel sem zanimivo število " + i);
+}
+
+# rešitev
+
+i = 0;
+while (i < 100) {
+	if (i % 2 == 0) {
+		p = i * (i - 1) * (i - 2);
+		# (i^2 - i) * (i - 2)
+		# (i^3 - 2i^2 - i^2 - 2i)
+		# (i^3 - 3i^2 - 2i)
+		# p = 0, ker i == 0
+	} else {
+		p = i * (i + 1) * (i + 2);
+		# (i^2 + i) * (i + 2);
+		# (i^3 + 2i^2 + i^2 + 2i);
+		# (i^3 + 3i^2 + 2i)
+	}
+	break;
+}
+print("našel sem zanimivo število " + i);
+
+# actual rešitev
+i = 0;
+p = i * (i - 1) * (i - 2)
+print("našel sem zanimivo število " + i);
+
+# primer 4
+
+s = 0;
+i = 0;
+while (i < 100) {
+    s = s + i;
+}
+print(s);
+
+# rešitev
+
+s = 0;
+i = 0;
+while (i < 100) {
+	s = s + 1;
+}
+
+
+-------------------------------------------------
+
+Program, ki odstranja mrtvo kodo
+
+predpostavka: program DEAD, ki odstrani vso mrtvo kodo
+
+A;
+B;
+
+T = koda turingovega stroja
+B :  print("Hello World")
+A : simuliraj T
+
+
+(T, w) -> Mu(komplement) -> f -> <A, B> -> M(dead), Nov program-> <X> -> compare if equal: NE
+									|                                       |	 else:	   DA
+									-----------------------------------------
+program DEAD ne obstaja
+
+-------------------------------------------------
+
+Odstranjevanje ukaza break
+
+# primer 1
+
+while (n > 0) {
+    digit = n % 10;
+    if (digit == 7) {
+        print(n + " vsebuje števko 7");
+        break;
+    } else { }
+    n = n / 10;
+}
+
+# rešitev
+
+stop = false;
+while (!stop && (n > 0)) {
+    digit = n % 10;
+    if (digit == 7) {
+        print(n + " vsebuje števko 7");
+        stop = true;
+    } else { }
+    if (!stop) {
+    	n = n / 10;
+    } else { }
+}
+
+# primer 2
+
+// najdi najmanjše popolno število
+n = 1;
+while (true) {
+    d = 1;
+    vsota = 0; // vsota deliteljev števila n
+    while (d < n) {
+        if (n % d == 0) {
+            vsota = vsota + d;
+        } else { }
+        if (vsota > n) {
+            break;
+        } else { }
+        d = d + 1;
+    }
+    if (vsota == n) {
+        break;
+    } else { }
+    print(n + " ni popolno število");
+    n = n + 1;
+}
+print("našel popolno število: " + n);
+
+# rešitev
+
+// najdi najmanjše popolno število
+n = 1;
+stop = false;
+while (!stop && (true)) {
+    d = 1;
+    vsota = 0; // vsota deliteljev števila n
+
+    stop = false;
+    while (!stop && (d < n)) {
+        if (n % d == 0) {
+            vsota = vsota + d;
+        } else { }
+        if (vsota > n) {
+            stop = true;
+        } else { }
+        if (!stop) {
+            d = d + 1;
+        } else { }
+    }
+
+    stop = false;
+
+    if (vsota == n) {
+    	stop = true;
+    } else { }
+    if (!stop) {
+    	print(n + " ni popolno število");
+    	n = n + 1;
+    } else { }
+}
+stop = false;
+print("našel popolno število: " + n);
+
+# na koncu vsakega while-a damo STOP na false
+# nisem ziher če je prav ker demšar majhno pisal
+
+-------------------------------------------------
+
+Splošni postopek
+
+UNBREAK(x = e) :=
+	x = e;
+
+UNBREAK(print(e)) :=
+	print(e);
+
+UNBREAK(break) :=
+	stop = true;
+
+UNBREAK(if(p) {A} else {B}) :=
+	if(p) {
+		UNBREAK(A);
+	} else {
+		UNBREAK(B);
+	}
+
+UNBREAK(while(p){A}) :=
+	stop = false;
+	while(!stop && (p)) {
+		UNBREAK(A);
+	}
+	stop = false;
+
+UNBREAK(A; B) :=
+	UNBREAK(A);
+	if (!stop) {
+		UNBREAK(B);
+	}
+
+# Optimizacija
+
+UNBREAK(A; B) :=
+	UNBREAK(A);
+	if (!stop) {	UNBREAK(B)
+		UNBREAK(B)
+	}else{}

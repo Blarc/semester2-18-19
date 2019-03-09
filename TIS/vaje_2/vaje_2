@@ -1,0 +1,93 @@
+domača naloga
+visilice
+H - koliko informacije nosi posamezna črka abecede
+povprečna informacija, ki jo nosi posamezna črka angleške abesede
+H = lim(n -> neskončno) H(xn | xn-1, ... x1)
+opazujemo nedoločenost naslednje črke v besedilu če poznam vse predhodne pri čemer tale n (zgodovino ki jo poznam) želimo imeti čim večji
+ker n nemore bit neskončno -> približek
+
+prvi približek (če ne poznamo nobene predhodne črke)
+H(x1) = -sum(1,n)pi*log(pi)
+pi - kako pogosto se neka črka pojavi v besedilu (frekvenca črke)
+
+drugi pribiližek
+poznamo samo eno predhodno črko
+H(x2 | x1) = H(x2,x1) - H(x1)
+H(x1) - poznamo
+H(x2, x1) = će bi ble neodivsne bi lahko sešteli
+H(x2, x1) = frekvenca kolikokrat se par znakov pojavi
+ta približek je boljši kot prvi
+
+tretji približek
+H(x3 | x2,x1) = H(x3, x2, x1) - H(x2, x1)
+frekvenca kolikokrat se trojica črk pojavi
+
+četrti približek
+H(x4 | x3, x2, x1) = H(x4, x3, x2, x1) - H(x3, x2, x1)
+frekvenca kolikokrat se četvorka črk pojavi
+
+Pri nalogi bo treba izračunat samo te 4 približke.
+
+Nedoločenost pada po teh približkih.
+povprečna informacija na znak: 1,5 bita (po Shannonu)
+
+NAMIGI v Octave (kako to sprogramirat)
+tekst = 'banana'
+# odstranimo vse "neangleške" znake
+isalnum(tekst)
+# zapišemo rezultat v vektor
+M = isalnum(tekst)
+# filitriramo
+tekst_filtriran = tekst(M)
+# črke prestavimo v velike / male
+T = upper(tekst_filtriran)
+# unique funkcija
+U = unique(T) = ABN
+# preštejemo kolikokrat se kakšen znak v besedilu pojavi
+U = histc(T, U)
+# izračunamo frekvenco
+P = U / sum(U)
+# izračunamo entropijo
+H = -P*log2(P')
+# to je prvi približek
+
+# če želimo gledati pare
+B
+AB
+NA
+AN
+NA
+AN
+ A
+T = BANANA
+# prvo besedo transponiramo da dobimo stolpec
+pari_T = [T(1:end-1)', T(2:end)']
+# Unique
+U = unique(pari_T, 'rows')
+# pretvort v številke
+# unique zna vrnit tri argumente
+[U, I, J] = unique(pari_T, 'rows')
+J ~ za vsak par v matriki parov piše svoje številka, ki nam pove kje v matriki unikatov se par nahaja (preslikava iz nizov v številke)
+# preštejemo kolikokrat se kateri par pojavi
+R = histc(J, [1,2,3])
+# izračunamo verjetnosti
+P = R / sum(R)
+# izračunamo entropijo
+H = -P'*log2(P)
+# to je drugi približek
+
+R = 1 - (H(xp+1 | xp,... x1) / log2(M)
+M = št. unikatnih znakov v besedilu
+
+v mapi primeri
+3 javni, 7 skriti
+clear_all
+test_naloga1('primeri', 1)
+max_čas = 2 min
+rezultat na 3 decimalke
+
+load('primeri/1.mat')
+ne spreminjaj imena funkcije
+
+virtualka za testiranje domače naloge
+octave 4.2
