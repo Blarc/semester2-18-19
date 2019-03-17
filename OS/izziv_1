@@ -1,0 +1,4 @@
+mkdir -p t1/t2 t1/t3/t5 t1/t3/t6  t1/t4
+tree t1
+echo -e "Operacijski Sistemi\n63170191\tJakob Maležič\nRačunalništvo in informatika UNI"
+printf "Operacijski Sistemi\n63170191\tJakob Maležič\nRačunalništvo in informatika UNI\n"
