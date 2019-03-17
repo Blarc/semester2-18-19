@@ -1,0 +1,42 @@
+:- use_module(library(clpfd)).
+
+safe_pair(X1/Y1, X2/Y2) :-
+    X1 #\= X2,
+    Y1 #\= Y2,
+    abs(X2-X1) #\= abs(Y2-Y1).
+
+safe_list(_, []).
+safe_list(Q, [H|T]) :-
+    safe_pair(Q, H),
+    safe_list(Q, T).
+
+% uporabimo lahko tudi maplist:
+safe_list2(Q, L) :-
+    maplist(safe_pair(Q), L).
+
+safe_list([]).
+safe_list([H|T]) :-
+    safe_list(H, T),
+    safe_list(T).
+
+place_queens(N, I, []) :-
+    I #>= N.
+place_queens(N, I, [I1/Y|T]) :-
+    I #< N,
+    Y in 1..N,
+    I1 #= I + 1,
+    place_queens(N, I1, T).
+
+% place_queens lahko implementiramo tudi tako:
+make_coord(X, Y, X/Y).
+place_queens(N, L) :-
+    numlist(1, N, Xs),  % naredi seznam [1, 2, 3, …, N]
+    length(Ys, N),
+    Ys ins 1..N,
+    maplist(make_coord, Xs, Ys, L).
+
+queens(N, L) :-
+    place_queens(N, 0, L),
+    safe_list(L),
+    term_variables(L, Vars),
+    label(Vars).

@@ -1,0 +1,134 @@
+/* družinske relacije */
+
+mother(X, Y) :-
+  parent(X, Y),
+  female(X).
+
+grandparent(X, Y) :-
+  parent(X, Z),
+  parent(Z, Y).
+
+% pozor: primerjava mora biti na koncu, kjer sta X in Y že instancirana (tj. imata določeni vrednosti)
+% lahko pa bi uporabili cilj »dif(X, Y)«, ki uporablja omejitve in ga zato lahko pišemo kjerkoli
+sister(X, Y) :-
+  parent(P, X),
+  parent(P, Y),
+  female(X),
+  X \== Y.
+
+% definicija predikata sister/2 poskrbi za pravi spol in da ne gre za isto osebo
+aunt(X, Y) :-
+  sister(X, Z),
+  parent(Z, Y).
+
+% robni pogoj (enkrat se je potrebno ustaviti)
+ancestor(X, Y) :-
+  parent(X, Y).
+% en korak bliže k rešitvi, za ostalo poskrbi rekurzija
+ancestor(X, Y) :-
+  parent(X, Z),
+  ancestor(Z, Y).
+
+% naslednik je ravno nasprotno kot predhodnik
+descendant(X, Y):-
+  ancestor(Y, X).
+
+
+/* seznami */
+
+% pot med staršem in otrokom je jasna
+ancestor(X, Y, [X, Y]) :-
+    parent(X, Y).
+% če je Z otrok od X, in je Path pot od Z do Y, potem je pot od X do Y enaka [X|Path]
+ancestor(X, Y, [X|Path]) :-
+    parent(X, Z),
+    ancestor(Z, Y, Path).
+
+member(X, [X|_]).
+member(X, [_|T]) :-
+    member(X, T).
+
+% element lahko vstavimo na prvo mesto
+insert(X, L, [X|L]).
+% rekurzija poskrbi za vse ostale možnosti
+insert(X, [H|T], [H|T2]) :-
+    insert(X, T, T2).
+
+reverse([], []).
+reverse([H|T], L) :-
+    reverse(T, R),
+    append(R, [H], L). % za dodajanje na konec seznama si pomagamo z append/3
+
+
+/* baza znanja */
+
+parent(tina, william).
+parent(thomas, william).
+parent(thomas, sally).
+parent(thomas, jeffrey).
+parent(sally, andrew).
+parent(sally, melanie).
+parent(andrew, joanne).
+parent(jill, joanne).
+parent(joanne, steve).
+parent(william, vanessa).
+parent(william, patricia).
+parent(vanessa, susan).
+parent(patrick, susan).
+parent(patricia, john).
+parent(john, michael).
+parent(john, michelle).
+
+parent(frank, george).
+parent(estelle, george).
+parent(morty, jerry).
+parent(helen, jerry).
+parent(jerry, anna).
+parent(elaine, anna).
+parent(elaine, kramer).
+parent(george, kramer).
+
+parent(margaret, nevia).
+parent(margaret, alessandro).
+parent(ana, aleksander).
+parent(aleksandr, aleksander).
+parent(nevia, luana).
+parent(aleksander, luana).
+parent(nevia, daniela).
+parent(aleksander, daniela).
+
+male(william).
+male(thomas).
+male(jeffrey).
+male(andrew).
+male(steve).
+male(patrick).
+male(john).
+male(michael).
+male(frank).
+male(george).
+male(morty).
+male(jerry).
+male(kramer).
+male(aleksandr).
+male(alessandro).
+male(aleksander).
+
+female(tina).
+female(sally).
+female(melanie).
+female(joanne).
+female(jill).
+female(vanessa).
+female(patricia).
+female(susan).
+female(michelle).
+female(estelle).
+female(helen).
+female(elaine).
+female(anna).
+female(margaret).
+female(ana).
+female(nevia).
+female(luana).
+female(daniela).

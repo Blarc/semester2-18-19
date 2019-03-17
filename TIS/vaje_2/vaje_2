@@ -76,7 +76,8 @@ P = R / sum(R)
 H = -P'*log2(P)
 # to je drugi približek
 
-R = 1 - (H(xp+1 | xp,... x1) / log2(M)
+# redundanca?
+R = 1 - (H(xp+1 | xp,... x1) / log2(M) = 1 - priblizek / log2(M)
 M = št. unikatnih znakov v besedilu
 
 v mapi primeri
@@ -91,3 +92,12 @@ ne spreminjaj imena funkcije
 
 virtualka za testiranje domače naloge
 octave 4.2
+
+B
+A B
+N A B
+A N A
+N A N
+A N A
+  A N
+    A

@@ -1,0 +1,47 @@
+fib :: Int -> Int
+fib n
+    | n <= 1 = n
+    | otherwise = fib (n-1) + fib (n-2)
+
+above :: Int -> [Int] -> Bool
+above x [] = True
+above x (y : ys) = x >= y && above x ys
+
+pari :: Int -> [(Int, Int)]
+pari n = [(i, j) | i <- [1..n], j <- [i+1..n]]
+
+
+-- problem n dam
+type Square = (Int, Int)
+type Queen = Square
+
+board :: Int -> [Square]
+board n = [(i,j) | i <- [1..n], j <- [1..n]]
+
+attacks :: Queen -> Square -> Bool
+attacks (a,b) (u,v) = (a == u) || (b == v) || (abs (a - u) == abs (b - v))
+
+attack :: [Queen] -> Square -> Bool
+attack [] _ = False
+attack (q : qs) x = attacks q x || attack qs x
+
+available :: [Queen] -> [Square] -> [Square]
+available qs xs = [x | x <- xs, not (attack qs x)]
+
+place1 :: Int -> Int -> [Queen] -> [Queen]
+place1 n x qs = [(x,y) | y <- [1..n], not (attack qs (x,y))] 
+
+queens :: Int -> [[Queen]]
+queens n = place 1 []
+  where
+    place x qs
+      | x > n = [qs]
+      | otherwise = concat [place (x+1) (q:qs) | q <- place1 n x qs]
+
+-- drobiz
+drobiz :: [Int] -> Int -> [[Int]]
+drobiz xs y = search [] y
+    where search ys y
+        | y == 0 = [ys]
+        | y < 0 = []
+        | otherwise = concat [search (x:ys) (y-x) | x <- xs, above x ys]
