@@ -162,4 +162,6 @@ prištejemo i-ti ter j-ti vrstici kar je blo v l(i)
 ter prištejemo 1
 
 
+pri seštevanju vrednosti upoštevamo napako velikost 10^-6
+
 
