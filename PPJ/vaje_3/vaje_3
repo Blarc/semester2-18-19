@@ -1,0 +1,69 @@
+true := \ x y . x;
+false := \ x y . y;
+
+def true(x, y):
+	return x
+
+true pa false sta funkciji
+true vrne x
+false vrne y
+
+if := \ p x y . p x y;
+
+def if(p, x, y):
+	return p(x, y)
+
+sprejme p - pogoj
+pogoj true - vrne x
+pogoj false - vrne y
+
+and := \ x y . if x y false;
+# krajše
+and := \ x y . x y false;
+
+or := \x y . x true y;
+
+imply := \ x y . x y true;
+
+not := \ x . x false true;
+
+iff := \ x y . x y (not y);
+
+:constant T
+:constant F
+showBool := \ b . if b T F;
+
+-- komentar
+
+# SCOTT - CHURCHOVA števila
+
+0 := \ f x . x ;
+1 := \ f x . f 0 x ;
+2 := \ f x . f 1 (f 0 x) ;
+3 := \ f x . f 2 (f 1 (f 0 x)) ;
+4 := \ f x . f 3 (f 2 (f 1 (f 0 x))) ;
+5 := \ f x . f 4 (f 3 (f 2 (f 1 (f 0 x)))) ;
+
+pred := \ n . n (\ m r . m) 0;
+succ := \ n . \ f x . f n (n f x);
+
+:constant Z
+:constant S
+showNum := \ n . n (\ m r . S r) Z;
+
+
++ := \ n k . n (\ m r . succ r) k;
+* := \ n k . n (\ m r . + r k) 0;
+- := \ n k . n (\ m r . pred r) n;
+
+-- primerjava z 0
+iszero := \ n . n (\ m r . false) true;
+<= := \ n k . iszero(- n k);
+< := \ n k . <= (+ 1 n) k;
+== := \ n k . and (<= n k) (<= k n);
+
+find := \ p n . n (\ m r . if (p m) m r) 0;
+--find := \ p n . n (\ m r . p m m r) 0;
+
+/ := \ n m . find(\ k . == n (* m k)) (succ n);
+/ := \ n m . find (\ k . <= (* m k) n) (succ n);
