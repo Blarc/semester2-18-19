@@ -60,7 +60,7 @@ case "$1" in
 		echo "fibiter - iterativen izračun Fibonaccijevega števila"
 		;;
 	*)
-		echo "Wrong parameters!"
+		echo "Wrong parameters, use -help for help!"
 		;;
 esac
 
