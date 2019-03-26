@@ -1,4 +1,4 @@
-1728 px
+vhod1728 px
 1Č 2B 1Č 3B 1Č 7B 1Č 150B
 
 če se začne z črnim pixlom urinemo beli pixel dolžine 0 -> standard, vedno začnemo z belim
@@ -126,7 +126,7 @@ dva pomožna stolpca i ter j
 na začetku napolnimo s znaki in verjetnostmi
 npr. za črnuhe
 
-	z(i)	p(i)
+	z(i)	p(i)	l(i)	i 	j
 1.	1		10/12
 2.	2		1/12
 3.	716		1/12
@@ -153,7 +153,7 @@ nato še plus 1
 gledamo vrstica kjer je najmanjša trenutna vrstica
 zapišemo v naslednjo prosto sešteto vrstico ter i in j
 
-ko vse znake ponucamo >> smo pršli do vsote verjtnosti 1
+ko vse znake ponucamo >> smo pršli do vsote verjetnosti 1
 
 2.
 gremo nazaj

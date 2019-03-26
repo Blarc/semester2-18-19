@@ -1,0 +1,14 @@
+sudo useradd -m -d /home/first first -s /bin/bash -c "First user"
+sudo useradd -m -d /home/second second -s /bin/bash -c "Second user"
+
+sudo chmod 0 first
+sudo chmod 777 second
+
+sudo usermod -p prvo_geslo first
+sudo usernomd -p drugo_geslo second
+
+sudo usermod first -G new_group
+sudo usermod second -G new_group
+
+sudo userdel first
+sudo userdel second
