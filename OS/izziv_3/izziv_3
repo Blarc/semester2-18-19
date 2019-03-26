@@ -26,3 +26,33 @@ c) for f in /etc/*; do echo $(basename $f); done
 
 d) for f in ./*; do filename=$(basename $f); extension="${filename##*.}"; if [ "$extension" = "jpg" ]; then newname=${filename/jpg/jpeg}; mv $filename $newname; fi; done
 
+# Nizi in argumenti
+
+a)
+
+#!/bin/bash
+
+if [ "$1" == "" ];
+then
+   echo "Podaj argumente, prijatelj!";
+fi
+
+n="${2:-Dober dan, Linux!}"
+echo "$n";
+
+b)
+
+#!/bin/bash
+
+for var in "${@:3}"
+do
+   if [ "$var" -eq "$2" ]
+   then
+   echo "$var";
+   fi
+done
+
+
+
+
+
