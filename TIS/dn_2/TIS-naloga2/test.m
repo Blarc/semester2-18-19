@@ -45,6 +45,7 @@ endfunction
 
 function [codes] = encode(lens)
   codes = [];
+  maxLen = max(lens(:,2));
   prevLen = lens(2,1);
   val = 0;
   for i = (1:length(lens))
@@ -55,7 +56,7 @@ function [codes] = encode(lens)
       prevLen = atmLen;
     endif
     
-    codes{i} = dec2bin(val,atmLen) - 48;
+    codes = [codes; dec2bin(val,maxLen) - 48];
     val += 1;
   endfor
 endfunction
@@ -77,28 +78,17 @@ function [result] = huffman(arr)
   endwhile
   
   codeLen = [huff(1:length(uniq), 1), huff(1:length(uniq), 3)];
-  codeLen = sortrows(sortrows(codeLen, [1]),[2]);
-  codes = encode(codeLen);
+  codeLen = sortrows(sortrows(codeLen, [1]),[2])
+  codes = encode(codeLen)
   
   V = codeLen(:,1)';
   I = (1:length(codeLen))';
   mapped = interp1(V, I, arr);
   
-  result = [];
-  for i = mapped
-    result = [result; cell2mat(codes(i))];
-  endfor
-  
-  
-  
-  
 endfunction
 
-[resultWhite] = huffman(white);
-[resultBlack] = huffman(black);
-
-# a3=[a1; a2];
-# a3=a3(:)';
+huffman(white);
+huffman(black);
 
   
   
