@@ -1,0 +1,10 @@
+def mul_russian_iter(a, b):
+"""Russian peasant method - iteration"""
+p = 0
+while a > 0:
+if a % 2 == 1:
+p = p + b
+a = a / 2
+b = 2 * b
+return p
+
