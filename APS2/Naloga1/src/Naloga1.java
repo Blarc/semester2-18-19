@@ -1,3 +1,5 @@
+import com.sun.istack.internal.NotNull;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -9,12 +11,12 @@ public class Naloga1 {
         int n;
         int[] arr;
 
-        public BubbleSort(int n) {
+        private BubbleSort(int n) {
             this.n = n;
             this.arr = readArr(n);
         }
 
-        public void sort(String mode, String direction) {
+        private void sort(String mode, String direction) {
             if (mode.equals("trace")) {
                 if (direction.equals("up")) {
                     bubbleSortUp(true);
@@ -60,16 +62,14 @@ public class Naloga1 {
                     compares += 1;
                     if (arr[i] < arr[i + 1]) {
                         setters += 3;
-                        swap(i, arr);
+                        swap(i);
                         bool = true;
                     }
                 }
                 iter += 1;
             }
 
-            if (!print) {
-                System.out.printf("%d %d\n", compares, setters);
-            }
+            if (!print) System.out.printf("%d %d\n", compares, setters);
         }
 
         private void bubbleSortDown(boolean print) {
@@ -86,19 +86,138 @@ public class Naloga1 {
                     compares += 1;
                     if (arr[i] > arr[i + 1]) {
                         setters += 3;
-                        swap(i, arr);
+                        swap(i);
                         bool = true;
                     }
                 }
                 iter += 1;
             }
 
-            if (!print) {
-                System.out.printf("%d %d\n", compares, setters);
-            }
+            if (!print) System.out.printf("%d %d\n", compares, setters);
+        }
+
+        private void swap (int i) {
+            int temp = arr[i];
+            arr[i] = arr[i+1];
+            arr[i+1] = temp;
         }
 
         private void bubblePrint(int iteration) {
+            if (iteration == 0) {
+                System.out.printf("| %d", arr[0]);
+            } else {
+                System.out.printf("%d", arr[0]);
+            }
+
+            for (int i = 1; i < arr.length; i++) {
+                if (iteration == i) {
+                    System.out.printf(" | %d", arr[i]);
+                } else {
+                    System.out.printf(" %d", arr[i]);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public class SelectionSort {
+        int n;
+        int[] arr;
+
+        private SelectionSort(int n) {
+            this.n = n;
+            this.arr = readArr(n);
+        }
+
+        private void sort(String mode, String direction) {
+            if (mode.equals("trace")) {
+                if (direction.equals("up")) {
+                    selectionSortUp(true);
+                } else if (direction.equals("down")) {
+                    selectionSortDown(true);
+                } else {
+                    System.out.println("Napacni argumenti!");
+                    System.exit(1);
+                }
+            } else if (mode.equals("count")) {
+                if (direction.equals("up")) {
+                    selectionSortUp(false);
+                    selectionSortUp(false);
+                    selectionSortDown(false);
+                } else if (direction.equals("down")) {
+                    selectionSortDown(false);
+                    selectionSortDown(false);
+                    selectionSortUp(false);
+                } else {
+                    System.out.println("Napacni argumenti!");
+                    System.exit(1);
+                }
+
+            } else {
+                System.out.println("Napacni argumenti!");
+                System.exit(1);
+            }
+        }
+
+        private void selectionSortUp(boolean print) {
+            int setters = 0;
+            int compares = 0;
+            for (int i = 0; i < arr.length-1; i++) {
+                if (print) selectionPrint(i);
+                int minIndex = findMin(i, arr.length);
+                swap(i, minIndex);
+                setters += 3;
+                compares += n-i-1;
+            }
+
+            if (!print) System.out.printf("%d %d\n", compares, setters);
+        }
+
+        private void selectionSortDown(boolean print) {
+            int setters = 0;
+            int compares = 0;
+            for (int i = 0; i < arr.length-1; i++) {
+                if (print) selectionPrint(i);
+                int maxIndex = findMax(i, arr.length);
+                swap(i, maxIndex);
+                setters += 3;
+                compares += n-i-1;
+            }
+
+            if (!print) System.out.printf("%d %d\n", compares, setters);
+        }
+
+        private void swap(int indexA, int indexB) {
+            int temp = arr[indexA];
+            arr[indexA] = arr[indexB];
+            arr[indexB] = temp;
+        }
+
+        private int findMin(int start, int end) {
+            int min = Integer.MAX_VALUE;
+            int minIndex = 0;
+            for (int i = start; i < end; i++) {
+                if (arr[i] < min) {
+                    min = arr[i];
+                    minIndex = i;
+                }
+            }
+            return minIndex;
+        }
+
+        private int findMax(int start, int end) {
+            int max = Integer.MIN_VALUE;
+            int maxIndex = 0;
+            for (int i = start; i < end; i++) {
+                if (arr[i] < max) {
+                    max = arr[i];
+                    maxIndex = i;
+                }
+            }
+            return maxIndex;
+        }
+
+        private void selectionPrint(int iteration) {
             if (iteration == 0) {
                 System.out.printf("| %d", arr[0]);
             } else {
@@ -127,11 +246,6 @@ public class Naloga1 {
         return arr;
     }
 
-    private void swap (int i, int[] arr) {
-        int temp = arr[i];
-        arr[i] = arr[i+1];
-        arr[i+1] = temp;
-    }
 
 
     public static void main(String[] args) throws IOException {
@@ -153,6 +267,8 @@ public class Naloga1 {
                 bs.sort(mode, direction);
                 break;
             case "ss":
+                SelectionSort ss = o.new SelectionSort(size);
+                ss.sort(mode, direction);
                 break;
             case "is":
                 break;

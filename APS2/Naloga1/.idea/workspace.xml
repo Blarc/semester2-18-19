@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8959fd1-85c4-46a0-84ca-449983673d05" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Naloga1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../izziv_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Naloga1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Naloga1.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +29,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3514" />
+          <entry key="JAVA" value="4554" />
         </counts>
       </usages-collector>
     </session>
@@ -41,12 +39,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Naloga1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1524">
-              <caret line="91" column="17" lean-forward="true" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
+            <state relative-caret-position="187">
+              <caret line="235" column="5" lean-forward="true" selection-start-line="235" selection-start-column="5" selection-end-line="235" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#80#111#0" expanded="true" />
+                <element signature="e#121#152#0" expanded="true" />
+                <element signature="class#BubbleSort#0;class#Naloga1#0" />
+                <element signature="method#sort#0;class#BubbleSort#0;class#Naloga1#0" />
                 <element signature="method#bubblePrint#0;class#BubbleSort#0;class#Naloga1#0" />
+                <element signature="class#SelectionSort#0;class#Naloga1#0" />
+                <element signature="method#SelectionSort#0;class#SelectionSort#0;class#Naloga1#0" />
+                <element signature="method#findMin#0;class#SelectionSort#0;class#Naloga1#0" />
+                <element signature="method#findMax#0;class#SelectionSort#0;class#Naloga1#0" />
+                <element signature="method#selePrint#0;class#SelectionSort#0;class#Naloga1#0" />
               </folding>
             </state>
           </provider>
@@ -97,8 +102,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="895" />
-    <option name="width" value="1032" />
+    <option name="x" value="704" />
+    <option name="width" value="1223" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -125,7 +130,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554060390536" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554064592217" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -145,7 +150,7 @@
     <configuration name="Naloga1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Naloga1" />
       <module name="Naloga1" />
-      <option name="PROGRAM_PARAMETERS" value="count bs up 6" />
+      <option name="PROGRAM_PARAMETERS" value="count ss up 6" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,22 +171,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1554051655041</updated>
-      <workItem from="1554051658279" duration="8132000" />
+      <workItem from="1554051658279" duration="10678000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8132000" />
+    <option name="totallyTimeSpent" value="10678000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="895" y="0" width="1032" height="1047" extended-state="0" />
+    <frame x="704" y="0" width="1223" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.013374486" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.011177988" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" weight="0.32968238" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
@@ -190,7 +196,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16538882" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5301205" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978093" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -216,12 +222,19 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Naloga1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1524">
-          <caret line="91" column="17" lean-forward="true" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
+        <state relative-caret-position="187">
+          <caret line="235" column="5" lean-forward="true" selection-start-line="235" selection-start-column="5" selection-end-line="235" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#80#111#0" expanded="true" />
+            <element signature="e#121#152#0" expanded="true" />
+            <element signature="class#BubbleSort#0;class#Naloga1#0" />
+            <element signature="method#sort#0;class#BubbleSort#0;class#Naloga1#0" />
             <element signature="method#bubblePrint#0;class#BubbleSort#0;class#Naloga1#0" />
+            <element signature="class#SelectionSort#0;class#Naloga1#0" />
+            <element signature="method#SelectionSort#0;class#SelectionSort#0;class#Naloga1#0" />
+            <element signature="method#findMin#0;class#SelectionSort#0;class#Naloga1#0" />
+            <element signature="method#findMax#0;class#SelectionSort#0;class#Naloga1#0" />
+            <element signature="method#selePrint#0;class#SelectionSort#0;class#Naloga1#0" />
           </folding>
         </state>
       </provider>
