@@ -1,11 +1,45 @@
-import com.sun.istack.internal.NotNull;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 @SuppressWarnings("Duplicates")
 public class Naloga1 {
+
+    interface NumericSort {
+        void sort(boolean print);
+    }
+
+    private void sort(NumericSort nsUp, NumericSort nsDown, String mode, String direction) {
+        if (mode.equals("trace")) {
+            if (direction.equals("up")) {
+                nsUp.sort(true);
+            }
+            else if (direction.equals("down")) {
+                nsDown.sort(true);
+            } else {
+                System.out.println("Napacni argumenti!");
+                System.exit(1);
+            }
+        } else if (mode.equals("count")) {
+            if (direction.equals("up")) {
+                nsUp.sort(false);
+                nsUp.sort(false);
+                nsDown.sort(false);
+            }
+            else if (direction.equals("down")) {
+                nsDown.sort(false);
+                nsDown.sort(false);
+                nsUp.sort(false);
+            } else {
+                System.out.println("Napacni argumenti!");
+                System.exit(1);
+            }
+
+        } else {
+            System.out.println("Napacni argumenti!");
+            System.exit(1);
+        }
+    }
 
     public class BubbleSort {
         int n;
@@ -16,84 +50,52 @@ public class Naloga1 {
             this.arr = readArr(n);
         }
 
-        private void sort(String mode, String direction) {
-            if (mode.equals("trace")) {
-                if (direction.equals("up")) {
-                    bubbleSortUp(true);
-                }
-                else if (direction.equals("down")) {
-                    bubbleSortDown(true);
-                } else {
-                    System.out.println("Napacni argumenti!");
-                    System.exit(1);
-                }
-            } else if (mode.equals("count")) {
-                if (direction.equals("up")) {
-                    bubbleSortUp(false);
-                    bubbleSortUp(false);
-                    bubbleSortDown(false);
-                }
-                else if (direction.equals("down")) {
-                    bubbleSortDown(false);
-                    bubbleSortDown(false);
-                    bubbleSortUp(false);
-                } else {
-                    System.out.println("Napacni argumenti!");
-                    System.exit(1);
-                }
+        private NumericSort getNsUp() {
+            return (print) -> {
+                boolean bool = true;
+                int iter = 0;
+                int compares = 0;
+                int setters = 0;
 
-            } else {
-                System.out.println("Napacni argumenti!");
-                System.exit(1);
-            }
+                while (bool) {
+                    if (print) bubblePrint(iter);
+                    bool = false;
+                    for (int i = arr.length - 2; i >= 0; i--) {
+                        compares += 1;
+                        if (arr[i] < arr[i + 1]) {
+                            setters += 3;
+                            swap(i);
+                            bool = true;
+                        }
+                    }
+                    iter += 1;
+                }
+                if (!print) System.out.printf("%d %d\n", compares, setters);
+            };
         }
 
-        private void bubbleSortUp(boolean print) {
+        private NumericSort getNsDown() {
+            return (print) -> {
+                boolean bool = true;
+                int iter = 0;
+                int compares = 0;
+                int setters = 0;
 
-            boolean bool = true;
-            int iter = 0;
-            int compares = 0;
-            int setters = 0;
-
-            while (bool) {
-                if (print) bubblePrint(iter);
-                bool = false;
-                for (int i = arr.length - 2; i >= 0; i--) {
-                    compares += 1;
-                    if (arr[i] < arr[i + 1]) {
-                        setters += 3;
-                        swap(i);
-                        bool = true;
+                while (bool) {
+                    if (print) bubblePrint(iter);
+                    bool = false;
+                    for (int i = arr.length - 2; i >= 0; i--) {
+                        compares += 1;
+                        if (arr[i] > arr[i + 1]) {
+                            setters += 3;
+                            swap(i);
+                            bool = true;
+                        }
                     }
+                    iter += 1;
                 }
-                iter += 1;
-            }
-
-            if (!print) System.out.printf("%d %d\n", compares, setters);
-        }
-
-        private void bubbleSortDown(boolean print) {
-
-            boolean bool = true;
-            int iter = 0;
-            int compares = 0;
-            int setters = 0;
-
-            while (bool) {
-                if (print) bubblePrint(iter);
-                bool = false;
-                for (int i = arr.length - 2; i >= 0; i--) {
-                    compares += 1;
-                    if (arr[i] > arr[i + 1]) {
-                        setters += 3;
-                        swap(i);
-                        bool = true;
-                    }
-                }
-                iter += 1;
-            }
-
-            if (!print) System.out.printf("%d %d\n", compares, setters);
+                if (!print) System.out.printf("%d %d\n", compares, setters);
+            };
         }
 
         private void swap (int i) {
@@ -129,62 +131,36 @@ public class Naloga1 {
             this.arr = readArr(n);
         }
 
-        private void sort(String mode, String direction) {
-            if (mode.equals("trace")) {
-                if (direction.equals("up")) {
-                    selectionSortUp(true);
-                } else if (direction.equals("down")) {
-                    selectionSortDown(true);
-                } else {
-                    System.out.println("Napacni argumenti!");
-                    System.exit(1);
-                }
-            } else if (mode.equals("count")) {
-                if (direction.equals("up")) {
-                    selectionSortUp(false);
-                    selectionSortUp(false);
-                    selectionSortDown(false);
-                } else if (direction.equals("down")) {
-                    selectionSortDown(false);
-                    selectionSortDown(false);
-                    selectionSortUp(false);
-                } else {
-                    System.out.println("Napacni argumenti!");
-                    System.exit(1);
+        private NumericSort getNsUp() {
+            return (print) -> {
+                int setters = 0;
+                int compares = 0;
+                for (int i = 0; i < arr.length-1; i++) {
+                    if (print) selectionPrint(i);
+                    int minIndex = findMin(i, arr.length);
+                    swap(i, minIndex);
+                    setters += 3;
+                    compares += n-i-1;
                 }
 
-            } else {
-                System.out.println("Napacni argumenti!");
-                System.exit(1);
-            }
+                if (!print) System.out.printf("%d %d\n", compares, setters);
+            };
         }
 
-        private void selectionSortUp(boolean print) {
-            int setters = 0;
-            int compares = 0;
-            for (int i = 0; i < arr.length-1; i++) {
-                if (print) selectionPrint(i);
-                int minIndex = findMin(i, arr.length);
-                swap(i, minIndex);
-                setters += 3;
-                compares += n-i-1;
-            }
+        private NumericSort getNsDown() {
+            return (print) -> {
+                int setters = 0;
+                int compares = 0;
+                for (int i = 0; i < arr.length-1; i++) {
+                    if (print) selectionPrint(i);
+                    int maxIndex = findMax(i, arr.length);
+                    swap(i, maxIndex);
+                    setters += 3;
+                    compares += n-i-1;
+                }
 
-            if (!print) System.out.printf("%d %d\n", compares, setters);
-        }
-
-        private void selectionSortDown(boolean print) {
-            int setters = 0;
-            int compares = 0;
-            for (int i = 0; i < arr.length-1; i++) {
-                if (print) selectionPrint(i);
-                int maxIndex = findMax(i, arr.length);
-                swap(i, maxIndex);
-                setters += 3;
-                compares += n-i-1;
-            }
-
-            if (!print) System.out.printf("%d %d\n", compares, setters);
+                if (!print) System.out.printf("%d %d\n", compares, setters);
+            };
         }
 
         private void swap(int indexA, int indexB) {
@@ -209,7 +185,7 @@ public class Naloga1 {
             int max = Integer.MIN_VALUE;
             int maxIndex = 0;
             for (int i = start; i < end; i++) {
-                if (arr[i] < max) {
+                if (arr[i] > max) {
                     max = arr[i];
                     maxIndex = i;
                 }
@@ -246,8 +222,6 @@ public class Naloga1 {
         return arr;
     }
 
-
-
     public static void main(String[] args) throws IOException {
 
         if (args.length < 1) {
@@ -264,11 +238,11 @@ public class Naloga1 {
         switch (algorithm) {
             case "bs":
                 BubbleSort bs = o.new BubbleSort(size);
-                bs.sort(mode, direction);
+                o.sort(bs.getNsUp(), bs.getNsDown(), mode, direction);
                 break;
             case "ss":
                 SelectionSort ss = o.new SelectionSort(size);
-                ss.sort(mode, direction);
+                o.sort(ss.getNsUp(), ss.getNsDown(), mode, direction);
                 break;
             case "is":
                 break;
