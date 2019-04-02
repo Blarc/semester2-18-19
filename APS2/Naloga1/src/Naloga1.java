@@ -436,6 +436,405 @@ public class Naloga1 {
         }
     }
 
+    public class QuickSort {
+        int n;
+        int[] arr;
+        int setters = 0;
+        int compares = 0;
+        boolean print = true;
+
+        private QuickSort(int n) {
+            this.n = n;
+            this.arr = readArr(n);
+        }
+
+        private NumericSort getNsUp() {
+            return (print -> {
+                this.print = print;
+                quickSortUp(0, n-1);
+
+                if (!print) System.out.printf("%d %d\n", compares, setters);
+
+                reset();
+            });
+        }
+
+        private NumericSort getNsDown() {
+            return (print -> {
+                this.print = print;
+                quickSortDown(0, n-1);
+
+                if (!print) System.out.printf("%d %d\n", compares, setters);
+
+                reset();
+            });
+        }
+
+        private void quickSortUp(int i, int j) {
+            if (i < j) {
+                int low = partitionUp(i, j);
+
+                quickSortUp(i, low-1);
+                quickSortUp(low, j);
+            }
+        }
+
+        private void quickSortDown(int i, int j) {
+            if (i < j) {
+                int low = partitionDown(i, j);
+
+                quickSortUp(i, low - 1);
+                quickSortUp(low, j);
+            }
+        }
+
+        private int partitionUp(int i, int j) {
+            int pivot = arr[((i+j) / 2)];
+            // setters += 1;
+            int startI = i;
+            int startJ = j;
+
+            while (i <= j) {
+                compares += 1;
+                while (arr[i] < pivot) {
+                    compares += 1;
+                    i += 1;
+                }
+                compares += 1;
+                while (arr[j] > pivot) {
+                    compares += 1;
+                    j -= 1;
+                }
+                if (i <= j) {
+                    swap(i, j);
+                    i += 1;
+                    j -= 1;
+                }
+            }
+
+            if (print) quickPrint(startI, startJ);
+            // System.out.println((i-startI) + " " + (j-startI));
+            return i;
+        }
+
+        private int partitionDown(int i, int j) {
+            int pivot = arr[((i+j) / 2)];
+            // setters += 1;
+            int startI = i;
+            int startJ = j;
+
+            while (i <= j) {
+                compares += 1;
+                while (arr[i] > pivot) {
+                    compares += 1;
+                    i += 1;
+                }
+                compares += 1;
+                while (arr[j] < pivot) {
+                    compares += 1;
+                    j -= 1;
+                }
+                if (i <= j) {
+                    swap(i, j);
+                    i += 1;
+                    j -= 1;
+                }
+            }
+
+            if (print) quickPrint(startI, startJ);
+            return i;
+        }
+
+        private void swap(int i, int j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            setters += 3;
+        }
+
+        private void quickPrint(int i, int j) {
+            System.out.print("Arr: ");
+            for (int k = i; k <= j; k++) {
+                System.out.printf("%d ", arr[k]);
+            }
+            System.out.println();
+        }
+
+        private void reset() {
+            this.setters = 0;
+            this.compares = 0;
+        }
+    }
+
+    public class MergeSort {
+        int n;
+        int[] arr;
+        int setters;
+        int compares;
+        boolean print;
+
+        private MergeSort(int n) {
+            this.n = n;
+            this.setters = n;
+            this.arr = readArr(n);
+        }
+
+        private NumericSort getNsUp() {
+            return (print -> {
+                this.print = print;
+                mergeSortUp(0, n-1);
+
+                if (!print) System.out.printf("%d %d\n", compares, setters);
+
+                reset();
+            });
+        }
+
+        private NumericSort getNsDown() {
+            return (print -> {
+                this.print = print;
+                mergeSortDown(0, n-1);
+
+                if (!print) System.out.printf("%d %d\n", compares, setters);
+
+                reset();
+            });
+        }
+
+        private void mergeSortUp(int l, int r) {
+            if (r > l) {
+                int half = (l + r) / 2;
+                if (print) dividePrint(l, r, half);
+                mergeSortUp(l, half);
+                mergeSortUp(half+1, r);
+                mergeUp(l, half, r);
+            }
+        }
+
+        private void mergeSortDown(int l, int r) {
+            if (r > l) {
+                int half = (l + r) / 2;
+                if (print) dividePrint(l, r, half);
+                mergeSortDown(l, half);
+                mergeSortDown(half+1, r);
+                mergeDown(l, half, r);
+            }
+        }
+
+        private void mergeUp(int l, int half, int r) {
+
+            int tempArr[] = new int[r-l+1];
+
+            int i = l, j = half + 1, k = 0;
+            while (i <= half && j <= r) {
+                compares += 1;
+                setters += 1;
+                if (arr[i] >= arr[j]) {
+                    tempArr[k] = arr[j];
+                    j += 1;
+                }
+                else {
+                    tempArr[k] = arr[i];
+                    i += 1;
+                }
+                k += 1;
+            }
+
+            while (i <= half) {
+                tempArr[k] = arr[i];
+                setters += 1;
+                i += 1;
+                k += 1;
+            }
+
+            while (j <= r) {
+                tempArr[k] = arr[j];
+                setters += 1;
+                j += 1;
+                k += 1;
+            }
+
+            if (print) mergePrint(tempArr);
+
+            if (r + 1 - l >= 0) {
+                System.arraycopy(tempArr, 0, arr, l, r + 1 - l);
+            }
+        }
+
+        private void mergeDown(int l, int half, int r) {
+
+            int tempArr[] = new int[r-l+1];
+
+            int i = l, j = half + 1, k = 0;
+            while (i <= half && j <= r) {
+                compares += 1;
+                setters += 1;
+                if (arr[i] <= arr[j]) {
+                    tempArr[k] = arr[j];
+                    j += 1;
+                }
+                else {
+                    tempArr[k] = arr[i];
+                    i += 1;
+                }
+                k += 1;
+            }
+
+            while (i <= half) {
+                tempArr[k] = arr[i];
+                setters += 1;
+                i += 1;
+                k += 1;
+            }
+
+            while (j <= r) {
+                tempArr[k] = arr[j];
+                setters += 1;
+                j += 1;
+                k += 1;
+            }
+
+            if (print) mergePrint(tempArr);
+
+            if (r + 1 - l >= 0) {
+                System.arraycopy(tempArr, 0, arr, l, r + 1 - l);
+            }
+
+        }
+
+        private void mergePrint(int[] arr) {
+            for (int anArr : arr) {
+                System.out.printf("%d ", anArr);
+            }
+            System.out.println();
+        }
+
+        private void dividePrint(int l, int r, int half) {
+            for (int i = l; i <= r; i++) {
+                if (i == half) {
+                    System.out.printf("%d | ", arr[i]);
+                } else {
+                    System.out.printf("%d ", arr[i]);
+                }
+            }
+            System.out.println();
+        }
+
+        private void reset() {
+            this.setters = n;
+            this.compares = 0;
+        }
+    }
+
+    public class CountingSort {
+        int n;
+        int[] countArr = new int[256];
+        int[] arr;
+        int[] result;
+
+        private CountingSort(int n) {
+            this.n = n;
+            this.arr = new int[n];
+            this.result = new int[n];
+            this.readArr(n);
+        }
+
+        private NumericSort getNsUp() {
+            return (print -> {
+
+                for (int i = 0; i < countArr.length - 1; i++) {
+                    countArr[i+1] += countArr[i];
+                    System.out.printf("%d ", countArr[i]);
+                }
+                System.out.printf("%d\n", countArr[countArr.length - 1]);
+
+                for (int i = n-1; i >= 0; i--) {
+                    int atm = arr[i];
+                    countArr[atm] -= 1;
+                    int index = countArr[atm];
+                    result[index] = atm;
+                    System.out.printf("%d ", index);
+                }
+                System.out.println();
+
+                for (int aResult : result) {
+                    System.out.printf("%d ", aResult);
+                }
+                System.out.println();
+
+            });
+        }
+
+        private void readArr(int n) {
+            Scanner sc = new Scanner(System.in);
+            for (int i = 0; i < n; i++) {
+                int atm = sc.nextInt();
+                arr[i] = atm;
+                countArr[atm] += 1;
+            }
+        }
+    }
+
+    public class RadixSort {
+        int n;
+        int[] arr;
+        int[] countArr;
+        int[] result;
+
+        private RadixSort(int n) {
+            this.n = n;
+            this.arr = readArr(n);
+            this.result = new int[n];
+        }
+
+        private NumericSort getNsUp() {
+            return (print -> {
+                countingSort(1);
+                countingSort(2);
+                countingSort(3);
+                countingSort(4);
+            });
+        }
+
+        private void countingSort(int byteNum) {
+            int mod = 256;
+            int quotient = 1 << ((byteNum-1) * 8);
+            countArr = new int[256];
+
+            for (int i = 0; i < n; i++) {
+                // System.out.println(arr[i]%mod);
+                int tmp = arr[i] / quotient;
+                System.out.printf("%d ", tmp%mod);
+                countArr[(tmp%mod)] += 1;
+            }
+            System.out.println();
+
+            for (int i = 0; i < countArr.length - 1; i++) {
+                countArr[i+1] += countArr[i];
+                System.out.printf("%d ", countArr[i]);
+            }
+            System.out.printf("%d\n", countArr[countArr.length - 1]);
+
+            for (int i = n-1; i >= 0; i--) {
+                int tmp = arr[i] / quotient;
+
+                countArr[tmp%mod] -= 1;
+                int index = countArr[tmp%mod];
+
+                result[index] = arr[i];
+                System.out.printf("%d ", index);
+            }
+            System.out.println();
+
+            for (int i = 0; i < result.length; i++) {
+                arr[i] = result[i];
+                System.out.printf("%d ", result[i]);
+            }
+            System.out.println();
+
+        }
+    }
+
     private int[] readArr(int n) {
         Scanner sc = new Scanner(System.in);
         int[] arr = new int[n];
@@ -447,12 +846,11 @@ public class Naloga1 {
         return arr;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] arg) {
 
-        if (args.length < 1) {
-            System.out.println("Podaj argumente prijatelj.");
-            System.exit(1);
-        }
+        Scanner sc = new Scanner(System.in);
+        String line = sc.nextLine();
+        String[] args = line.split(" ");
 
         String mode = args[0];
         String algorithm = args[1];
@@ -478,12 +876,21 @@ public class Naloga1 {
                 o.sort(hs.getNsUp(), hs.getNsDown(), mode, direction);
                 break;
             case "qs":
+                QuickSort qs = o.new QuickSort(size);
+                o.sort(qs.getNsUp(), qs.getNsDown(), mode, direction);
                 break;
             case "ms":
+                MergeSort ms = o.new MergeSort(size);
+                o.sort(ms.getNsUp(), ms.getNsDown(), mode, direction);
                 break;
             case "cs":
+                // veljavni argumenti samo trace up
+                CountingSort cs = o.new CountingSort(size);
+                o.sort(cs.getNsUp(), cs.getNsUp(), mode, direction);
                 break;
             case "rs":
+                RadixSort rs = o.new RadixSort(size);
+                o.sort(rs.getNsUp(), rs.getNsUp(), mode, direction);
                 break;
             default:
                 System.out.println("Neveljavni argumenti.");

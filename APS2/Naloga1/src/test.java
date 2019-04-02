@@ -1,18 +1,9 @@
+import java.math.BigInteger;
+import java.nio.ByteBuffer;
+import java.util.Arrays;
+
 public class test {
-
-    public interface NumericSort {
-        void sort(boolean print);
-    }
-
-
-    public static void sort(NumericSort sortUp, NumericSort sortDown, String mode, String direction) {
-
-    }
-
-    public static void main(String args[]) {
-        NumericSort sort = (print) -> {
-            if (print) {
-            }
-        };
+    public static void main(String[] args) {
+        System.out.println(1<<8);
     }
 }
