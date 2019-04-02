@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 @SuppressWarnings("Duplicates")
 public class Naloga1 {
+    static private Scanner sc = new Scanner(System.in);
 
     interface NumericSort {
         void sort(boolean print);
@@ -659,6 +660,11 @@ public class Naloga1 {
             if (r + 1 - l >= 0) {
                 System.arraycopy(tempArr, 0, arr, l, r + 1 - l);
             }
+
+//            for (int c = l; c <= r; c++) {
+//                arr[c] = tempArr[c - l];
+//                setters += 1;
+//            }
         }
 
         private void mergeDown(int l, int half, int r) {
@@ -699,6 +705,11 @@ public class Naloga1 {
             if (r + 1 - l >= 0) {
                 System.arraycopy(tempArr, 0, arr, l, r + 1 - l);
             }
+
+//            for (int c = l; c <= r; c++) {
+//                arr[c] = tempArr[c - l];
+//                setters += 1;
+//            }
 
         }
 
@@ -766,7 +777,6 @@ public class Naloga1 {
         }
 
         private void readArr(int n) {
-            Scanner sc = new Scanner(System.in);
             for (int i = 0; i < n; i++) {
                 int atm = sc.nextInt();
                 arr[i] = atm;
@@ -804,10 +814,10 @@ public class Naloga1 {
             for (int i = 0; i < n; i++) {
                 // System.out.println(arr[i]%mod);
                 int tmp = arr[i] / quotient;
-                System.out.printf("%d ", tmp%mod);
+                // System.out.printf("%d ", tmp%mod);
                 countArr[(tmp%mod)] += 1;
             }
-            System.out.println();
+            // System.out.println();
 
             for (int i = 0; i < countArr.length - 1; i++) {
                 countArr[i+1] += countArr[i];
@@ -836,7 +846,6 @@ public class Naloga1 {
     }
 
     private int[] readArr(int n) {
-        Scanner sc = new Scanner(System.in);
         int[] arr = new int[n];
 
         for (int i = 0; i < n; i++) {
@@ -848,7 +857,6 @@ public class Naloga1 {
 
     public static void main(String[] arg) {
 
-        Scanner sc = new Scanner(System.in);
         String line = sc.nextLine();
         String[] args = line.split(" ");
 
