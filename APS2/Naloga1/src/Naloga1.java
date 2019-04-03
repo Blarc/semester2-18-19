@@ -624,7 +624,7 @@ public class Naloga1 {
 
         private void mergeUp(int l, int half, int r) {
 
-            int tempArr[] = new int[r-l+1];
+            int[] tempArr = new int[r - l + 1];
 
             int i = l, j = half + 1, k = 0;
             while (i <= half && j <= r) {
@@ -669,7 +669,7 @@ public class Naloga1 {
 
         private void mergeDown(int l, int half, int r) {
 
-            int tempArr[] = new int[r-l+1];
+            int[] tempArr = new int[r - l + 1];
 
             int i = l, j = half + 1, k = 0;
             while (i <= half && j <= r) {

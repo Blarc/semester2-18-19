@@ -38,33 +38,31 @@ function [izhod, R, kodBela, kodCrna] = naloga2(vhod)
   endfor
   
   function [huff] = huffwoman(huff, n)
-    col = huff(:, 3);
+    col = find(huff(:, 3) == 0)
     
     #[freqSorted, indices] = sort(huff(:, 2)(col));
-    #[freqSorted, indices] = sort(huff(col, 2));
+    [freqSorted, indices] = sort(huff(col, 2));
     
-    freq = huff(:, 2);
+    [minEna, rowIndexEna] = min(huff(col, 2));
+    huff(rowIndexEna, 2) = 1;
+    [minDva, rowIndexDva] = min(huff(col, 2));
+    huff(rowIndexDva, 2) = 1;
     
-    valueOne = min(freq);
-    indexOne = find(freq==valueOne)(1);
-    huff(indexOne, 2) = 1;
+    huff
     
-    freq = huff(:, 2);
+    rowIndexEna
+    rowIndexDva
     
-    valueTwo = min(freq);
-    indexTwo = find(freq == valueTwo)(1);
-    huff(indexTwo, 2) = 1;
+    indices(1)
+    indices(2)
     
-    freq = huff(:, 2);
+    newRow = [0, freqSorted(1) + freqSorted(2), 0, col(indices(1)), col(indices(2))];
     
-    newRow = [0, valueOne + valueTwo, 0, indexOne, indexTwo];
-    
-    huff(indexOne, 3) += 1;
-    huff(indexTwo, 3) += 1;
+    huff(col(indices(1)), 3) += 1;
+    huff(col(indices(2)), 3) += 1;
     huff = [huff; newRow];
     
-    
-    increase = nonzeros([huff(indexOne, 4:5),huff(indexTwo, 4:5)]);
+    increase = nonzeros([huff(col(indices(1)), 4:5),huff(col(indices(2)), 4:5)]);
     if (any(increase))
       while (any(increase > n))
         temp = find(increase > n);
@@ -108,7 +106,7 @@ function [izhod, R, kodBela, kodCrna] = naloga2(vhod)
     
     freq = hist / quot;
     
-    huff = [uniq', freq', zeros(length(freq),1,"float"), zeros(length(freq),1,"float"), zeros(length(freq),1,"float")];
+    huff = [uniq', freq', zeros(length(freq),1,"float"), zeros(length(freq),1,"float"), zeros(length(freq),1,"float")]
     
     # TOLE
     while (huff(end, 2) < 0.9)
@@ -116,7 +114,7 @@ function [izhod, R, kodBela, kodCrna] = naloga2(vhod)
     endwhile
     
     codeLen = [huff(1:length(uniq), 1), huff(1:length(uniq), 3)];
-    codeLen = sortrows(codeLen, [2,1]);
+    codeLen = sortrows(codeLen, [2,1])
     codes = [codeLen(:,2),encode(codeLen)];
     
     indices = codeLen(:, 1);
@@ -126,51 +124,32 @@ function [izhod, R, kodBela, kodCrna] = naloga2(vhod)
     
   endfunction
   
-  bs = 0;
   
-  if (length(white) > 1 && length(black) > 1)
-    [whiteCodes, whiteMap, kodBela] = huffman(white);
-    [blackCodes, blackMap, kodCrna] = huffman(black);
-    
-  elseif (length(black) == 0 && length(white) == 1)
-    kodCrna = [];
-    kodBela = [1728, 1];
-    bs = 1;
-    izhod = [0];
-    
-  elseif (length(white) == 1 && length(black) == 1)
-    kodBela = [0, 1];
-    bs = 1;
-    kodCrna = [1728, 1];
-    izhod = [0, 0];
-    
-  endif
+  [whiteCodes, whiteMap, kodBela] = huffman(white);
+  [blackCodes, blackMap, kodCrna] = huffman(black);
   
-  if bs == 0
-    result = [];
-    j = 1;
-    for i = (0:rowNum-1)
-      sodo = 1;
-      sum = 0;
-      while (sum != colNum)
-        if (mod(sodo,2) == 1)
-          tmp = whiteMap(rowsVector(j)+1, :);
-          code = tmp(end-tmp(1)+1:end);
-        else
-          tmp = blackMap(rowsVector(j)+1, :);
-          code = tmp(end-tmp(1)+1:end);
-        endif
-        result = [result, code];
-        sum += rowsVector(j);
-        sodo += 1;
-        j += 1;
-      endwhile
-    endfor
-    izhod = result;
-    size(izhod)
-  endif
- 
-  R = numel(izhod)/numel(vhod);
+  result = [];
+  j = 1;
+  for i = (0:rowNum-1)
+    sodo = 1;
+    sum = 0;
+    while (sum != colNum)
+      if (mod(sodo,2) == 1)
+        tmp = whiteMap(rowsVector(j)+1, :);
+        code = tmp(end-tmp(1)+1:end);
+      else
+        tmp = blackMap(rowsVector(j)+1, :);
+        code = tmp(end-tmp(1)+1:end);
+      endif
+      result = [result, code];
+      sum += rowsVector(j);
+      sodo += 1;
+      j += 1;
+    endwhile
+  endfor
+  
+  izhod = result;
+  R = numel(izhod)/numel(vhod)
   
 endfunction
 
