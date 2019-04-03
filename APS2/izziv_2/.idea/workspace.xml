@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cc2a828-5a5f-4154-8e6a-c22032110a1e" name="Default Changelist" comment="" />
+    <list default="true" id="4cc2a828-5a5f-4154-8e6a-c22032110a1e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/naloga2.m" beforeDir="false" afterPath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/naloga2.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/primeri/3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/primeri/3.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/skritiPrimeri/1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/skritiPrimeri/10.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/skritiPrimeri/2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/skritiPrimeri/3.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/skritiPrimeri/4.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/skritiPrimeri/5.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/skritiPrimeri/6.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/skritiPrimeri/7.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/skritiPrimeri/8.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/skritiPrimeri/9.mat" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,10 +63,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="67" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="833" />
     <option name="y" value="25" />
-    <option name="width" value="1533" />
+    <option name="width" value="767" />
     <option name="height" value="875" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -63,7 +76,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -75,12 +87,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552738156693" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../izziv_5" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -122,16 +137,17 @@
       <updated>1552727939989</updated>
       <workItem from="1552727946554" duration="9178000" />
       <workItem from="1553085862097" duration="47000" />
+      <workItem from="1554293912385" duration="33000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9225000" />
+    <option name="totallyTimeSpent" value="9258000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1533" height="875" extended-state="6" />
+    <frame x="833" y="25" width="767" height="875" extended-state="4" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17619368" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08044383" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />

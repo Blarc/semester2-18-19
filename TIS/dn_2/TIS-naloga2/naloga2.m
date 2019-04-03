@@ -90,6 +90,7 @@ endfunction
     freq = hist / quot;
     
     huff = [uniq', freq', zeros(length(freq),1,"float"), zeros(length(freq),1,"float"), zeros(length(freq),1,"float")];
+    huff = sortrows(huff);
     
     while (huff(end, 2) < 0.999999)
       huff = huffwoman(huff, length(uniq));
