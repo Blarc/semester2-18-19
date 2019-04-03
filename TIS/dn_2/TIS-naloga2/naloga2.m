@@ -13,7 +13,7 @@ function [izhod, R, kodBela, kodCrna] = naloga2(vhod)
   
   white = [];
   black = [];
-  rows = [];
+  rowsVector = [];
 
   [rowNum, colNum] = size(vhod);
 
@@ -31,7 +31,7 @@ function [izhod, R, kodBela, kodCrna] = naloga2(vhod)
     whiteRow = indRow(1:2:end);
     blackRow = indRow(2:2:end);
     
-    rows = [rows, indRow];
+    rowsVector = [rowsVector, indRow];
     white = [white, whiteRow];
     black = [black, blackRow];
     
@@ -43,6 +43,7 @@ function [huff] = huffwoman(huff, n)
   [freqSorted, indices] = sort(huff(:, 2)(col));
   
   newRow = [0, freqSorted(1) + freqSorted(2), 0, col(indices(1)), col(indices(2))];
+  
   huff(col(indices(1)), 3) += 1;
   huff(col(indices(2)), 3) += 1;
   huff = [huff; newRow];
@@ -79,24 +80,29 @@ endfunction
   endfunction
   
   
-  function [map, codeLen] = huffman(arr)
+  function [codes, map, codeLen] = huffman(arr)
     uniq = unique(arr);
 
     hist = histc(arr, uniq);
 
     quot = sum(hist);
-
+    
     freq = hist / quot;
     
     huff = [uniq', freq', zeros(length(freq),1,"float"), zeros(length(freq),1,"float"), zeros(length(freq),1,"float")];
     
-    while (huff(end, 2) != 1)
+    while (huff(end, 2) < 0.999999)
       huff = huffwoman(huff, length(uniq));
     endwhile
     
     codeLen = [huff(1:length(uniq), 1), huff(1:length(uniq), 3)];
     codeLen = sortrows(sortrows(codeLen, [1]),[2]);
-    codes = [codeLen(:,2),encode(codeLen)];
+    if (length(codeLen(:,1)) > 1)
+      codes = [codeLen(:,2),encode(codeLen)];
+    else
+      codeLen = codeLen+1
+      codes = [codeLen(:,2),0];
+    endif
     
     indices = codeLen(:, 1);
     map = zeros(colNum+1, max(codeLen(:, 2))+1);
@@ -106,21 +112,50 @@ endfunction
   endfunction
   
   
-  [whiteMap, kodBela] = huffman(white);
-  [blackMap, kodCrna] = huffman(black);
+  [whiteCodes, whiteMap, kodBela] = huffman(white);
+  [blackCodes, blackMap, kodCrna] = huffman(black);
   
   result = [];
-  for i = (1:length(rows))
-    if (mod(i,2) == 1)
-      tmp = whiteMap(rows(i)+1, :);
-      code = tmp(end-tmp(1)+1:end);
-    else
-      tmp = blackMap(rows(i)+1, :);
-      code = tmp(end-tmp(1)+1:end);
-    endif
-    result = [result, code];
-  endfor
+  j = 1;
+  for i = (0:rowNum-1)
+    sodo = 1;
+    sum = 0;
+    while (sum != colNum)
+      if (mod(sodo,2) == 1)
+        tmp = whiteMap(rowsVector(j)+1, :);
+        code = tmp(end-tmp(1)+1:end);
+      else
+        tmp = blackMap(rowsVector(j)+1, :);
+        code = tmp(end-tmp(1)+1:end);
+      endif
+      result = [result, code];
+      #rowsVector(j)
+      #code
+      sum += rowsVector(j);
+      sodo += 1;
+      j += 1;
+     endwhile
+    endfor
+   
+  #vhod = [1, 1, 1, 0, 0, 1, 1, 0; 0, 0, 1, 1, 0, 0, 1, 1; 1, 1, 1, 1, 1, 0, 0, 0]
+   
+  #rowsVector
+  #bela = [kodBela(:,1),whiteCodes]
+  #crna = [kodCrna(:,1),blackCodes]
+  #for i = (1:length(rows))
+  #  sum += rows(i)
+  #  if (mod(i,2) == 1)
+  #    tmp = whiteMap(rows(i)+1, :);
+  #    code = tmp(end-tmp(1)+1:end);
+  #  else
+  #    tmp = blackMap(rows(i)+1, :);
+  #    code = tmp(end-tmp(1)+1:end);
+  #  endif
+  #  result = [result, code];
+  #endfor
   
-  R = 1;
+  kodCrna;
   izhod = result;
+  R = numel(izhod)/numel(vhod)
 end
+
