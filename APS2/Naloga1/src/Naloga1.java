@@ -630,7 +630,7 @@ public class Naloga1 {
             while (i <= half && j <= r) {
                 compares += 1;
                 setters += 1;
-                if (arr[i] >= arr[j]) {
+                if (arr[i] > arr[j]) {
                     tempArr[k] = arr[j];
                     j += 1;
                 }
@@ -862,6 +862,7 @@ public class Naloga1 {
 
         String mode = args[0];
         String algorithm = args[1];
+        System.out.println(algorithm);
         String direction = args[2];
         int size = Integer.parseInt(args[3]);
         Naloga1 o = new Naloga1();

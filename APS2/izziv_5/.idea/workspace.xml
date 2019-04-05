@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="152b6a07-7cac-4467-8460-ff13a970292a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Naloga1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Naloga1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Naloga1/src/Naloga1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Naloga1/src/Naloga1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/izziv_5/DivideAndConquer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/izziv_5/DivideAndConquer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/izziv_5/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/izziv_5/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/naloga2.m" beforeDir="false" afterPath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/naloga2.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/primeri/3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/primeri/3.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TIS/dn_2/TIS-naloga2/primeri/bonus3.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/izziv_5/DivideAndConquer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/izziv_5/test.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,7 +20,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DivideAndConquer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
+            <state relative-caret-position="465">
               <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -61,9 +54,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="953" />
+    <option name="x" value="626" />
+    <option name="y" value="27" />
     <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="height" value="873" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -141,17 +135,17 @@
       <workItem from="1554293948733" duration="2863000" />
       <workItem from="1554314054710" duration="118000" />
       <workItem from="1554314550527" duration="599000" />
+      <workItem from="1554452674444" duration="34000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6700000" />
+    <option name="totallyTimeSpent" value="6734000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
-    <editor active="true" />
+    <frame x="626" y="27" width="974" height="873" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17724289" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18103448" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -196,7 +190,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DivideAndConquer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
+        <state relative-caret-position="465">
           <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
