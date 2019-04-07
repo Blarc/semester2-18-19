@@ -134,14 +134,14 @@ function [izhod, R, kodBela, kodCrna] = naloga2(vhod)
     
   elseif (length(black) == 0 && length(white) == 1)
     kodCrna = [];
-    kodBela = [1728, 1];
+    kodBela = [white(1), 1];
     bs = 1;
     izhod = [0];
     
   elseif (length(white) == 1 && length(black) == 1)
-    kodBela = [0, 1];
+    kodBela = [white(1), 1];
     bs = 1;
-    kodCrna = [1728, 1];
+    kodCrna = [black(1), 1];
     izhod = [0, 0];
     
   endif
@@ -167,7 +167,6 @@ function [izhod, R, kodBela, kodCrna] = naloga2(vhod)
       endwhile
     endfor
     izhod = result;
-    size(izhod)
   endif
  
   R = numel(izhod)/numel(vhod);

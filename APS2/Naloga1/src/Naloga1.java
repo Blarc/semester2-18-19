@@ -58,49 +58,49 @@ public class Naloga1 {
 
         private NumericSort getNsUp() {
             return (print -> {
-                boolean bool = true;
+                // boolean bool = true;
                 int iter = 0;
                 int compares = 0;
                 int setters = 0;
 
-                while (bool) {
+                for (int j = 0; j < n; j++) {
                     if (print) bubblePrint(iter);
-                    bool = false;
+                    // bool = false;
                     for (int i = arr.length - 2; i >= 0; i--) {
                         compares += 1;
                         if (arr[i] > arr[i + 1]) {
                             setters += 3;
                             swap(i);
-                            bool = true;
+                            // bool = true;
                         }
                     }
                     iter += 1;
                 }
-                if (!print) System.out.printf("%d %d\n", compares, setters);
+                if (!print) System.out.printf("%d %d\n", compares/2, setters);
             });
         }
 
         private NumericSort getNsDown() {
             return (print -> {
-                boolean bool = true;
+                // boolean bool = true;
                 int iter = 0;
                 int compares = 0;
                 int setters = 0;
 
-                while (bool) {
+                for (int j = 0; j < n; j++) {
                     if (print) bubblePrint(iter);
-                    bool = false;
+                    // bool = false;
                     for (int i = arr.length - 2; i >= 0; i--) {
                         compares += 1;
                         if (arr[i] < arr[i + 1]) {
                             setters += 3;
                             swap(i);
-                            bool = true;
+                            // bool = false;
                         }
                     }
                     iter += 1;
                 }
-                if (!print) System.out.printf("%d %d\n", compares, setters);
+                if (!print) System.out.printf("%d %d\n", compares/2, setters);
             });
         }
 
@@ -675,7 +675,7 @@ public class Naloga1 {
             while (i <= half && j <= r) {
                 compares += 1;
                 setters += 1;
-                if (arr[i] <= arr[j]) {
+                if (arr[i] < arr[j]) {
                     tempArr[k] = arr[j];
                     j += 1;
                 }
@@ -862,7 +862,6 @@ public class Naloga1 {
 
         String mode = args[0];
         String algorithm = args[1];
-        System.out.println(algorithm);
         String direction = args[2];
         int size = Integer.parseInt(args[3]);
         Naloga1 o = new Naloga1();
