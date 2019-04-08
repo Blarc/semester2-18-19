@@ -1,0 +1,45 @@
+/proc/version
+"This strind identifies the kernel version that is currently running. It includes kernel/ostype, kernel/osrelease and kernel/version.
+
+/proc/cmdline
+"Arguments passed to the Linux kernel at boot time."
+
+/proc/cpuinfo
+"This is a collection of CPU and system architecture dependent items, for each supported architecture a different list. Two common entries are processor which gives CPU number and bogomips; a system constant that is calculated
+during kernel initialization."
+
+/proc/meminfo
+"This file reports statistics about memory usage on the system. It is used by free() to report the amount of free and used memory."
+
+/proc/uptime
+"This file contains two numbers: the uptime of the system (seconds), and the amount of time spent in idle process (seconds)."
+
+/proc/diskstats
+"This file contains disk I/O statistics for each disk device."
+
+/proc/filesystems
+"A text listing of the filesystems which are supported by the kernel, namely filesystems which were compiled into the kernel or whose kernel modules are currently loaded."
+
+/proc/mounts
+"Lists the mount points of the process's own mount namespace."
+
+/proc/partitions
+"Contains the major and minor numbers of each partition as well as the number of 1024-byte blocks and the partition name."
+
+/proc/devices
+"Text listing of major numbers and device groups."
+
+/proc/dma
+"This is a list of the registered ISA DMA channels in use."
+
+/proc/interrupts
+"This is used to record the number of interrupts per CPU per IO device."
+
+/proc/iomem
+"I/O memory map in Linux 2.4"
+
+/proc/ioports
+"This is a list of currently registered Input-Output port regions that are in use."
+
+/proc/modules
+"A text list of the modules that have been loaded by the system."
