@@ -466,32 +466,31 @@ public class Naloga1 {
                 quickSortDown(0, n-1);
 
                 if (!print) System.out.printf("%d %d\n", compares, setters);
-
                 reset();
             });
         }
 
         private void quickSortUp(int i, int j) {
             if (i < j) {
-                int low = partitionUp(i, j);
+                int[] tmp = partitionUp(i, j);
 
-                quickSortUp(i, low-1);
-                quickSortUp(low, j);
+                quickSortUp(i, tmp[1]);
+                quickSortUp(tmp[0], j);
             }
         }
 
         private void quickSortDown(int i, int j) {
             if (i < j) {
-                int low = partitionDown(i, j);
+                int[] tmp = partitionDown(i, j);
 
-                quickSortUp(i, low - 1);
-                quickSortUp(low, j);
+                quickSortDown(i, tmp[1]);
+                quickSortDown(tmp[0], j);
             }
         }
 
-        private int partitionUp(int i, int j) {
+        private int[] partitionUp(int i, int j) {
             int pivot = arr[((i+j) / 2)];
-            // setters += 1;
+            setters += 1;
             int startI = i;
             int startJ = j;
 
@@ -513,14 +512,14 @@ public class Naloga1 {
                 }
             }
 
-            if (print) quickPrint(startI, startJ);
+            if (print) quickPrint(startI, startJ, i, j);
             // System.out.println((i-startI) + " " + (j-startI));
-            return i;
+            return new int[]{i, j};
         }
 
-        private int partitionDown(int i, int j) {
+        private int[] partitionDown(int i, int j) {
             int pivot = arr[((i+j) / 2)];
-            // setters += 1;
+            setters += 1;
             int startI = i;
             int startJ = j;
 
@@ -542,8 +541,8 @@ public class Naloga1 {
                 }
             }
 
-            if (print) quickPrint(startI, startJ);
-            return i;
+            if (print) quickPrint(startI, startJ, i, j);
+            return new int[]{i, j};
         }
 
         private void swap(int i, int j) {
@@ -553,11 +552,22 @@ public class Naloga1 {
             setters += 3;
         }
 
-        private void quickPrint(int i, int j) {
-            System.out.print("Arr: ");
-            for (int k = i; k <= j; k++) {
+        private void quickPrint(int startI, int startJ, int i, int j) {
+            for (int k = startI; k < i; k++) {
+                if (k == j+1) {
+                    System.out.print("| ");
+                }
                 System.out.printf("%d ", arr[k]);
             }
+            System.out.print("| ");
+
+            for (int k = i; k <= startJ; k++) {
+                if (k == j+1) {
+                    System.out.print("| ");
+                }
+                System.out.printf("%d ", arr[k]);
+            }
+
             System.out.println();
         }
 
