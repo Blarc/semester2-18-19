@@ -1,0 +1,91 @@
+KOINDUKTIVNI TIPI
+___________________________________________________________
+
+Induktivni: 
+- seznami [], a::b
+- drevesa Empty, Node(l, r)
+- naravna števila 0, succ
+
+podatek je končen.
+___________________________________________________________
+
+Koinduktivni tipi:
+podatek je lahko neskončen.
+___________________________________________________________
+
+Primer: komunikacijski tok podatkov
+
+Tok podatkov sestoji iz:
+- podatka
+- toka podatkov
+
+type alpha stream = Cons of alpha * alpha stream
+Cons(1, Cons(2, Cons(1, ...))) : int stream
+	-> nikoli ni konec
+___________________________________________________________
+
+Primer: I/O v programu
+
+IO je:
+- preberemo podatek in nekaj z njim naredimo
+- izpišemo podatek in nadaljujemo s programom
+- izračuna vrednost in konča
+
+type alpha io =
+	| Read of string -> alpha io
+	| Write of string * alpha io
+	| Return of alpha
+
+___________________________________________________________
+
+V OCamlu NI koinduktivnih tipov.
+V Hasklu SO.
+___________________________________________________________
+
+HASKEL
+___________________________________________________________
+
+data Stream a = Cons (a, Stream a)
+
+-- tok iz samih enic
+enice :: Stream Integer
+enice :: Cons (1, enice)
+
+-- prvih n elementov toka daj v seznam
+to_list :: Integer -> Stream a -> [a]
+to_list 0 _ = []
+to_list n (Cons (x, s)) = x : (to_list (n-1) s)
+
+-- tok števil od k naprej
+from :: Integer -> Stream Integer
+from k = Cons (k, from (k + 1))
+____________________________________________________________
+
+data InputOutput a = Read (String -> InputOutput a) : Write (String, InputOutput a) | 
+Return a
+
+hello_world :: InputOutput ()
+hello_world :: Write("Hello, world!", Return())
+
+-- Sprejme integer -> te integer-krat upraša, pa vrne integer
+-- Kako ti je ime, Pozdravljen, ime!, Kako ti je ime...
+
+greeter :: Integer -> InputOutput Integer
+greeter 0 = Return 40
+greeter n = write("Kako ti je ime?", Read (\ str -> Write("Lep pozdrav, " + str, greeter (n-1))))
+
+-- okolje, v katerem tak program deluje
+os :: [String] -> String -> InputOutput a -> (a, String)
+os _             output (Return v)       = (v, output)
+os (str : input) write  (Read p)         = os input output (p str)
+os []            output (Read _)         = error "Kernel panic!"
+os input         output (Write (str, p)) = os input (output ++ str) p
+
+-- poženemo
+primer1 = os["Janezek", "Micka", "Mojca"] "" (greeter 2)
+
+____________________________________________________________
+
+
+
+
