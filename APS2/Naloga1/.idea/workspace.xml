@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8959fd1-85c4-46a0-84ca-449983673d05" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$BubbleSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$BubbleSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$CountingSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$CountingSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$HeapSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$HeapSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$InsertionSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$InsertionSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$MergeSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$MergeSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$NumericSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$NumericSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$QuickSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$QuickSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$RadixSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$RadixSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$SelectionSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$SelectionSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga1/Naloga1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga1/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$BubbleSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$CountingSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$HeapSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$InsertionSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$MergeSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$NumericSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$QuickSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$RadixSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1$SelectionSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/Naloga1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga1/test.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Naloga1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="917" lean-forward="true" selection-start-line="917" selection-end-line="917" />
+            <state relative-caret-position="238">
+              <caret line="222" selection-start-line="222" selection-end-line="222" />
               <folding>
                 <element signature="class#NumericSort#0;class#Naloga1#0" />
                 <element signature="method#sort#0;class#Naloga1#0" />
@@ -220,7 +218,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
+            <state relative-caret-position="51">
               <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -361,11 +359,12 @@
       <workItem from="1554837228985" duration="5748000" />
       <workItem from="1554880038683" duration="304000" />
       <workItem from="1554880699968" duration="61000" />
+      <workItem from="1554909044687" duration="34000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54813000" />
+    <option name="totallyTimeSpent" value="54847000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -379,7 +378,7 @@
   <component name="ToolWindowManager">
     <frame x="257" y="136" width="1141" height="655" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.07762557" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.078630894" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -418,8 +417,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Naloga1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="917" lean-forward="true" selection-start-line="917" selection-end-line="917" />
+        <state relative-caret-position="238">
+          <caret line="222" selection-start-line="222" selection-end-line="222" />
           <folding>
             <element signature="class#NumericSort#0;class#Naloga1#0" />
             <element signature="method#sort#0;class#Naloga1#0" />
@@ -601,7 +600,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
+        <state relative-caret-position="51">
           <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
