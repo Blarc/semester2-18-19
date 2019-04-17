@@ -1,0 +1,19 @@
+HELLO
+Exist: false
+Uid == gid
+root: enaka 1
+Exist: false
+Uid == gid
+daemon: enaka 1
+Exist: false
+Uid == gid
+bin: enaka 1
+Exist: false
+sync: 1
+Exist: false
+games: 1
+Exist: false
+Uid == gid
+nobody: enaka 1
+Exist: true
+test: obstaja 1

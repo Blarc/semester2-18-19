@@ -48,7 +48,6 @@ fib() {
 }
 
 userinfo() {
-	# echo "HELLO"
 	for i in "${@:2}"
 	do
 		if !(id "$i" >/dev/null 2>&1); then
@@ -68,10 +67,10 @@ userinfo() {
 			exist=false;
 		fi
 
-		# echo "Exist: $exist"
+		echo "Exist: $exist";
 
 		if (( uid == gid )); then
-			# echo "Uid == gid"
+			echo "Uid == gid";
 			if [ "$exist" == "true" ]; then
 				echo "$i: enaka obstaja $grp";
 			else
@@ -190,8 +189,8 @@ case "$1" in
 		;;
 	drevo)
 		dir=${2:-""};
-		echo "DIR   ${2##*/:-${PWD##*/}}"
-		drevo "./" $3 $3;
+		echo "DIR   ${2:-${PWD##*/}}"
+		drevo "$PWD/$dir" $3 $3;
 		;;
 	prostor)
 		#prostor "$@";
