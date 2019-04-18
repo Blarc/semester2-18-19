@@ -1,0 +1,14 @@
+DIR   /home/test/tests/gozd/bukev
+----FILE  Naloga1.sh
+----FILE  test-A.log
+----FILE  test-A.out
+----FILE  test-B.log
+----FILE  test-B.out
+----FILE  test-C.log
+----FILE  test-C.out
+----FILE  test-D.log
+----FILE  test-D.out
+----FILE  test-E.log
+----FILE  test-E.out
+----FILE  test-F.log
+----FILE  test-F.out

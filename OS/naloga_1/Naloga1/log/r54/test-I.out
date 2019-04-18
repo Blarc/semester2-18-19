@@ -1,0 +1,113 @@
+/home/test/tests/gozd/bukev/bor
+size 61
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/gurus.txt
+size 69
+blk 8
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/linkec
+size 16
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/macesen
+size 18
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/macesen/brest
+size 65
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/macesen/brest/brda
+size 0
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/macesen/brest/brin
+size 31
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/macesen/brest/brin/bodika
+size 35
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/macesen/brest/brin/bodika/gurus.txt
+size 69
+blk 8
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/macesen/brest/brin/bodika/linkec
+size 16
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/macesen/brest/brin/pipca
+size 0
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/macesen/brest/ping
+size 4
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/macesen/brest/pong
+size 8
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/macesen/brest/runme.sh
+size 0
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/bor/pipca
+size 0
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/jelka
+size 64
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/jelka/cev
+size 0
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/jelka/lipa
+size 20
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/jelka/lipa/cemprin
+size 6
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/jelka/ping
+size 4
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/jelka/pong
+size 8
+blk 0
+blkspace 512
+-------------------
+/home/test/tests/gozd/bukev/jelka/runme.sh
+size 0
+blk 0
+blkspace 512
+-------------------
+Velikost: 522
+Blokov: 16
+Prostor: 8192

@@ -1,4 +1,5 @@
 #!/bin/bash
+RANDOM=42;
 
 status() {
 	a=$1
@@ -48,7 +49,6 @@ fib() {
 }
 
 userinfo() {
-	# echo "HELLO"
 	for i in "${@:2}"
 	do
 		if !(id "$i" >/dev/null 2>&1); then
@@ -68,10 +68,7 @@ userinfo() {
 			exist=false;
 		fi
 
-		# echo "Exist: $exist"
-
 		if (( uid == gid )); then
-			# echo "Uid == gid"
 			if [ "$exist" == "true" ]; then
 				echo "$i: enaka obstaja $grp";
 			else
@@ -107,7 +104,6 @@ tocke() {
 				# echo "I'm in!";
 				(( sum /= 2 ))
 			elif [ "$tmp" == 14 ]; then
-				RANDOM=42;
 				rnd=$(( ( RANDOM % 5 ) + 1 ));
 				# echo "Rnd: $rnd";
 				(( sum += rnd ));
@@ -139,13 +135,7 @@ drevo() {
 		if [ -f "$i" ]; then
 			printf '%*s' $len | tr ' ' '-'
 			echo "FILE  ${i##*/}"
-		elif [ -d "$i" ]; then
-			printf '%*s' $len | tr ' ' '-'
-			echo "DIR   ${i##*/}"
-			if (( cur < max )); then
-				drevo "$i" $max $(( cur + 1 ))
-			fi
-		elif [ -h "$i" ]; then
+		elif [ -L "$i" ]; then
 			printf '%*s' $len | tr ' ' '-'
 			echo "LINK  ${i##*/}"
 		elif [ -c "$i" ]; then
@@ -160,11 +150,41 @@ drevo() {
 		elif [ -S "$i" ]; then
 			printf '%*s' $len | tr ' ' '-'
 			echo "SOCK  ${i##*/}"
+		elif [ -d "$i" ]; then
+			printf '%*s' $len | tr ' ' '-'
+			echo "DIR   ${i##*/}"
+			if (( cur < max )); then
+				drevo "$i" $max $(( cur + 1 ))
+			fi
 		elif [ -a "$i" ]; then
 			printf '%*s' $len | tr ' ' '-'
 			echo "Unknown type!"
 		fi
+	done
+}
 
+prostor() {
+	local dir=$1;
+	local max=${2:-3};
+	local cur=${3:-1};
+
+	for i in "$dir"/*
+	do
+		if [ -e "$i" ] || [ -L "$i" ]; then
+			size=$(stat --format "%s" "$i")
+			blk=$(stat --format "%b" "$i")
+			blkSpace=$(stat --format "%B" "$i")
+
+			(( allSize += size ))
+			(( allBlk += blk ))
+			(( allBlkSpace += (blk * blkSpace) ))
+
+			if [ -d "$i" ]; then
+				if (( cur < max )); then
+					prostor "$i" $max $(( cur + 1 ))
+				fi
+			fi
+		fi
 	done
 }
 
@@ -189,13 +209,26 @@ case "$1" in
 		tocke;
 		;;
 	drevo)
-		dir=${2:-""};
-		echo "DIR   ${2##*/:-${PWD##*/}}"
-		drevo "./" $3 $3;
+		dir=${2:-${PWD}};
+		echo "DIR   $dir";
+		drevo "$dir" $3;
 		;;
 	prostor)
-		#prostor "$@";
-		echo "Not implemented yet!";
+		dir=${2:-${PWD}}
+
+		size=$(stat --format "%s" "$dir")
+		blk=$(stat --format "%b" "$dir")
+		blkSpace=$(stat --format "%B" "$dir")
+
+		(( allSize += size ))
+		(( allBlk += blk ))
+		(( allBlkSpace += (blk * blkSpace) ))
+
+		prostor "$dir" $3;
+
+		echo "Velikost: $allSize";
+		echo "Blokov: $allBlk";
+		echo "Prostor: $allBlkSpace";
 		;;
 	*)
 		echo "Napacna uporaba skripte!";

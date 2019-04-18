@@ -1,0 +1,12 @@
+Izvajanje test-A
+  Log datoteka: test-A.log
+  Izhod programa: test-A.out
+  Ukazna vrstica: bash Naloga1.sh status 4978 37658
+  Izhodni status: 38
+  Realni cas izvajanja: 76
+  Uporabniski cas izvajanja: 70
+  Sistemski cas izvajanja: 6
+  Procesorski cas izvajanja: 76
+Preverjanje test-A
+  Izhodni status: ok
+  Tocke: 1
