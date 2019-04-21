@@ -14,11 +14,13 @@ int main(int argc, char* argv[]) {
 	char* input = argv[1];
 	char* output = argv[2];
 
-	int fd1;
+
+	int fd1 = 0;
 	int fd2;
 	int length;
 
-	if (strcmp("-", input) != 0) {
+
+	if (argc > 1 && (&input[0] != "-")) {
 
 		if ((fd1 = open(input, O_RDONLY)) < 0) {
 			perror("Unable to open input");
@@ -29,8 +31,9 @@ int main(int argc, char* argv[]) {
 		dup2(fd1, 0);
 	}
 
-	if (strcmp("-", output) != 0) {
-		if ((fd2 = open(output, O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR)) < 0) {
+	if (argc > 2 && (&output[0] != "-")) {
+
+		if ((fd2 = open(output, O_APPEND | O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR)) < 0) {
 			perror("Unable to open output");
 		    exit(1);
 		}
