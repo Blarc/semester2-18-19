@@ -1,6 +1,5 @@
 #include <unistd.h>
 #include <string.h>
-#include <fcntl.h>
 #include <stdlib.h>
 #include <dirent.h>
 #include <stdio.h>
@@ -270,10 +269,6 @@ void ps(char* arg)
 
 	struct direntC arr[PIDS_LEN];
 
-	if (arg != NULL) {
-		
-	}
-
 	dir = opendir(DIR_PATH);
 	strcpy(processNamePathOrg, DIR_PATH);
 	strcat(processNamePathOrg, "/");
@@ -312,15 +307,21 @@ void ps(char* arg)
 			dataA.pid = num;
 			dataA.processName = processName;
 
-			arr[index] = dataA;
-			index += 1;
+			if (arg != NULL && (dataA.ppid == atoi(arg) || dataA.pid == atoi(arg))) {
+				arr[index] = dataA;
+				index += 1;
+			}
+			else if (arg == NULL) {
+				arr[index] = dataA;
+				index += 1;
+			}
 		}
 	}
 
-	bubbleSortNum(arr, PIDS_LEN);
+	bubbleSortNum(arr, index);
 
 	printf("%5s %5s %6s %s\n", "PID", "PPID", "STANJE", "IME");
-	for (int i = 0; i < PIDS_LEN; i++) {
+	for (int i = 0; i < index; i++) {
 		printf("%5d %5d %6c %s", arr[i].pid, arr[i].ppid, arr[i].state, arr[i].processName);
 	}
 }
@@ -410,15 +411,21 @@ void psext(char* arg)
 
 			dataA.file = count;
 
-			arr[index] = dataA;
-			index += 1;
+			if (arg != NULL && (dataA.ppid == atoi(arg) || dataA.pid == atoi(arg))) {
+				arr[index] = dataA;
+				index += 1;
+			}
+			else if (arg == NULL) {
+				arr[index] = dataA;
+				index += 1;
+			}
 		}
 	}
 
-	bubbleSortNum(arr, PIDS_LEN);
+	bubbleSortNum(arr, index);
 
 	printf("%5s %5s %6s %6s %6s %s\n", "PID", "PPID", "STANJE", "#NITI", "#DAT", "IME");
-	for (int i = 0; i < PIDS_LEN; i++) {
+	for (int i = 0; i < index; i++) {
 		printf("%5d %5d %6c %6d %6d %s", arr[i].pid, arr[i].ppid, arr[i].state, arr[i].threads, arr[i].file, arr[i].processName);
 	}
 }
