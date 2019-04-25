@@ -4,6 +4,7 @@
 #include <dirent.h>
 #include <stdio.h>
 #include <sys/file.h>
+#include <sys/wait.h>
 
 char* DIR_PATH;
 char OS_PATH[32];
@@ -430,6 +431,48 @@ void psext(char* arg)
 	}
 }
 
+
+// 	execlp("pstree", "-c", getpid(), (char *) NULL);
+void forktree(int mainPid)
+{
+
+	int pid = fork();
+	if (pid == 0) {
+
+		int pid2 = fork();
+		if (pid2 == 0) {
+
+			int pid3 = fork();
+			if (pid3 == 0) {
+				sleep(2);
+				exit(0);
+			}
+
+			sleep(2);
+			exit(0);
+		}
+
+		sleep(2);
+		exit(0);
+	}
+
+	pid = fork();
+	if (pid == 0) {
+		sleep(2);
+		exit(0);
+	}
+
+	pid = fork();
+	if (pid == 0) {
+		sleep(2);
+		exit(0);
+	}
+
+		char a[100];
+		sprintf(a, "%d", mainPid);
+		execlp("pstree", "pstree", "-c", a, NULL);
+}
+
 int main(int argc, char* argv[])
 {
 	if (argc < 2) {
@@ -437,13 +480,19 @@ int main(int argc, char* argv[])
 	}
 
 	char* input = argv[1];
-	DIR_PATH = argv[2];
-	strcpy(OS_PATH, DIR_PATH);
-	strcat(OS_PATH, "/version");
-	strcpy(SWAP_PATH, DIR_PATH);
-	strcat(SWAP_PATH, "/swaps");
-	strcpy(MODULES_PATH, DIR_PATH);
-    strcat(MODULES_PATH, "/modules");
+
+	if (strcmp(input, "forktree")) {
+		DIR_PATH = argv[2];
+		strcpy(OS_PATH, DIR_PATH);
+		strcat(OS_PATH, "/version");
+		strcpy(SWAP_PATH, DIR_PATH);
+		strcat(SWAP_PATH, "/swaps");
+		strcpy(MODULES_PATH, DIR_PATH);
+	    strcat(MODULES_PATH, "/modules");
+	}
+	else {
+		forktree(getpid());
+	}
 
 	if (!strcmp(input, "sys")) {
 		sys();
@@ -460,13 +509,11 @@ int main(int argc, char* argv[])
 	else if(!strcmp(input, "psext")) {
 		psext(argv[3]);
 	}
-	else if(!strcmp(input, "forktree")) {
-		
-	}
 	else if(!strcmp(input, "help")) {
 		printf("%s\n", "help page");	
 	}
-	else {
-		printf("%s\n", "Invalid");
-	}
+	// else {
+	//	printf("%s\n", "Invalide");
+	//}
+	exit(0);
 }
