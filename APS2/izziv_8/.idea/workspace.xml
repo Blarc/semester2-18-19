@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5538d849-c8f3-41d6-991e-8632c50bf468" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/FFT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../izziv_7/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_7/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../izziv_7/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_7/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../izziv_7/out/production/izziv_7/PrimitivniKoreniEnote.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/izziv_8/FFT$Complex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/izziv_8/FFT$Complex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/izziv_8/FFT.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/izziv_8/FFT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FFT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FFT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OS/naloga_2/helloW" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/naloga_2/helloW" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OS/naloga_2/helloW.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/naloga_2/helloW.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,18 +20,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FFT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1632">
-              <caret line="153" column="1" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
+            <state relative-caret-position="285">
+              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#679#680#0" expanded="true" />
+                <element signature="e#730#731#0" expanded="true" />
+                <element signature="method#Fft#0;class#FFT#0" />
+                <element signature="method#printArr#0;class#FFT#0" />
+                <element signature="method#nextPow2#0;class#FFT#0" />
               </folding>
             </state>
           </provider>
@@ -69,10 +77,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2112" />
-    <option name="y" value="-587" />
-    <option name="width" value="766" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="833" />
+    <option name="y" value="25" />
+    <option name="width" value="767" />
     <option name="height" value="873" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -80,30 +88,19 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="izziv_8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="izziv_8" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -143,16 +140,19 @@
       <updated>1556611699212</updated>
       <workItem from="1556611702193" duration="8276000" />
       <workItem from="1556629870627" duration="598000" />
+      <workItem from="1556647165812" duration="1417000" />
+      <workItem from="1556704560259" duration="9266000" />
+      <workItem from="1556720810603" duration="83000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8874000" />
+    <option name="totallyTimeSpent" value="19640000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-572" width="1096" height="1896" extended-state="6" />
+    <frame x="833" y="25" width="767" height="873" extended-state="4" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17277992" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.36061028" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -161,8 +161,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3295519" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39988655" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3994638" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3994638" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -187,12 +187,23 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/util/function/Function.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FFT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1632">
-          <caret line="153" column="1" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
+        <state relative-caret-position="285">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+            <element signature="e#730#731#0" expanded="true" />
+            <element signature="method#Fft#0;class#FFT#0" />
+            <element signature="method#printArr#0;class#FFT#0" />
+            <element signature="method#nextPow2#0;class#FFT#0" />
           </folding>
         </state>
       </provider>

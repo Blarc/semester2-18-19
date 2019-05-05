@@ -1,11 +1,8 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
+@SuppressWarnings("Duplicates")
 public class FFT {
-    private static int  n;
+    static private int size;
 
     static class Complex{
         double re;
@@ -70,6 +67,10 @@ public class FFT {
             return a.times(b.reciprocal());
         }
 
+        public Complex scale(double a) {
+            return new Complex(a * re, a * im);
+        }
+
         // e^this
         public Complex exp() {
             return new Complex(Math.exp(re) * Math.cos(im), Math.exp(re) * Math.sin(im));
@@ -87,10 +88,12 @@ public class FFT {
         }
     }
 
-    private static Complex[] Fft(Complex[] list, int len) {
+    private static Complex[] Fft(Complex[] list) {
+
+        int len = list.length;
 
         if (len < 2) {
-            return list;
+            return new Complex[] { list[0] };
         }
 
         Complex[] a = new Complex[len/2];
@@ -108,47 +111,118 @@ public class FFT {
             }
         }
 
-        Complex[] left = Fft(a, len/2);
-        Complex[] right = Fft(b, len/2);
+        Complex[] left = Fft(a);
+        Complex[] right = Fft(b);
 
-        Complex wFactor = new Complex(Math.cos(2 * Math.PI / n), Math.sin(2 * Math.PI / n));
+        Complex wFactor = new Complex(Math.cos(2 * Math.PI / len), Math.sin(2 * Math.PI / len));
         Complex w = new Complex(1, 0);
         Complex[] tmp = new Complex[len];
 
         for (int i = 0; i < len/2; i++) {
-            Complex tmpLeft = left[i];
-            Complex tmpRight = right[i];
 
-            tmp[i] = tmpLeft.plus(w.times(tmpRight));
-            tmp[i + (len/2)] = tmpLeft.minus(w.times(tmpRight));
+            tmp[i]           = left[i].plus(w.times(right[i]));
+            tmp[i + (len/2)] = left[i].minus(w.times(right[i]));
 
             w = w.times(wFactor);
         }
 
-        System.out.println(Arrays.toString(tmp));
+        printArr(tmp);
         return tmp;
     }
 
-    private static Complex[] readVector(Scanner sc) {
-        Complex[] tmp = new Complex[n];
+    private static Complex[] iFft(Complex[] list) {
+
+        int len = list.length;
+
+        if (len < 2) {
+            return new Complex[] { list[0] };
+        }
+
+        Complex[] a = new Complex[len/2];
+        Complex[] b = new Complex[len/2];
+
+        int aIter = 0, bIter = 0;
+        for (int i = 0; i < len; i++) {
+            if (i % 2 == 0) {
+                a[aIter] = list[i];
+                aIter += 1;
+            }
+            else {
+                b[bIter] = list[i];
+                bIter += 1;
+            }
+        }
+
+        Complex[] left = iFft(a);
+        Complex[] right = iFft(b);
+
+        Complex wFactor = new Complex(Math.cos(2 * Math.PI / len), Math.sin(2 * Math.PI / len));
+        Complex w = new Complex(1, 0);
+        Complex[] tmp = new Complex[len];
+
+        for (int i = 0; i < len/2; i++) {
+
+            tmp[i]           = left[i].plus(w.conj().times(right[i]));
+            tmp[i + (len/2)] = left[i].minus(w.conj().times(right[i]));
+
+            w = w.times(wFactor);
+        }
+
+        printArr(tmp);
+        return tmp;
+    }
+
+    private static void printArr(Complex[] arr) {
+        for (Complex i : arr) {
+            System.out.printf("%s ", i);
+        }
+        System.out.println();
+    }
+
+    private static int nextPow2(int a) {
+        int c = 2;
+        while (a > c) {
+            c = c << 1;
+        }
+        return c;
+    }
+
+    private static Complex[] readVector(int n, Scanner sc) {
+        size = nextPow2(n*2);
+        Complex[] tmp = new Complex[size];
 
         for (int i = 0; i < n; i++) {
             tmp[i] = new Complex(sc.nextDouble(), 0);
         }
 
+        for (int i = n; i < tmp.length; i++) {
+            tmp[i] = new Complex(0, 0);
+        }
+
         return tmp;
     }
 
-//  https://introcs.cs.princeton.edu/java/97data/FFT.java.html
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        n = sc.nextInt();
+        int n = sc.nextInt();
 
-        Complex[] a = readVector(sc);
-        Complex[] b = readVector(sc);
+        Complex[] a = readVector(n, sc);
+        Complex[] b = readVector(n, sc);
 
-        Fft(a, n);
-        Fft(b, n);
+        a = Fft(a);
+        b = Fft(b);
+
+        for (int i = 0; i < a.length; i++) {
+            a[i] = a[i].times(b[i]);
+        }
+
+        a = iFft(a);
+
+        for (int i = 0; i < a.length; i++) {
+            a[i] = a[i].scale(1.0 / size);
+        }
+
+        printArr(a);
     }
 }
