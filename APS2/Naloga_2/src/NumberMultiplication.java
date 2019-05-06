@@ -1,277 +1,216 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
-@SuppressWarnings("Duplicates")
 public class NumberMultiplication {
 
-    public interface Multiplication {
-        void multiply(int[] a, int[] b);
-    }
-
-    public class BasicMulti implements Multiplication {
+    public static class Number {
+        int[] tab;
         int base;
+        int length;
 
-        public BasicMulti(int base) {
+        Number(String num, int base) {
             this.base = base;
+            char[] charArray = num.toCharArray();
+            this.length = charArray.length;
+            this.tab = new int[charArray.length];
+
+            for (int i = 0; i < charArray.length; i++) {
+                if (charArray[i] > 60) {
+                    tab[i] = charArray[i] - 87;
+                }
+                else {
+                    tab[i] = charArray[i] - '0';
+                }
+            }
         }
 
-        @Override
-        public void multiply(int[] a, int[] b) {
-            // or b length
-            int start = a.length - 1, index = 0, checksum;
-            int[] result = new int[(a.length + b.length + 2)], tmp;
+        Number(int length, int base) {
+            this.base = base;
+            this.length = length;
+            this.tab = new int[length];
+        }
 
-            for (int value : b) {
-                checksum = 0;
+        Number multiplyBasic(Number that, boolean print) {
+            int start = this.length - 1, index = 0;
+            Number result = new Number(this.length + that.length + 2, this.base), tmp;
+
+            for  (int value : that.tab) {
                 index = start;
-                tmp = new int[(a.length + b.length + 2)];
-                for (int j = a.length - 1; j > -1; j--) {
-                    result[index] += a[j] * value;
-                    tmp[index] += a[j] * value;
-                    checksum += a[j] * value;
+                tmp = new Number(this.length + that.length + 2, this.base);
 
-                    result[index + 1] += result[index] / base;
-                    result[index] %= base;
+                for (int j = this.length - 1; j > -1; j--) {
+                    result.tab[index] += this.tab[j] * value;
+                    tmp.tab[index] += this.tab[j] * value;
 
-                    tmp[index+1] += tmp[index] / base;
-                    tmp[index] %= base;
+                    result.tab[index + 1] += result.tab[index] / base;
+                    result.tab[index] %= base;
+
+                    tmp.tab[index + 1] += tmp.tab[index] / base;
+                    tmp.tab[index] %= base;
 
                     index += 1;
                 }
 
-                result[index + 1] += result[index] / base;
-                result[index] %= base;
+                result.tab[index + 1] += result.tab[index] / base;
+                result.tab[index] %= base;
 
-                tmp[index+1] += tmp[index] / base;
-                tmp[index] %= base;
+                tmp.tab[index + 1] += tmp.tab[index] / base;
+                tmp.tab[index] %= base;
 
-//                System.out.println(Arrays.toString(result));
-//                System.out.println(Arrays.toString(tmp));
+                if (print) {
+                    System.out.println(tmp);
+                }
 
-                if (tmp[index] > 0) {
-                    print(index+1, start, tmp);
-                    System.out.println();
-                }
-                else if (checksum == 0) {
-                    System.out.println(0);
-                }
-                else {
-                    print(index, start, tmp);
-                    System.out.println();
-                }
                 start -= 1;
             }
 
-            for (int i = 0; i < index + a.length - 1; i++) {
-                System.out.print("-");
-            }
-            System.out.println();
-            print(index + a.length - 1, 0, result);
-            System.out.println();
+            return result;
         }
 
-
-    }
-
-    public class DivConqMulti implements Multiplication {
-        int base;
-
-        public DivConqMulti(int base) {
-            this.base = base;
+        Number multiplyBasic(Number that) {
+            return multiplyBasic(that, false);
         }
 
-        @Override
-        public void multiply(int[] a, int[] b) {
-            int[] product = multiply(a, b, 0, a.length, 0, b.length, 13);
-        }
+        Number multiplyDivConq(Number b, int aStart, int aEnd, int bStart, int bEnd) {
+            
+            System.out.print(this + " " + b + "\n");
 
-        public int[] multiply(int[] a, int[] b, int aStart, int aEnd, int bStart, int bEnd, int offset) {
-
-            print(aStart, aEnd, a);
-            System.out.print(" ");
-            print(bStart, bEnd, b);
-            System.out.println();
+            // TODO IF
 
             int aLen = aEnd - aStart;
             int bLen = bEnd - bStart;
 
             if (aLen == 0 || bLen == 0) {
                 System.out.println(0);
-                return new int[(a.length + b.length + 2)];
+                return new Number(this.length + b.length + 2, this.base);
             }
 
             if (aLen < 2 || bLen < 2) {
+                Number tmp = this.multiplyBasic(b);
+                System.out.println(tmp);
+                return tmp;
+            }
 
-                int[] result = new int[(a.length + b.length + 2)];
-                int index = 0;
+            int len = Math.max(aLen, bLen);
+            if (len % 2 != 0) len += 1;
+            int half = len / 2;
 
-                if (aLen < bLen) {
-                    for (int i = bEnd - 1; i >= bStart; i--) {
-                        result[index] += a[aStart] * b[i];
-                        result[index + 1] += result[index] / base;
-                        result[index] %= base;
+            int aHalf = aStart + half;
+            int bHalf = bStart + half;
 
-                        index += 1;
-                    }
+            Number a1b1 = multiplyDivConq(b, aHalf,   aEnd, bHalf,   bEnd);
+            Number a1b0 = multiplyDivConq(b, aHalf,   aEnd, bStart, bHalf).shiftRight(len / 2);
+            Number a0b1 = multiplyDivConq(b, aStart, aHalf, bHalf,   bEnd).shiftRight(len / 2);
+            Number a0b0 = multiplyDivConq(b, aStart, aHalf, bStart, bHalf).shiftRight(len);
 
-                    result[index + 1] += result[index] / base;
-                    result[index] %= base;
+            Number tmp = sum(a1b1, a1b0, a0b1, a0b0);
+            System.out.println(tmp);
+            return tmp;
+        }
+
+        public Number multiplyDivConq(Number b) {
+            return multiplyDivConq(b, 0, this.length, 0, b.length);
+        }
+
+        Number sum(Number ... numbers) {
+            Number tmp = new Number(numbers[0].length, numbers[0].base);
+            for (int i = 0; i < numbers[0].length; i++) {
+                for (Number a : numbers) {
+                   tmp.tab[i] += a.tab[i];
+                }
+            }
+            return tmp;
+        }
+
+        void shiftRight() {
+            int tmp = this.tab[this.length - 1];
+            System.arraycopy(this.tab, 0, this.tab, 1, this.length - 1);
+            this.tab[0] = tmp;
+        }
+
+        Number shiftRight(int amount) {
+            for (int i = 0; i < amount; i++) {
+                this.shiftRight();
+            }
+            return this;
+        }
+
+        void shiftLeft() {
+            int tmp = this.tab[0];
+            System.arraycopy(this.tab, 1, this.tab, 0, this.length - 1);
+            this.tab[this.length - 1] = tmp;
+        }
+
+        void align() {
+            for (int i = 0; i < this.length && this.tab[0] == 0; i++) {
+                this.shiftLeft();
+            }
+        }
+
+        int numberLength() {
+            int res = 0;
+            for (int i = 0; i < this.tab.length; i++) {
+                if (this.tab[i] > 0) {
+                    res = i;
+                }
+            }
+            return res;
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder tmp = new StringBuilder();
+            this.align();
+
+            int len = this.numberLength();
+
+            if (len == 0) {
+                return "0";
+            }
+
+            for (int i = len; i > -1; i--) {
+                if (this.tab[i] > 9) {
+                    tmp.append((char)(this.tab[i] + 87));
                 }
                 else {
-                    for (int i = aEnd - 1; i >= aStart; i--) {
-                        result[index] += a[i] * b[bStart];
-                        result[index + 1] += result[index] / base;
-                        result[index] %= base;
-
-                        index += 1;
-                    }
-
-                    result[index + 1] += result[index] / base;
-                    result[index] %= base;
-                }
-
-//                System.out.printf("offset: %d, index: %d\n", offset, index);
-//                System.out.println(Arrays.toString(result));
-
-                print(numberLength(result) + 1, 0, result);
-                System.out.println();
-                return result;
-            }
-
-            int aHalf = ( aStart + aEnd ) / 2;
-            int bHalf = ( bStart + bEnd ) / 2;
-
-            if (aLen > bLen) {
-                bHalf -= 1;
-            }
-            else if (bLen > aLen) {
-                aHalf -= 1;
-            }
-
-            offset = aLen > bLen ? aLen : bLen;
-            if (offset % 2 != 0) {
-                offset += 1;
-            }
-
-            int[] a1b1 = multiply(a, b, aHalf,  aEnd,  bHalf,  bEnd, 0);
-            int[] a1b0 = multiply(a, b, aHalf,  aEnd,  bStart, bHalf, offset/2);
-            int[] a0b1 = multiply(a, b, aStart, aHalf, bHalf,  bEnd, offset/2);
-            int[] a0b0 = multiply(a, b, aStart, aHalf, bStart, bHalf, offset);
-
-            shift(a1b0, offset / 2);
-            shift(a0b1, offset / 2);
-            shift(a0b0, offset);
-
-//            System.out.println(Arrays.toString(a1b1));
-//            System.out.println(Arrays.toString(a1b0));
-//            System.out.println(Arrays.toString(a0b1));
-//            System.out.println(Arrays.toString(a0b0));
-
-            for (int i = 0; i < a1b1.length - 1; i++) {
-                a1b1[i] += a0b1[i] + a1b0[i] + a0b0[i];
-                a1b1[i + 1] += a1b1[i] / base;
-                a1b1[i] %= base;
-
-            }
-
-//            System.out.println(Arrays.toString(a1b1));
-
-            print(numberLength(a1b1) + 1, 0, a1b1);
-            System.out.println();
-            return a1b1;
-        }
-    }
-
-    private static void shift(int[] arr) {
-        int tmp = arr[arr.length - 1];
-        System.arraycopy(arr, 0, arr, 1, arr.length - 1);
-        arr[0] = tmp;
-    }
-
-    private static void shift(int[] arr, int amount) {
-        for (int i = 0; i < amount; i++) {
-            shift(arr);
-        }
-    }
-
-    private static int numberLength(int[] arr) {
-        int res = 1;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > 0) {
-                res = i;
-            }
-        }
-        return res;
-    }
-
-    private static void print(int start, int end, int[] arr) {
-        if (start < end) {
-            for (int i = start; i < end; i++) {
-                if (arr[i]  > 9) {
-                    System.out.print((char)(arr[i] + 87));
-                }
-                else {
-                    System.out.print(arr[i]);
+                    tmp.append(this.tab[i]);
                 }
             }
-        }
-        else if (start == end) {
-            System.out.print(0);
-        }
-        else {
-            for (int i = start - 1; i > end - 1; i--) {
-                if (arr[i]  > 9) {
-                    System.out.print((char)(arr[i] + 87));
-                }
-                else {
-                    System.out.print(arr[i]);
-                }
-            }
-        }
-    }
 
-    private static int[] read(Scanner sc) {
-        char[] a = sc.next().toCharArray();
-        int[] aArray = new int[a.length];
-
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] > 60) {
-                aArray[i] = a[i] - 87;
-            }
-            else {
-                aArray[i] = a[i] - '0';
-            }
+            return tmp.toString();
         }
-//        System.out.println(Arrays.toString(aArray));
-        return aArray;
+
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        Multiplication multi;
+        Number a, b, result;
         String mode;
-        int[] aArray, bArray;
         int base;
 
         mode = sc.next();
         base = sc.nextInt();
 
-        aArray = read(sc);
-        bArray = read(sc);
-
-//        System.out.println("a: " + Arrays.toString(aArray));
-//        System.out.println("b: " + Arrays.toString(bArray));
         NumberMultiplication nm = new NumberMultiplication();
 
         switch (mode) {
             case "os":
-                multi = nm.new BasicMulti(base);
-                multi.multiply(aArray, bArray);
+                a = new Number(sc.next(), base);
+                b = new Number(sc.next(), base);
+                result = a.multiplyBasic(b, true);
+
+                for (int i = 0; i <= result.numberLength(); i++) {
+                    System.out.print("-");
+                }
+                System.out.println();
+                System.out.println(result);
+
                 break;
             case "dv":
-                multi = nm.new DivConqMulti(base);
-                multi.multiply(aArray, bArray);
+                a = new Number(sc.next(), base);
+                b = new Number(sc.next(), base);
+
+
                 break;
             default:
                 System.out.println("Wrong arguments!");

@@ -58,7 +58,7 @@ public class MatrixMultiplication {
         // matrix addition
         private Matrix sum(Matrix b) {
 
-            Matrix c = new Matrix(n, n, n);
+            Matrix c = new Matrix(n, this.a, this.b);
 
             for(int i = 0; i< n;i++) {
                 for(int j = 0; j<n;j++) {
@@ -72,7 +72,7 @@ public class MatrixMultiplication {
         // matrix subtraction
         private Matrix sub(Matrix b) {
 
-            Matrix c = new Matrix(n);
+            Matrix c = new Matrix(n, this.a, this.b);
 
             for(int i = 0; i< n;i++) {
                 for(int j = 0; j<n;j++) {
@@ -84,13 +84,14 @@ public class MatrixMultiplication {
         }
 
         //simple multiplication
-        private Matrix mult(Matrix b) {
-            Matrix c = new Matrix(this.n, this.a, b.b);
-            for (int i = 0; i < this.n; i++) {
-                for (int j = 0; j < this.n; j++) {
+        private Matrix mult(Matrix that) {
+            int n = this.n > that.n ? this.n : that.n;
+            Matrix c = new Matrix(n, this.a, that.b);
+            for (int i = 0; i < this.a; i++) {
+                for (int j = 0; j < that.b; j++) {
                     c.setV(i, j, 0);
-                    for (int k = 0; k < this.n; k++) {
-                        int val = this.getV(i, k) * b.getV(k, j);
+                    for (int k = 0; k < this.b; k++) {
+                        int val = this.getV(i, k) * that.getV(k, j);
                         c.setV(i, j, c.getV(i, j) + val);
                     }
                 }
@@ -100,80 +101,106 @@ public class MatrixMultiplication {
         }
 
         private Matrix multBlock(Matrix that, int cutoff) {
-            Matrix tmp = new Matrix(this.a, this.a, that.b);
 
-            for (int i = 0; i < this.a; i += cutoff) {
-                for (int j = 0; j < this.b; j += cutoff) {
-                    Matrix m1 = this.getSubmatrix(i, j, cutoff);
-                    Matrix m2 = that.getSubmatrix(j, i, cutoff);
+            Matrix res = new Matrix(Math.max(this.n, that.n), this.a, that.b);
 
-                    Matrix product = m1.mult(m2);
-                    System.out.println(product.sumAll());
-                    tmp = tmp.sum(product);
+            for (int i = 0; i < res.a; i += cutoff) {
+                for (int j = 0; j < res.b; j += cutoff) {
+
+                    Matrix tmp = new Matrix(cutoff, cutoff, cutoff);
+
+                    for (int k = 0; k < this.n; k += cutoff) {
+
+                        Matrix m1 = this.getSubmatrix(i, k, cutoff);
+                        Matrix m2 = that.getSubmatrix(k, j, cutoff);
+
+                        Matrix product = m1.mult(m2);
+                        tmp = tmp.sum(product);
+                        System.out.println(product.sumAll());
+                    }
+
+                    res.putSubmatrix(i, j, tmp);
                 }
             }
+            return res;
+        }
+
+        private Matrix multDivConq(Matrix that, int cutoff) {
+
+            if (this.n <= cutoff) {
+                return this.mult(that);
+            }
+
+            int dim = this.n / 2;
+
+            Matrix m1 = this.getSubmatrix(0,   0,   dim).multDivConq(that.getSubmatrix(0,   0,   dim), cutoff);
+            System.out.println(m1.sumAll());
+            Matrix m2 = this.getSubmatrix(0,   dim, dim).multDivConq(that.getSubmatrix(dim, 0,   dim), cutoff);
+            System.out.println(m2.sumAll());
+            Matrix m3 = this.getSubmatrix(0,   0,   dim).multDivConq(that.getSubmatrix(0,   dim, dim), cutoff);
+            System.out.println(m3.sumAll());
+            Matrix m4 = this.getSubmatrix(0,   dim, dim).multDivConq(that.getSubmatrix(dim, dim, dim), cutoff);
+            System.out.println(m4.sumAll());
+            Matrix m5 = this.getSubmatrix(dim, 0,   dim).multDivConq(that.getSubmatrix(0,   0,   dim), cutoff);
+            System.out.println(m5.sumAll());
+            Matrix m6 = this.getSubmatrix(dim, dim, dim).multDivConq(that.getSubmatrix(dim, 0,   dim), cutoff);
+            System.out.println(m6.sumAll());
+            Matrix m7 = this.getSubmatrix(dim, 0,   dim).multDivConq(that.getSubmatrix(0,   dim, dim), cutoff);
+            System.out.println(m7.sumAll());
+            Matrix m8 = this.getSubmatrix(dim, dim, dim).multDivConq(that.getSubmatrix(dim, dim, dim), cutoff);
+            System.out.println(m8.sumAll());
+
+
+            Matrix c11 = m1.sum(m2);
+            Matrix c12 = m3.sum(m4);
+            Matrix c21 = m5.sum(m6);
+            Matrix c22 = m7.sum(m8);
+
+            Matrix tmp = new Matrix(this.n, this.n, this.n);
+            tmp.putSubmatrix(0, 0, c11);
+            tmp.putSubmatrix(0, dim, c12);
+            tmp.putSubmatrix(dim, 0, c21);
+            tmp.putSubmatrix(dim, dim, c22);
+
             return tmp;
         }
 
-        private Matrix divConqMult(Matrix that, int cutoff) {
-            int dim = this.n / 2;
-            return null;
-        }
-
         // Strassen multiplication
-        private Matrix multStrassen(Matrix b, int cutoff) {
+        private Matrix multStrassen(Matrix that, int cutoff) {
+
+            if (this.n <= cutoff) {
+                return this.mult(that);
+            }
+
             int dim = this.n / 2;
-            // Matrix m1 = ( (1, 1) + (2,2) ) * ( (1,1) + (2,2) );
-            Matrix m1 = (this.getSubmatrix(0, 0, dim).sum(this.getSubmatrix(dim, dim, dim))).matrixMulti(b.getSubmatrix(0, 0, dim).sum(b.getSubmatrix(dim, dim, dim)), cutoff);
-            // m1.toPrint();
-            // Matrix m2 = ( (2,1) + (2,2) ) * (1,1);
-            Matrix m2 = this.getSubmatrix(dim, 0, dim).sum(this.getSubmatrix(dim, dim, dim)).matrixMulti(b.getSubmatrix(0, 0, dim), cutoff);
-            // m2.toPrint();
-            // Matrix m3 = (1,1) * ( (1,2) - (2,2) );
-            Matrix m3 = this.getSubmatrix(0, 0, dim).matrixMulti(b.getSubmatrix(0, dim, dim).sub(b.getSubmatrix(dim, dim, dim)), cutoff);
-            // m3.toPrint();
-            // Matrix m4 = (2,2) * ( (2,1) - (1,1) );
-            Matrix m4 = this.getSubmatrix(dim, dim, dim).matrixMulti(b.getSubmatrix(dim, 0, dim).sub(b.getSubmatrix(0, 0, dim)), cutoff);
-            // m4.toPrint();
-            // Matrix m5 = ( (1,1) + (1,2) ) * (2, 2);
-            Matrix m5 = this.getSubmatrix(0, 0, dim).sum(this.getSubmatrix(0, dim, dim)).matrixMulti(b.getSubmatrix(dim, dim, dim), cutoff);
-            // m5.toPrint();
-            // Matrix m6 = ( (2, 1) - (1, 1) ) * ( (1, 1) + (1, 2) );
-            Matrix m6 = this.getSubmatrix(dim, 0, dim).sub(this.getSubmatrix(0, 0, dim)).matrixMulti(b.getSubmatrix(0, 0, dim).sum(b.getSubmatrix(0, dim, dim)), cutoff);
-            // m6.toPrint();
-            // Matrix m7 = ( (1, 2) - (2, 2) ) * ( (2, 1) + (2, 2) );
-            Matrix m7 = this.getSubmatrix(0, dim, dim).sub(this.getSubmatrix(dim, dim, dim)).matrixMulti(b.getSubmatrix(dim, 0, dim).sum(b.getSubmatrix(dim, dim, dim)), cutoff);
-            // m7.toPrint();
+            Matrix m1 = this.getSubmatrix(0,    0,      dim).multStrassen(that.getSubmatrix   (0,   dim, dim).sub(that.getSubmatrix(dim, dim, dim)), cutoff);
+            System.out.printf("%d\n", m1.sumAll());
+            Matrix m2 = this.getSubmatrix(0,    0,      dim).sum        (this.getSubmatrix(0,   dim, dim)).multStrassen(that.getSubmatrix(dim, dim, dim), cutoff);
+            System.out.printf("%d\n", m2.sumAll());
+            Matrix m3 = (this.getSubmatrix(dim,  0,      dim).sum        (this.getSubmatrix(dim, dim, dim))).multStrassen(that.getSubmatrix(0, 0, dim), cutoff);
+            System.out.printf("%d\n", m3.sumAll());
+            Matrix m4 = this.getSubmatrix(dim,  dim,    dim).multStrassen(that.getSubmatrix   (dim, 0,   dim).sub(that.getSubmatrix(0, 0, dim)), cutoff);
+            System.out.printf("%d\n", m4.sumAll());
+            Matrix m5 = (this.getSubmatrix(0,    0,      dim).sum        (this.getSubmatrix(dim, dim, dim))).multStrassen(that.getSubmatrix(0, 0, dim).sum(that.getSubmatrix(dim, dim, dim)), cutoff);
+            System.out.printf("%d\n", m5.sumAll());
+            Matrix m6 = (this.getSubmatrix(0,    dim,    dim).sub        (this.getSubmatrix(dim, dim, dim))).multStrassen(that.getSubmatrix(dim, 0, dim).sum(that.getSubmatrix(dim, dim, dim)), cutoff);
+            System.out.printf("%d\n", m6.sumAll());
+            Matrix m7 = (this.getSubmatrix(0,    0,      dim).sub        (this.getSubmatrix(dim, 0,   dim))).multStrassen(that.getSubmatrix(0, 0, dim).sum(that.getSubmatrix(0, dim, dim)), cutoff);
+            System.out.printf("%d\n", m7.sumAll());
 
-            System.out.printf("m1: %d\n", m1.sumAll());
-            System.out.printf("m2: %d\n", m2.sumAll());
-            System.out.printf("m3: %d\n", m3.sumAll());
-            System.out.printf("m4: %d\n", m4.sumAll());
-            System.out.printf("m5: %d\n", m5.sumAll());
-            System.out.printf("m6: %d\n", m6.sumAll());
-            System.out.printf("m7: %d\n", m7.sumAll());
 
-            Matrix c11 = ((m1.sum(m4)).sub(m5)).sum(m7);
-            Matrix c12 = m3.sum(m5);
-            Matrix c21 = m2.sum(m4);
-            Matrix c22 = ((m1.sub(m2)).sum(m3)).sum(m6);
+            Matrix c11 = m5.sum(m4).sub(m2).sum(m6);
+            Matrix c12 = m1.sum(m2);
+            Matrix c21 = m3.sum(m4);
+            Matrix c22 = m1.sum(m5).sub(m3).sub(m7);
 
-            Matrix c = new Matrix(this.n);
+            Matrix c = new Matrix(this.n, this.n, this.n);
             c.putSubmatrix(0, 0, c11);
             c.putSubmatrix(0, dim, c12);
             c.putSubmatrix(dim, 0, c21);
             c.putSubmatrix(dim, dim, c22);
 
             return c;
-        }
-
-        Matrix matrixMulti(Matrix b, int cutoff) {
-            // System.out.printf("n: %d <= cutoff: %d\n", this.n, cutoff);
-            if (this.n <= cutoff) {
-                return this.mult(b);
-            }
-
-            return this.multStrassen(b, cutoff);
         }
 
         void toPrint(boolean bol) {
@@ -256,10 +283,10 @@ public class MatrixMultiplication {
     public static void main(String[] args) {
         MatrixMultiplication mm = new MatrixMultiplication();
         Scanner sc = new Scanner(System.in);
-        int cutoff;
+        int cutoff, n;
 
         String mode;
-        Matrix a, b;
+        Matrix a, b, c, d;
 
         mode = sc.next();
 
@@ -288,12 +315,39 @@ public class MatrixMultiplication {
                 a = mm.readMatrix(sc, true);
                 b = mm.readMatrix(sc, true);
 
-                a.toPrint(true);
-                b.toPrint(true);
+                n = Math.max(a.n, b.n);
+                c = mm.new Matrix(n, n, n);
+                d = mm.new Matrix(n, n, n);
+
+                c.putSubmatrix(0, 0, a);
+                d.putSubmatrix(0, 0, b);
+
+                c.multDivConq(d, cutoff).toPrint(true);
 
                 break;
+
+            case "st":
+                cutoff = sc.nextInt();
+
+                // matrika mora biti velika potenca na 2
+                a = mm.readMatrix(sc, true);
+                b = mm.readMatrix(sc, true);
+
+                n = Math.max(a.n, b.n);
+                c = mm.new Matrix(n, n, n);
+                d = mm.new Matrix(n, n, n);
+
+                c.putSubmatrix(0, 0, a);
+                d.putSubmatrix(0, 0, b);
+
+                c.multStrassen(d, cutoff).toPrint(true);
+
+                break;
+
             default:
                 System.out.println("Wrong arguments!");
+
+                break;
         }
     }
 }

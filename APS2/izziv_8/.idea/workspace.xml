@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5538d849-c8f3-41d6-991e-8632c50bf468" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../izziv_7/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_7/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../izziv_7/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_7/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/izziv_8/FFT$Complex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/izziv_8/FFT$Complex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/izziv_8/FFT.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/izziv_8/FFT.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FFT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FFT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_2/helloW" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/naloga_2/helloW" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_2/helloW.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/naloga_2/helloW.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/izziv_8/FFT$Complex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/izziv_8/FFT.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +21,7 @@
         <entry file="file://$PROJECT_DIR$/src/FFT.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
               <folding>
                 <element signature="e#679#680#0" expanded="true" />
                 <element signature="e#730#731#0" expanded="true" />
@@ -77,10 +70,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="833" />
-    <option name="y" value="25" />
-    <option name="width" value="767" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="509" />
+    <option name="y" value="27" />
+    <option name="width" value="1091" />
     <option name="height" value="873" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -94,7 +87,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Naloga_2" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -143,14 +136,16 @@
       <workItem from="1556647165812" duration="1417000" />
       <workItem from="1556704560259" duration="9266000" />
       <workItem from="1556720810603" duration="83000" />
+      <workItem from="1557081058704" duration="10000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19640000" />
+    <option name="totallyTimeSpent" value="19650000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="833" y="25" width="767" height="873" extended-state="4" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.36061028" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -187,17 +182,11 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/util/function/Function.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/util/function/Function.class" />
     <entry file="file://$PROJECT_DIR$/src/FFT.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
           <folding>
             <element signature="e#679#680#0" expanded="true" />
             <element signature="e#730#731#0" expanded="true" />

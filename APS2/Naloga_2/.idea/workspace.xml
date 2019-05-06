@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9da91648-be1c-427f-92d3-cb60a7df257f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MatrixMultiplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NumberMultiplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../izziv_7/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_7/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../izziv_7/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_7/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../izziv_8/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_8/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/MatrixMultiplication$Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga_2/MatrixMultiplication$Matrix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/MatrixMultiplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga_2/MatrixMultiplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/NumberMultiplication$BasicMulti.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/NumberMultiplication$DivConqMulti.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/NumberMultiplication$Multiplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/NumberMultiplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga_2/NumberMultiplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MatrixMultiplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MatrixMultiplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NumberMultiplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumberMultiplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../izziv_8/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_8/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../izziv_8/out/production/izziv_8/FFT$Complex.class" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_8/out/production/izziv_8/FFT$Complex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../izziv_8/out/production/izziv_8/FFT.class" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_8/out/production/izziv_8/FFT.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../izziv_8/src/FFT.java" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_8/src/FFT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_2/helloW" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/naloga_2/helloW" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_2/helloW.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/naloga_2/helloW.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../izziv_8/out/production/izziv_8/FFT$Complex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../izziv_8/out/production/izziv_8/FFT.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,41 +29,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/NumberMultiplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2550">
-              <caret line="249" selection-start-line="249" selection-end-line="277" selection-end-column="9" />
+            <state relative-caret-position="354">
+              <caret line="76" column="22" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#BasicMulti#0;class#NumberMultiplication#0" />
-                <element signature="e#2402#2403#0" expanded="true" />
-                <element signature="e#2486#2487#0" expanded="true" />
-                <element signature="method#read#0;class#NumberMultiplication#0" />
+                <element signature="method#Number#0;class#Number#0;class#NumberMultiplication#0" />
+                <element signature="method#Number#1;class#Number#0;class#NumberMultiplication#0" />
+                <element signature="method#multiplyBasic#0;class#Number#0;class#NumberMultiplication#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/versionControl.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MatrixMultiplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="243" column="39" lean-forward="true" selection-start-line="243" selection-start-column="39" selection-end-line="243" selection-end-column="39" />
+            <state relative-caret-position="4165">
+              <caret line="251" column="25" selection-start-line="251" selection-start-column="25" selection-end-line="251" selection-end-column="25" />
               <folding>
                 <element signature="e#513#514#0" expanded="true" />
                 <element signature="e#550#551#0" expanded="true" />
                 <element signature="e#626#627#0" expanded="true" />
                 <element signature="e#664#665#0" expanded="true" />
-                <element signature="e#6285#6286#0" expanded="true" />
-                <element signature="e#6323#6324#0" expanded="true" />
-                <element signature="method#readMatrix#0;class#MatrixMultiplication#0" />
-                <element signature="e#7531#7579#1" />
-                <element signature="e#7677#7678#0" expanded="true" />
-                <element signature="e#7635#7688#1" />
-                <element signature="e#7786#7787#0" expanded="true" />
-                <element signature="e#7845#7846#0" expanded="true" />
-                <element signature="e#7891#7892#0" expanded="true" />
+                <element signature="e#9232#9233#0" expanded="true" />
+                <element signature="e#9278#9279#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,7 +78,15 @@
     <findStrings>
       <find>pow</find>
       <find>print</find>
+      <find>b</find>
+      <find>that</find>
+      <find>this</find>
     </findStrings>
+    <replaceStrings>
+      <replace>that</replace>
+      <replace>b</replace>
+      <replace>a</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -87,19 +94,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/NumberMultiplication.java" />
         <option value="$PROJECT_DIR$/src/MatrixMultiplication.java" />
+        <option value="$PROJECT_DIR$/src/NumberMultiplication.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="4">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="509" />
     <option name="y" value="27" />
     <option name="width" value="1091" />
@@ -111,7 +111,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -128,13 +127,16 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -152,7 +154,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MatrixMultiplication">
+  <component name="RunManager" selected="Application.NumberMultiplication">
     <configuration name="MatrixMultiplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MatrixMultiplication" />
       <module name="Naloga_2" />
@@ -169,8 +171,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MatrixMultiplication" />
         <item itemvalue="Application.NumberMultiplication" />
+        <item itemvalue="Application.MatrixMultiplication" />
       </list>
     </recent_temporary>
   </component>
@@ -190,16 +192,19 @@
       <workItem from="1556910947941" duration="5453000" />
       <workItem from="1556960426044" duration="22934000" />
       <workItem from="1557056687418" duration="5756000" />
+      <workItem from="1557081069249" duration="6812000" />
+      <workItem from="1557154928821" duration="16370000" />
+      <workItem from="1557176202755" duration="216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61616000" />
+    <option name="totallyTimeSpent" value="85014000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="509" y="27" width="1091" height="873" extended-state="4" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24938875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.110341154" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -208,8 +213,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.3293011" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31182796" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39919356" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3618635" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.032502707" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -234,56 +239,45 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/math/BigInteger.class">
+    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/math/BigInteger.class" />
+    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/util/Scanner.class" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3105">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/util/Scanner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="1115" column="40" selection-start-line="1115" selection-start-column="40" selection-end-line="1115" selection-end-column="40" />
+        <state relative-caret-position="-781">
+          <caret line="147" column="19" selection-start-line="147" selection-start-column="19" selection-end-line="147" selection-end-column="19" />
           <folding>
-            <element signature="e#36793#36794#0" expanded="true" />
-            <element signature="e#36847#36848#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NumberMultiplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="249" selection-start-line="249" selection-end-line="277" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#BasicMulti#0;class#NumberMultiplication#0" />
-            <element signature="e#2402#2403#0" expanded="true" />
-            <element signature="e#2486#2487#0" expanded="true" />
-            <element signature="method#read#0;class#NumberMultiplication#0" />
+            <element signature="e#5748#5749#0" expanded="true" />
+            <element signature="e#5784#5785#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MatrixMultiplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="243" column="39" lean-forward="true" selection-start-line="243" selection-start-column="39" selection-end-line="243" selection-end-column="39" />
+        <state relative-caret-position="4165">
+          <caret line="251" column="25" selection-start-line="251" selection-start-column="25" selection-end-line="251" selection-end-column="25" />
           <folding>
             <element signature="e#513#514#0" expanded="true" />
             <element signature="e#550#551#0" expanded="true" />
             <element signature="e#626#627#0" expanded="true" />
             <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#6285#6286#0" expanded="true" />
-            <element signature="e#6323#6324#0" expanded="true" />
-            <element signature="method#readMatrix#0;class#MatrixMultiplication#0" />
-            <element signature="e#7531#7579#1" />
-            <element signature="e#7677#7678#0" expanded="true" />
-            <element signature="e#7635#7688#1" />
-            <element signature="e#7786#7787#0" expanded="true" />
-            <element signature="e#7845#7846#0" expanded="true" />
-            <element signature="e#7891#7892#0" expanded="true" />
+            <element signature="e#9232#9233#0" expanded="true" />
+            <element signature="e#9278#9279#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/versionControl.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NumberMultiplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="76" column="22" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
+          <folding>
+            <element signature="method#Number#0;class#Number#0;class#NumberMultiplication#0" />
+            <element signature="method#Number#1;class#Number#0;class#NumberMultiplication#0" />
+            <element signature="method#multiplyBasic#0;class#Number#0;class#NumberMultiplication#0" />
           </folding>
         </state>
       </provider>
