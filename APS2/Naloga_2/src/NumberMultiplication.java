@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class NumberMultiplication {
@@ -30,7 +31,7 @@ public class NumberMultiplication {
         }
 
         Number multiplyBasic(Number that, boolean print) {
-            int start = this.length - 1, index = 0;
+            int start = this.length - 1, index;
             Number result = new Number(this.length + that.length + 2, this.base), tmp;
 
             for  (int value : that.tab) {
@@ -57,7 +58,7 @@ public class NumberMultiplication {
                 tmp.tab[index] %= base;
 
                 if (print) {
-                    System.out.println(tmp);
+                    System.out.println(tmp.toStringReverse(true));
                 }
 
                 start -= 1;
@@ -70,55 +71,120 @@ public class NumberMultiplication {
             return multiplyBasic(that, false);
         }
 
-        Number multiplyDivConq(Number b, int aStart, int aEnd, int bStart, int bEnd) {
-            
-            System.out.print(this + " " + b + "\n");
+        private Number multiplyDivConq(Number b) {
 
-            // TODO IF
+            int aNumLen = this.numberLength();
+            int bNumLen = b.numberLength();
 
-            int aLen = aEnd - aStart;
-            int bLen = bEnd - bStart;
+            System.out.printf("%d %d\n", this.length, b.length);
+            System.out.printf("%s %s\n", this, b);
 
-            if (aLen == 0 || bLen == 0) {
-                System.out.println(0);
-                return new Number(this.length + b.length + 2, this.base);
-            }
+//            if (this.sumAll() == 0 || b.sumAll() == 0) {
+//                System.out.println(0);
+//                return new Number(1, this.base);
+//            }
 
-            if (aLen < 2 || bLen < 2) {
+            if (aNumLen < 2 || bNumLen < 2) {
                 Number tmp = this.multiplyBasic(b);
-                System.out.println(tmp);
+                System.out.println(tmp.toStringReverse());
                 return tmp;
             }
 
-            int len = Math.max(aLen, bLen);
+            int len = Math.max(this.length, b.length);
             if (len % 2 != 0) len += 1;
             int half = len / 2;
 
-            int aHalf = aStart + half;
-            int bHalf = bStart + half;
+            this.enlarge(len);
+            b.enlarge(len);
 
-            Number a1b1 = multiplyDivConq(b, aHalf,   aEnd, bHalf,   bEnd);
-            Number a1b0 = multiplyDivConq(b, aHalf,   aEnd, bStart, bHalf).shiftRight(len / 2);
-            Number a0b1 = multiplyDivConq(b, aStart, aHalf, bHalf,   bEnd).shiftRight(len / 2);
-            Number a0b0 = multiplyDivConq(b, aStart, aHalf, bStart, bHalf).shiftRight(len);
+            Number a0 = this.subnumber(0, half);
+            Number a1 = this.subnumber(half, this.length);
+            Number b0 = b.subnumber(0, half);
+            Number b1 = b.subnumber(half, b.length);
+
+            Number a1b1 = a1.multiplyDivConq(b1);
+            Number a1b0 = a1.multiplyDivConq(b0).shiftLeft(len / 2);
+            Number a0b1 = a0.multiplyDivConq(b1).shiftLeft(len / 2);
+            Number a0b0 = a0.multiplyDivConq(b0).shiftLeft(len);
+
+            int maxLen = max(a1b1.length, a1b0.length, a0b1.length, a0b0.length);
+//            System.out.println("maxLen:" + maxLen);
+
+            a1b1.enlarge(maxLen);
+            a1b0.enlarge(maxLen);
+            a0b1.enlarge(maxLen);
+            a0b0.enlarge(maxLen);
+
+//            Number a1b1 = a1.multiplyDivConq(b1);
+//            Number a1b0 = a1.multiplyDivConq(b0);
+//            Number a0b1 = a0.multiplyDivConq(b1);
+//            Number a0b0 = a0.multiplyDivConq(b0);
+
+
+//            Number a1b1 = multiplyDivConq(b);
+//            Number a1b0 = multiplyDivConq(b).shiftRight(len / 2);
+//            Number a0b1 = multiplyDivConq(b).shiftRight(len / 2);
+//            Number a0b0 = multiplyDivConq(b).shiftRight(len);
+
+//            System.out.printf("a0b0: %s\n", Arrays.toString(a0b0.tab));
+//            System.out.printf("a0b1: %s\n", Arrays.toString(a0b1.tab));
+//            System.out.printf("a1b0: %s\n", Arrays.toString(a1b0.tab));
+//            System.out.printf("a1b1: %s\n", Arrays.toString(a1b1.tab));
 
             Number tmp = sum(a1b1, a1b0, a0b1, a0b0);
             System.out.println(tmp);
             return tmp;
         }
 
-        public Number multiplyDivConq(Number b) {
-            return multiplyDivConq(b, 0, this.length, 0, b.length);
+        int sumAll() {
+            int sum = 0;
+            for (int value : this.tab) {
+                sum += value;
+            }
+            return sum;
         }
 
         Number sum(Number ... numbers) {
-            Number tmp = new Number(numbers[0].length, numbers[0].base);
-            for (int i = 0; i < numbers[0].length; i++) {
-                for (Number a : numbers) {
-                   tmp.tab[i] += a.tab[i];
+
+            int[] tmp = new int[numbers[0].length * 2 + 2];
+//            System.out.println("TMP LENGTH: " + tmp.length);
+            for (int i = numbers[0].length - 1; i >= 0; i--) {
+                int index = tmp.length - 1 - (numbers[0].length - i - 1);
+//                System.out.println(index);
+                for (Number number : numbers) {
+                    tmp[index] += number.tab[i];
                 }
+
+                tmp[index - 1] = tmp[index] / base;
+                tmp[index] = tmp[index] % base;
             }
-            return tmp;
+
+//            System.out.println(Arrays.toString(tmp));
+
+            Number res = new Number(tmp.length, this.base);
+            res.tab = tmp;
+            return res;
+        }
+
+
+        Number subnumber(int start, int end) {
+            int[] tmp = new int[end - start];
+
+            System.arraycopy(this.tab, start, tmp, 0, tmp.length);
+
+            Number res = new Number(tmp.length, this.base);
+            res.tab = tmp;
+            return res;
+        }
+
+
+        void enlarge(int n) {
+            int[] tmp = new int[n];
+            int start = n - this.length;
+            System.arraycopy(this.tab, 0, tmp, start, this.tab.length);
+            this.tab = tmp;
+            this.length = n;
+
         }
 
         void shiftRight() {
@@ -140,45 +206,87 @@ public class NumberMultiplication {
             this.tab[this.length - 1] = tmp;
         }
 
-        void align() {
-            for (int i = 0; i < this.length && this.tab[0] == 0; i++) {
+        Number shiftLeft(int amount) {
+            for (int i = 0; i < amount; i++) {
                 this.shiftLeft();
+            }
+            return this;
+        }
+
+        void align() {
+            for (int i = 0; i < this.length && this.tab[this.tab.length - 1] == 0; i++) {
+                this.shiftRight();
             }
         }
 
         int numberLength() {
             int res = 0;
-            for (int i = 0; i < this.tab.length; i++) {
+            for (int i = this.tab.length - 1; i >= 0; i--) {
                 if (this.tab[i] > 0) {
-                    res = i;
+                    res = this.tab.length - 1 - i;
                 }
             }
-            return res;
+
+            return res + 1;
         }
 
-        @Override
-        public String toString() {
-            StringBuilder tmp = new StringBuilder();
-            this.align();
+        Number reverseTab() {
+            int tmp;
+            for (int i = 0; i < this.tab.length / 2; i++) {
+                tmp = this.tab[this.tab.length - 1 - i];
+                this.tab[this.tab.length - 1 - i] = this.tab[i];
+                this.tab[i] = tmp;
+            }
 
+            return this;
+        }
+
+        String toStringReverse(boolean align) {
+            this.reverseTab();
+            if (align) this.align();
+            return this.toString();
+        }
+
+        String toStringReverse() {
+            return this.toStringReverse(false);
+        }
+
+        String toString(boolean align) {
+            StringBuilder tmp = new StringBuilder();
+            if (align) this.align();
             int len = this.numberLength();
 
             if (len == 0) {
                 return "0";
             }
 
-            for (int i = len; i > -1; i--) {
+            for (int i = this.tab.length - 1; i >= this.tab.length - len; i--) {
                 if (this.tab[i] > 9) {
-                    tmp.append((char)(this.tab[i] + 87));
+                    tmp.insert(0, (char)(this.tab[i] + 87));
                 }
                 else {
-                    tmp.append(this.tab[i]);
+                    tmp.insert(0, this.tab[i]);
                 }
             }
 
             return tmp.toString();
         }
 
+        @Override
+        public String toString() {
+            return this.toString(false);
+        }
+
+    }
+
+    public static int max(int ... integers) {
+        int max = Integer.MIN_VALUE;
+        for (int integer : integers) {
+            if (integer > max) {
+                max = integer;
+            }
+        }
+        return max;
     }
 
     public static void main(String[] args) {
@@ -191,25 +299,24 @@ public class NumberMultiplication {
         mode = sc.next();
         base = sc.nextInt();
 
-        NumberMultiplication nm = new NumberMultiplication();
-
         switch (mode) {
             case "os":
                 a = new Number(sc.next(), base);
                 b = new Number(sc.next(), base);
-                result = a.multiplyBasic(b, true);
+                result = a.multiplyBasic(b, true).reverseTab();
 
-                for (int i = 0; i <= result.numberLength(); i++) {
+                for (int i = 0; i < result.numberLength(); i++) {
                     System.out.print("-");
                 }
                 System.out.println();
-                System.out.println(result);
+                System.out.println(result.toString());
 
                 break;
             case "dv":
                 a = new Number(sc.next(), base);
                 b = new Number(sc.next(), base);
 
+                a.multiplyDivConq(b);
 
                 break;
             default:
