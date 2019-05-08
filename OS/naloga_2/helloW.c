@@ -15,32 +15,38 @@ void forking(int i, int n, int* arr)
 		return;
 	}
 
+	/*
 	for (int j = 0; j < arr[i]; j++) {
 		int pid = fork();
 		if (pid == 0) {
+			forking(i+arr[i+j], n, arr);
 			sleep(SLEEP);
 			exit(0);
 		}
+		sleep(SLEEP);
+		exit(0);
 
 		if (i+j < n && arr[i+j] > 0) {
 			forking(i+arr[i+j], n, arr);
 		}
 	}
+	*/
 
-	/* for (int j = 0; j < arr[i]; j++) {
+	printf("%d\n", arr[i]);
+	for (int j = 0; j < arr[i]; j++) {
 		int pid = fork();
-		if (pid == 0 && i+j < n && arr[i+j] > 0) {
-
-			printf("%d %d\n", i, arr[i+j]);
-
-			forking(i+arr[i], n, arr);
-
+		if (pid == 0) {
+			printf("%d %d %d\n", i, j, arr[i+j]);
+			if (i+arr[i] < n && arr[i+j] > 0) {
+				printf("%d\n", i+arr[i]);
+				forking(i+arr[i], n, arr);
+			}
 			sleep(SLEEP);
 			exit(0);
 		}
-		exit(0);
 	}
-	*/
+	sleep(SLEEP);
+	exit(0);
 }
 
 int main()

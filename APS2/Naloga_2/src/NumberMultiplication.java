@@ -31,11 +31,18 @@ public class NumberMultiplication {
         }
 
         Number multiplyBasic(Number that, boolean print) {
-            int start = this.length - 1, index;
+
+//            System.out.printf("%s %s\n", Arrays.toString(this.tab), Arrays.toString(that.tab));
+//            System.out.printf("%d %d\n", this.length, that.length);
+
+            int start = this.length > that.length ? this.length : that.length;
+            this.resize(start);
+            that.resize(start);
+            int index;
             Number result = new Number(this.length + that.length + 2, this.base), tmp;
 
             for  (int value : that.tab) {
-                index = start;
+                index = start - 1;
                 tmp = new Number(this.length + that.length + 2, this.base);
 
                 for (int j = this.length - 1; j > -1; j--) {
@@ -76,7 +83,8 @@ public class NumberMultiplication {
             int aNumLen = this.numberLength();
             int bNumLen = b.numberLength();
 
-            System.out.printf("%d %d\n", this.length, b.length);
+//            System.out.printf("%d %d\n", this.length, b.length);
+//            System.out.printf("%s %s\n", Arrays.toString(this.tab), Arrays.toString(b.tab));
             System.out.printf("%s %s\n", this, b);
 
 //            if (this.sumAll() == 0 || b.sumAll() == 0) {
@@ -90,12 +98,12 @@ public class NumberMultiplication {
                 return tmp;
             }
 
-            int len = Math.max(this.length, b.length);
+            int len = Math.max(aNumLen, bNumLen);
             if (len % 2 != 0) len += 1;
             int half = len / 2;
 
-            this.enlarge(len);
-            b.enlarge(len);
+            this.resize(len);
+            b.resize(len);
 
             Number a0 = this.subnumber(0, half);
             Number a1 = this.subnumber(half, this.length);
@@ -125,13 +133,19 @@ public class NumberMultiplication {
 //            Number a1b0 = multiplyDivConq(b).shiftRight(len / 2);
 //            Number a0b1 = multiplyDivConq(b).shiftRight(len / 2);
 //            Number a0b0 = multiplyDivConq(b).shiftRight(len);
-
+//            System.out.printf("%d\n", a0b0.numberLength());
 //            System.out.printf("a0b0: %s\n", Arrays.toString(a0b0.tab));
+//            System.out.printf("%d\n", a0b1.numberLength());
 //            System.out.printf("a0b1: %s\n", Arrays.toString(a0b1.tab));
+//            System.out.printf("%d\n", a1b0.numberLength());
 //            System.out.printf("a1b0: %s\n", Arrays.toString(a1b0.tab));
+//            System.out.printf("%d\n", a1b1.numberLength());
 //            System.out.printf("a1b1: %s\n", Arrays.toString(a1b1.tab));
 
             Number tmp = sum(a1b1, a1b0, a0b1, a0b0);
+//            tmp.reduce(tmp.numberLength());
+//            System.out.printf("%d\n", tmp.numberLength());
+//            System.out.printf("a0b0: %s\n", Arrays.toString(tmp.tab));
             System.out.println(tmp);
             return tmp;
         }
@@ -177,6 +191,37 @@ public class NumberMultiplication {
             return res;
         }
 
+        void resize(int n) {
+            if (n < this.length) {
+                this.reduce(n);
+            }
+            else if (n > this.length) {
+                this.enlarge(n);
+            }
+        }
+
+        void reduce(int n) {
+            int[] tmp = new int[n];
+            int start = this.length - this.numberLength();
+//            System.arraycopy(this.tab, start, tmp, 0, tmp.length - start + 1);
+
+            for (int i = 0; i < n && start + i <= this.tab.length; i++) {
+                tmp[i] = this.tab[start + i];
+            }
+
+            this.tab = tmp;
+            this.length = n;
+
+        }
+
+//        void reduce(int n) {
+//            int[] tmp = new int[n];
+//            int start = this.length - this.numberLength();
+//            if (tmp.length - start >= 0) System.arraycopy(this.tab, start, tmp, 0, tmp.length - start);
+//            this.tab = tmp;
+//            this.length = n;
+//
+//        }
 
         void enlarge(int n) {
             int[] tmp = new int[n];
