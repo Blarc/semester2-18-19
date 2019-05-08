@@ -32,9 +32,6 @@ public class NumberMultiplication {
 
         Number multiplyBasic(Number that, boolean print) {
 
-//            System.out.printf("%s %s\n", Arrays.toString(this.tab), Arrays.toString(that.tab));
-//            System.out.printf("%d %d\n", this.length, that.length);
-
             int start = this.length > that.length ? this.length : that.length;
             this.resize(start);
             that.resize(start);
@@ -82,15 +79,7 @@ public class NumberMultiplication {
 
             int aNumLen = this.numberLength();
             int bNumLen = b.numberLength();
-
-//            System.out.printf("%d %d\n", this.length, b.length);
-//            System.out.printf("%s %s\n", Arrays.toString(this.tab), Arrays.toString(b.tab));
             System.out.printf("%s %s\n", this, b);
-
-//            if (this.sumAll() == 0 || b.sumAll() == 0) {
-//                System.out.println(0);
-//                return new Number(1, this.base);
-//            }
 
             if (aNumLen < 2 || bNumLen < 2) {
                 Number tmp = this.multiplyBasic(b);
@@ -116,66 +105,127 @@ public class NumberMultiplication {
             Number a0b0 = a0.multiplyDivConq(b0).shiftLeft(len);
 
             int maxLen = max(a1b1.length, a1b0.length, a0b1.length, a0b0.length);
-//            System.out.println("maxLen:" + maxLen);
 
             a1b1.enlarge(maxLen);
             a1b0.enlarge(maxLen);
             a0b1.enlarge(maxLen);
             a0b0.enlarge(maxLen);
 
-//            Number a1b1 = a1.multiplyDivConq(b1);
-//            Number a1b0 = a1.multiplyDivConq(b0);
-//            Number a0b1 = a0.multiplyDivConq(b1);
-//            Number a0b0 = a0.multiplyDivConq(b0);
-
-
-//            Number a1b1 = multiplyDivConq(b);
-//            Number a1b0 = multiplyDivConq(b).shiftRight(len / 2);
-//            Number a0b1 = multiplyDivConq(b).shiftRight(len / 2);
-//            Number a0b0 = multiplyDivConq(b).shiftRight(len);
-//            System.out.printf("%d\n", a0b0.numberLength());
-//            System.out.printf("a0b0: %s\n", Arrays.toString(a0b0.tab));
-//            System.out.printf("%d\n", a0b1.numberLength());
-//            System.out.printf("a0b1: %s\n", Arrays.toString(a0b1.tab));
-//            System.out.printf("%d\n", a1b0.numberLength());
-//            System.out.printf("a1b0: %s\n", Arrays.toString(a1b0.tab));
-//            System.out.printf("%d\n", a1b1.numberLength());
-//            System.out.printf("a1b1: %s\n", Arrays.toString(a1b1.tab));
-
             Number tmp = sum(a1b1, a1b0, a0b1, a0b0);
-//            tmp.reduce(tmp.numberLength());
-//            System.out.printf("%d\n", tmp.numberLength());
-//            System.out.printf("a0b0: %s\n", Arrays.toString(tmp.tab));
             System.out.println(tmp);
             return tmp;
         }
 
-        int sumAll() {
-            int sum = 0;
-            for (int value : this.tab) {
-                sum += value;
+        private Number multiplyKaracuba(Number b) {
+
+            int aNumLen = this.numberLength();
+            int bNumLen = b.numberLength();
+            System.out.printf("%s %s\n", this, b);
+
+            if (aNumLen < 2 || bNumLen < 2) {
+                Number tmp = this.multiplyBasic(b);
+                System.out.println(tmp.toStringReverse());
+                return tmp;
             }
-            return sum;
+
+            int len = Math.max(aNumLen, bNumLen);
+            if (len % 2 != 0) len += 1;
+            int half = len / 2;
+
+            this.resize(len);
+            b.resize(len);
+
+            Number a0 = this.subnumber(0, half);
+            Number a1 = this.subnumber(half, this.length);
+            Number b0 = b.subnumber(0, half);
+            Number b1 = b.subnumber(half, b.length);
+
+            Number a1b1 = a1.multiplyKaracuba(b1);
+            Number a0b0 = a0.multiplyKaracuba(b0);
+
+
+            Number a0a1 = sum(a1.resize(len), a0.resize(len));
+            Number b0b1 = sum(b1.resize(len), b0.resize(len));
+            Number c = a0a1.multiplyKaracuba(b0b1);
+            c = c.sub(a0b0);
+            c = c.sub(a1b1);
+
+
+            a0b0.shiftLeft(len);
+            c.shiftLeft(len / 2);
+
+
+            int maxLen = max(a1b1.length, a0b0.length, c.length);
+
+            a1b1.enlarge(maxLen);
+            a0b0.enlarge(maxLen);
+            c.enlarge(maxLen);
+
+            Number tmp = sum(a0b0, c, a1b1);
+            System.out.println(tmp);
+            return tmp;
         }
+
 
         Number sum(Number ... numbers) {
 
             int[] tmp = new int[numbers[0].length * 2 + 2];
-//            System.out.println("TMP LENGTH: " + tmp.length);
             for (int i = numbers[0].length - 1; i >= 0; i--) {
                 int index = tmp.length - 1 - (numbers[0].length - i - 1);
-//                System.out.println(index);
                 for (Number number : numbers) {
                     tmp[index] += number.tab[i];
                 }
 
-                tmp[index - 1] = tmp[index] / base;
+                // TODO dal +
+                tmp[index - 1] += tmp[index] / base;
                 tmp[index] = tmp[index] % base;
             }
 
-//            System.out.println(Arrays.toString(tmp));
-
             Number res = new Number(tmp.length, this.base);
+            res.tab = tmp;
+            return res;
+        }
+
+        Number sub(Number b) {
+//            System.out.println(Arrays.toString(this.tab));
+//            System.out.println(Arrays.toString(b.tab));
+
+            int len = Math.max(this.tab.length, b.tab.length);
+            int[] tmp = new int[len];
+
+            this.resize(len);
+            b.resize(len);
+
+            int countB = b.tab.length - 1, carry = 0, sum;
+
+            for (int i = len - 1; i >= 0; i--) {
+                if (countB < 0) {
+                    sum = this.tab[i] - carry;
+                    if (sum < 0) {
+                        carry = 1;
+                        sum = base + sum;
+                    }
+                    else {
+                        carry = 0;
+                    }
+                }
+                else {
+                    sum = this.tab[i] - b.tab[countB] - carry;
+                    if (sum < 0) {
+                        carry = 1;
+                        sum = base + sum;
+                    }
+                    else {
+                        carry = 0;
+                    }
+
+                    countB -= 1;
+                }
+
+                tmp[i] = sum;
+            }
+
+            Number res = new Number(tmp.length, base);
             res.tab = tmp;
             return res;
         }
@@ -191,37 +241,32 @@ public class NumberMultiplication {
             return res;
         }
 
-        void resize(int n) {
+
+        Number resize(int n) {
             if (n < this.length) {
                 this.reduce(n);
             }
             else if (n > this.length) {
                 this.enlarge(n);
             }
+
+            return this;
         }
 
         void reduce(int n) {
             int[] tmp = new int[n];
-            int start = this.length - this.numberLength();
-//            System.arraycopy(this.tab, start, tmp, 0, tmp.length - start + 1);
+            int start = this.length - 1;
 
-            for (int i = 0; i < n && start + i <= this.tab.length; i++) {
-                tmp[i] = this.tab[start + i];
+            for (int i = n-1; i >= 0; i--) {
+                tmp[i] = this.tab[start];
+                start -= 1;
             }
 
-            this.tab = tmp;
+
             this.length = n;
+            this.tab = tmp;
 
         }
-
-//        void reduce(int n) {
-//            int[] tmp = new int[n];
-//            int start = this.length - this.numberLength();
-//            if (tmp.length - start >= 0) System.arraycopy(this.tab, start, tmp, 0, tmp.length - start);
-//            this.tab = tmp;
-//            this.length = n;
-//
-//        }
 
         void enlarge(int n) {
             int[] tmp = new int[n];
@@ -236,13 +281,6 @@ public class NumberMultiplication {
             int tmp = this.tab[this.length - 1];
             System.arraycopy(this.tab, 0, this.tab, 1, this.length - 1);
             this.tab[0] = tmp;
-        }
-
-        Number shiftRight(int amount) {
-            for (int i = 0; i < amount; i++) {
-                this.shiftRight();
-            }
-            return this;
         }
 
         void shiftLeft() {
@@ -267,7 +305,7 @@ public class NumberMultiplication {
         int numberLength() {
             int res = 0;
             for (int i = this.tab.length - 1; i >= 0; i--) {
-                if (this.tab[i] > 0) {
+                if (this.tab[i] != 0) {
                     res = this.tab.length - 1 - i;
                 }
             }
@@ -324,7 +362,7 @@ public class NumberMultiplication {
 
     }
 
-    public static int max(int ... integers) {
+    private static int max(int... integers) {
         int max = Integer.MIN_VALUE;
         for (int integer : integers) {
             if (integer > max) {
@@ -362,6 +400,13 @@ public class NumberMultiplication {
                 b = new Number(sc.next(), base);
 
                 a.multiplyDivConq(b);
+
+                break;
+            case "ka":
+                a = new Number(sc.next(), base);
+                b = new Number(sc.next(), base);
+
+                a.multiplyKaracuba(b);
 
                 break;
             default:
