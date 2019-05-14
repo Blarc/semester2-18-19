@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9da91648-be1c-427f-92d3-cb60a7df257f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/MatrixMultiplication$Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga_2/MatrixMultiplication$Matrix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/MatrixMultiplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga_2/MatrixMultiplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/NumberMultiplication$Number.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga_2/NumberMultiplication$Number.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/NumberMultiplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Naloga_2/NumberMultiplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NumberMultiplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumberMultiplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TIS/dn_3/TIS-naloga3/naloga3.m" beforeDir="false" afterPath="$PROJECT_DIR$/../../TIS/dn_3/TIS-naloga3/naloga3.m" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +19,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/NumberMultiplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3338">
+            <state relative-caret-position="1681">
               <caret line="216" column="21" selection-start-line="216" selection-start-column="21" selection-end-line="216" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -100,7 +93,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -118,6 +110,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -188,16 +181,17 @@
       <workItem from="1557297444901" duration="5096000" />
       <workItem from="1557319861496" duration="17310000" />
       <workItem from="1557339791370" duration="23000" />
+      <workItem from="1557590873321" duration="54000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129757000" />
+    <option name="totallyTimeSpent" value="129811000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-572" width="1096" height="1896" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2084942" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21235521" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -522,7 +516,7 @@ tmp.reduce(2);</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NumberMultiplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3338">
+        <state relative-caret-position="1681">
           <caret line="216" column="21" selection-start-line="216" selection-start-column="21" selection-end-line="216" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
