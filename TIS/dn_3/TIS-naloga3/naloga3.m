@@ -10,14 +10,11 @@ function [izhod, crc] = naloga3(vhod, n, k)
   % crc   - crc vrednost izracunana po CRC-16 
   %         nad vhodnim vektorjem (sestnajstisko)
   % izhod - vektor podatkovnih bitov, dekodiranih iz vhoda
-
-  izhod = nan;
-  crc = nan;
   
   m = n - k;
   H = zeros(m, n);
-  Y = reshape(vhod, n, columns(vhod) / n)';
   
+  Y = reshape(vhod, n, columns(vhod) / n)';
   
   potencaDve = 1; 
   indexData = 1;
@@ -32,18 +29,37 @@ function [izhod, crc] = naloga3(vhod, n, k)
       indexData += 1;
     endif
   endfor
-   
-  H' * Y
   
-  # error = mod((H'*Y), 2)
-  # potencaDve = 1;
-  # sum = 0;
-  # for i = (1 : rows(error))
-  #  if (error(i, 1) == 1)
-  #    sum += potencaDve;
-  #  endif
-  #  potencaDve *= 2;
-  #endfor
- 
+  H = flipud(H);
+  
+  for i = 1:columns(vhod) / n
+    tmp = Y(i, :) * H';
+    tmp = mod(tmp, 2);
+    
+    if (sum(tmp) != 0)
+      [z, index, zz] = intersect(H', tmp, 'rows');
+      if (index > 0)
+        Y(i, index) = mod(Y(i, index) + 1, 2);
+      endif
+    endif
+      
+  endfor
+  
+  izhod = Y(:, 1:k);
+  izhod = reshape(izhod', columns(vhod) / n * k, 1)';
+  
+  vektor = [0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0];
+  crc = zeros(1, 16);
+  
+  for i = 1:columns(vhod)
+    if (xor(crc(1,16), vhod(i)) == 0)
+      crc = [0, crc(1, 1:15)];
+    else
+      crc = xor(crc, vektor);
+      crc = [1, crc(1, 1:15)];
+    endif
+  endfor
+  
+  crc = dec2hex(bin2dec(num2str(flipud(crc')')));
   
 end
