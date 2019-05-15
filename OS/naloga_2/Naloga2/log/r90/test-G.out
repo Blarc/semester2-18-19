@@ -1,0 +1,34 @@
+*** Error in `./Naloga2': free(): invalid pointer: 0x00007ffeaf228bb0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x777e5)[0x7f0eedc987e5]
+/lib/x86_64-linux-gnu/libc.so.6(+0x7fe0a)[0x7f0eedca0e0a]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x4c)[0x7f0eedca498c]
+/lib/x86_64-linux-gnu/libc.so.6(closedir+0xd)[0x7f0eedce881d]
+./Naloga2[0x402725]
+./Naloga2[0x402d15]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0)[0x7f0eedc41830]
+./Naloga2[0x400af9]
+======= Memory map: ========
+00400000-00404000 r-xp 00000000 fd:02 134217895                          /home/test/src/Naloga2
+00603000-00604000 r--p 00003000 fd:02 134217895                          /home/test/src/Naloga2
+00604000-00605000 rw-p 00004000 fd:02 134217895                          /home/test/src/Naloga2
+0203e000-02067000 rw-p 00000000 00:00 0                                  [heap]
+7f0ee8000000-7f0ee8021000 rw-p 00000000 00:00 0 
+7f0ee8021000-7f0eec000000 ---p 00000000 00:00 0 
+7f0eeda0b000-7f0eeda21000 r-xp 00000000 fd:04 25166141                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f0eeda21000-7f0eedc20000 ---p 00016000 fd:04 25166141                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f0eedc20000-7f0eedc21000 rw-p 00015000 fd:04 25166141                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f0eedc21000-7f0eedde0000 r-xp 00000000 fd:04 25166120                   /lib/x86_64-linux-gnu/libc-2.23.so
+7f0eedde0000-7f0eedfe0000 ---p 001bf000 fd:04 25166120                   /lib/x86_64-linux-gnu/libc-2.23.so
+7f0eedfe0000-7f0eedfe4000 r--p 001bf000 fd:04 25166120                   /lib/x86_64-linux-gnu/libc-2.23.so
+7f0eedfe4000-7f0eedfe6000 rw-p 001c3000 fd:04 25166120                   /lib/x86_64-linux-gnu/libc-2.23.so
+7f0eedfe6000-7f0eedfea000 rw-p 00000000 00:00 0 
+7f0eedfea000-7f0eee010000 r-xp 00000000 fd:04 25166100                   /lib/x86_64-linux-gnu/ld-2.23.so
+7f0eee207000-7f0eee20a000 rw-p 00000000 00:00 0 
+7f0eee20c000-7f0eee20f000 rw-p 00000000 00:00 0 
+7f0eee20f000-7f0eee210000 r--p 00025000 fd:04 25166100                   /lib/x86_64-linux-gnu/ld-2.23.so
+7f0eee210000-7f0eee211000 rw-p 00026000 fd:04 25166100                   /lib/x86_64-linux-gnu/ld-2.23.so
+7f0eee211000-7f0eee212000 rw-p 00000000 00:00 0 
+7ffeaf20b000-7ffeaf22c000 rw-p 00000000 00:00 0                          [stack]
+7ffeaf35e000-7ffeaf360000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]

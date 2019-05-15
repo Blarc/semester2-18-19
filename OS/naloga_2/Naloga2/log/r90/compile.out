@@ -1,0 +1,8 @@
+Naloga2.c: In function 'psext':
+Naloga2.c:492:13: warning: passing argument 1 of 'closedir' from incompatible pointer type [-Wincompatible-pointer-types]
+    closedir(processFilePath);
+             ^
+In file included from Naloga2.c:4:0:
+/usr/include/dirent.h:149:12: note: expected 'DIR * {aka struct __dirstream *}' but argument is of type 'char *'
+ extern int closedir (DIR *__dirp) __nonnull ((1));
+            ^
