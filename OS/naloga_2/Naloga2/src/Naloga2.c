@@ -6,7 +6,9 @@
 #include <sys/file.h>
 #include <sys/wait.h>
 
+#define SLEEP 2
 #define BUFFER_LEN 1024
+
 char* DIR_PATH;
 char OS_PATH[BUFFER_LEN];
 char SWAP_PATH[BUFFER_LEN];
@@ -50,18 +52,20 @@ void readFile(int fd, char* buffer, int n)
 char* readWord(char* data, char* buffer)
 {
 	int iter = 0;
-	while(data[iter] == ' ' || data[iter]  == '\n') {
+	while(data[iter] == ' ' || data[iter]  == '\n' || data[iter] == '\r') {
 		iter += 1;
 	}
 
 	int index = 0;
-	while(data[iter] != ' ') {
+	// printf("%s\n", data);
+	while(data[iter] != ' ' && data[iter] != '\n' && data[iter] != '\0' && data[iter] != '\r') {
 		buffer[index] = data[iter];
 		index += 1;
 		iter += 1;
 	}
 
 	buffer[index] = '\0';
+	//printf("%s\n", buffer);
 	return &data[iter];
 }
 
@@ -407,11 +411,24 @@ void ps(char* arg)
 	}
 }
 
+char* removeNewLines(char* a)
+{
+	int i = 0;
+	while(a[i] != '\0') {
+		if (a[i] == '\n') {
+			a[i] = '\0';
+			return a;
+		}
+		i += 1;
+	}
+	return a;
+}
+
 void psext(char* arg)
 {
 	int num, fd, count;
 	int index = 0;
-	int bufferLen = 1024;
+	int bufferLen = 2048;
 
 	char* name;
 	char processNamePathOrg[bufferLen];
@@ -459,6 +476,7 @@ void psext(char* arg)
 			readFile(fd, processName, bufferLen);
 			close(fd);
 
+			processName = removeNewLines(processName);
 			dataA.processName = processName;
 
 			strcat(processStatPath, name);
@@ -489,9 +507,9 @@ void psext(char* arg)
 			while (data = readdir(dirFile)) {
 				count += 1;
 			}
-			closedir(processFilePath);
+			closedir(dirFile);
 
-			dataA.file = count;
+			dataA.file = count - 2;
 
 			if (arg != NULL && ancestor(num, atoi(arg))) {
 				arr[index] = dataA;
@@ -504,56 +522,51 @@ void psext(char* arg)
 		}
 	}
 
-	closedir(dir);
-
 	bubbleSortNum(arr, index);
 
-	printf("%5s %5s %6s %6s %6s %s\n", "PID", "PPID", "STANJE", "#NITI", "#DAT", "IME");
+	printf("%5s %5s %6s %6s %6s %s\n", "PID", "PPID", "STANJE", "#NITI", "#DAT.", "IME");
 	for (int i = 0; i < index; i++) {
-		printf("%5d %5d %6c %6d %6d %s", arr[i].pid, arr[i].ppid, arr[i].state, arr[i].threads, arr[i].file, arr[i].processName);
+		printf("%5d %5d %6c %6d %6d %s\n", arr[i].pid, arr[i].ppid, arr[i].state, arr[i].threads, arr[i].file, arr[i].processName);
 	}
 }
 
 
-// 	execlp("pstree", "-c", getpid(), (char *) NULL);
-void forktree(int mainPid)
+void forking(int i, int n, int* arr)
 {
+	if (arr[i] == 0 || i >= n) {
+		return;
+	}
 
-	int pid = fork();
-	if (pid == 0) {
-
-		int pid2 = fork();
-		if (pid2 == 0) {
-
-			int pid3 = fork();
-			if (pid3 == 0) {
-				sleep(2);
-				exit(0);
-			}
-
-			sleep(2);
+	for (int j = 0; j < arr[i]; j++) {
+		int pid = fork();
+		if (pid == 0) {
+			printf("i + j + 1: %d\n", i + j + 1);
+			printf("array num: %d\n", arr[i] + i);
+			forking(arr[i] + i + j, n, arr);
+			sleep(SLEEP);
 			exit(0);
 		}
+	}
 
-		sleep(2);
+}
+
+void forktree(int* arr, int n)
+{
+
+	int mainPid = getpid();
+	int pid1;
+
+	pid1 = fork();
+	if (pid1 != 0) {
+
+		forking(0, n, arr);
+		sleep(SLEEP);
 		exit(0);
 	}
 
-	pid = fork();
-	if (pid == 0) {
-		sleep(2);
-		exit(0);
-	}
-
-	pid = fork();
-	if (pid == 0) {
-		sleep(2);
-		exit(0);
-	}
-
-		char a[100];
-		sprintf(a, "%d", mainPid);
-		execlp("pstree", "pstree", "-c", a, NULL);
+	char a[100];
+	sprintf(a, "%d", mainPid);
+	execlp("pstree", "pstree", "-c", a, NULL);
 }
 
 int main(int argc, char* argv[])
@@ -592,7 +605,17 @@ int main(int argc, char* argv[])
 		PIDS_LEN = len;
 	}
 	else {
-		forktree(getpid());
+		int arr[128];
+		int i = 0;
+		int c;
+		while ((c = getchar()) != EOF) {
+			if (c > 32) {
+				arr[i] = c - 48;
+				i += 1;
+			}
+		}
+
+		forktree(arr, i);
 	}
 
 	if (!strcmp(input, "sys")) {

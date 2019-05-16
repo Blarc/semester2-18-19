@@ -1,0 +1,109 @@
+C - dur
+C1 -> 261,63 Hz = v1
+E1 -> 329,63 Hz = v2
+G1 -> 392,00 Hz = v3
+
+v = frekvence
+v = 44100 Hz
+T = čas
+T = 1 s
+
+N = v * T = 44100
+
+to ni najboljši način kako generirati tone oz. akorde, ker
+je zvok ki ga tako ustvarimo zelo neprijetene
+
+Nek signal, v tem primeru zvok, sestavljen iz treh tonov, lahko
+matematično opišemo kot:
+
+x(t) = a1 * sin(w1 * t) + a2 * sin(w2 * t) + a3 * sin(w3*t);
+w1 = 2pi*vi
+
+frekvenca vzorčena 44100 hz, čas trajanja 1 sekunda, lahko
+izračunamo vektor T, ki vsebuje trenutke v času, kjer zabeležimo
+vrednost te funkcije in to je
+
+t = [0, deltaT, 2deltaT, ... , (n-1)deltaT];
+
+deltaT = perioda vzorčenja, vsak časovni razmak med posamezni vzorci
+= deltaT = 1 / frekvenca = T / N
+
+Iz zdaj seveda tale akord bi spravili posentek tako da bi za vsak
+tale čas izračunali vrednost te funkcije, čase mamo, amplitudo mamo...
+
+( 0 : n - 1 ) * deltaT (nič proti ena)
+
+audioWrite - export v audio datoteko
+
+Kakšna je minimalna in maksimalno amplituda signala?
+
+normalizaicja, vse vzorce delimo z maksimalno absolutno vrednostjo od T
+
+xn(t) = (x(t)) / max(abs(x thetha)) * 0.99
+
+Če imamo nek zvočni posnetek, kateri akord je
+
+GRAF
+
+seštete sinusoide do časa T
+
+Iz časovnega poteka signala težko razberemo kateri akord je.
+To naredimo z orodjem, ki smo ga spoznali na predavanjih:
+
+DFT = diskretna foureriova transformacija
+
+Kaj naredi?
+
+Pogledamo absolutno vrednost DFT, ker DFT vsebuje frekvenco posameznega signala, rezultat so kompleksna števila in jih je težko narisati
+
+Če vzamemo absolutno dobimo amplitudo posameznih...
+
+Slika sega do frekvence vzorčanja
+
+pri polovični frekvenci vzorčenja
+
+pri v1, v2, v3 dobimo neke neničelne amplitude
+
+na drugi polovici, dobimo zrcaljeno sliko, ta del lahko
+zanemarimo
+
+povsod drugje naj bi bila ničla, oz. zelo majhne vrednosti
+(ranga 10^-6)
+
+Katere tri frekvence se pojavijo, in tako vemo kateri akord.
+
+v Octavu imamo vgrajeno DFT -> funckija FFT()
+
+FFT() -> absolutna vrednost
+
+Moč signala
+P(Y) = ( absolutna vrednost FFT ^ 2 ) / N
+
+če damo notr 44100 številk, dobimo vn 44100 kompleksnih številk
+
+vsaka številka nam predstavlja amplitudo in fazo pri neki frekvenci
+
+delta V (ni) = frekvenca vzorčenja / N
+
+porazdeli se na dve sosednji točki, ker vrekvenca ni celo število
+
+pogledate frekvenco tona, pogledamo katera je najbližja točka, ki je primerna za tisti ton
+
+gregor: Zakaj ne bi maksimume poiskal?
+_____________________________________________________________________
+sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+vhod = vhodni vektor
+Fs = frekvenca vzorčenja
+iz tega ugotoviš koliko časa traja
+
+vrača "Cdur"
+če ne vrnemo prazen niz
+
+časovno omejeni na 20s
+
+rok za oddajo 31.5
+
+
+
