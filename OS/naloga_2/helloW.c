@@ -11,102 +11,67 @@
 
 void forking(int i, int n, int* arr)
 {
+	int stat;
+
 	if (i >= n) {
 		return;
 	}
 
-	/*
 	for (int j = 0; j < arr[i]; j++) {
 		int pid = fork();
 		if (pid == 0) {
-			forking(i+arr[i+j], n, arr);
-			sleep(SLEEP);
-			exit(0);
+			forking(i + j + 1, n, arr);
 		}
-		sleep(SLEEP);
-		exit(0);
-
-		if (i+j < n && arr[i+j] > 0) {
-			forking(i+arr[i+j], n, arr);
-		}
+		waitpid(pid, &stat, 0);
 	}
-	*/
+}
 
-	printf("%d\n", arr[i]);
-	for (int j = 0; j < arr[i]; j++) {
-		int pid = fork();
-		if (pid == 0) {
-			printf("%d %d %d\n", i, j, arr[i+j]);
-			if (i+arr[i] < n && arr[i+j] > 0) {
-				printf("%d\n", i+arr[i]);
-				forking(i+arr[i], n, arr);
+void forking2(int n, int* arr)
+{
+	int stat;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < arr[i]; j++) {
+			int pid = fork();
+			if (pid == 0) {
+				i += arr[i];
+				j = 0;
+				if (arr[i] < 1) {
+					exit(0);
+				}
 			}
+		}
+	}
+}
+
+void forka(int i, int n, int* arr)
+{
+	if (arr[i] == 0 || i >= n) {
+		return;
+	}
+
+	for (int j = 0; j < arr[i]; j++) {
+		int pid = fork();
+		if (pid == 0) {
+			// printf("i + j + 1: %d\n", i + j + 1);
+			// printf("array num: %d\n", arr[i] + i);
+			forka(arr[i] + i + j, n, arr);
 			sleep(SLEEP);
 			exit(0);
 		}
 	}
-	sleep(SLEEP);
-	exit(0);
 }
 
 int main()
 {
 	int mainPid = getpid();
 	int pid1, pid2, pid3, pid4;
-	int arr[4] = {1, 5, 0, 3};
+	// int arr[4] = {1, 5, 0, 3};
+	int arr[7] = {2, 0, 3, 0, 1, 0, 3};
 
 	pid1 = fork();
 	if (pid1 != 0) {
 
-		/*pid2 = fork();
-		if (pid2 == 0) {
-
-			pid3 = fork();
-			if (pid3 == 0) {
-				sleep(SLEEP);
-				exit(0);
-			}
-
-			pid3 = fork();
-			if (pid3 == 0) {
-
-				for (int i = 0; i < 3; i++) {	
-					pid4 = fork();
-					if (pid4 == 0) {
-						sleep(SLEEP);
-						exit(0);
-					}
-				}
-
-				sleep(SLEEP);
-				exit(0);
-			}
-
-			pid3 = fork();
-			if (pid3 == 0) {
-				sleep(SLEEP);
-				exit(0);
-			}
-
-			pid3 = fork();
-			if (pid3 == 0) {
-				sleep(SLEEP);
-				exit(0);
-			}
-
-			pid3 = fork();
-			if (pid3 == 0) {
-				sleep(SLEEP);
-				exit(0);
-			}
-
-			sleep(SLEEP);
-			exit(0);
-		}
-		*/
-
-		forking(0, 4, arr);
-
+		forka(0, 7, arr);
 		sleep(SLEEP);
 		exit(0);
 	}
