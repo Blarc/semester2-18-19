@@ -153,96 +153,52 @@ void strlwr(const char* str, char* nova){
 }
 
 
+struct pidName {
+	int pid;
+	char imeProcesa[20];
+};
+typedef struct pidName pidName;
+
+void bubbleSort(pidName arr[], int n) {
+	for (int i = 0; i < n; i++) {
+		printf("%s %d\n", arr[i].imeProcesa, arr[i].pid);
+	}
+
+	int i, j, strcomp, a, b;
+	char* one, *two;
+	for (int i = 0; i < n - 1; i++) {
+		for (j = 0; j < n - i - 1; j++) {
+
+			one = arr[j].imeProcesa;
+			two = arr[j+1].imeProcesa;
+
+
+			strcomp = strcmp(one, two);
+			printf("%d\n", strcomp);
+
+			if (strcomp > 0) {
+				pidName tmp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = tmp;
+			}
+			else if (strcomp == 0) {
+				a = arr[j].pid;
+				b = arr[j+1].pid;
+
+				if (a > b) {
+					pidName tmp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = tmp;
+				}
+			}
+		}
+	}
+}
 
 void names(){
 
-	
-
-
 	struct dirent *de;  // Pointer for directory entry 
   
-	struct pidName_{
-	   int  stPid;
-	   char imeProcesa[20];
-	   
-	};
-	
-	typedef struct pidName_ pidName;
-
-	int compare(pidName s1_a, pidName s2_b)
-	{
-		char novaA[50];
-		char novaB[50];
-
-	    pidName pidName_a = s1_a;
-  	    pidName pidName_b = s2_b;
-		
-		strlwr(pidName_a.imeProcesa,novaA);
-		strlwr(pidName_b.imeProcesa,novaB);
-		
-		int aPid = pidName_a.stPid;
-		int bPid = pidName_b.stPid;
-
-	    int strcomp = strcmp(novaA,novaB);
-		if (strcomp == 0){
-			//printf("%d",aPid - bPid);
-			return aPid - bPid;
-		}  
-			
-		else{
-			//printf("%d",strcomp);
-			return strcomp;
-		}
-
-	}
-
-	void swap(pidName *xp, pidName *yp) 
-		{ 
-			pidName temp = *xp; 
-			*xp = *yp; 
-			*yp = temp; 
-		} 
-  
-// A function to implement bubble sort 
-	void bubbleSort(pidName arr[], int n) 
-	{ 
-	   int i, j; 
-	   for (i = 0; i < n-1; i++){       
-	  
-		   // Last i elements are already in place    
-		   for (j = 0; j < n-i-1; j++) { 
-		       if (compare(arr[j],arr[j+1])==1) {
-					swap(&arr[j], &arr[j+1]);
-					//pidName temp = arr[j];
-					//arr[j]=arr[j+1];
-					//arr[j+1]=temp;				
-				}
-			}
-		 }          
-	} 
-
-/*
-	int compare(const void *s1_a, const void *s2_b)
-	{
-	   const pidName *pidName_a = s1_a;
-  	   const pidName *pidName_b = s2_b;
-	
-		char* a=pidName_a->imeProcesa;
-		char* b=pidName_b->imeProcesa;
-		
-		int aPid = pidName_a->stPid;
-		int bPid = pidName_b->stPid;
-
-	   	int i=0,c,d;
-		while(a[i]!='\0' && b[i]!='\0'){
-			c=tolower(a[i]);
-			d=tolower(b[i]);
-			
-			if(c < d)
-		}
-
-	}
-*/
     char* pot="proc-demo";
 	char potComm[100];
 	strcpy(potComm,"proc-demo/");
@@ -262,7 +218,7 @@ void names(){
 	char* potProcesa;
 	char filebuffer[1000];
     while ((de = readdir(dr)) != NULL){
-			ime=de->d_name; 
+			ime=de->d_name;
 			//printf("%s\n",ime);
 			//printf("/%s",ime);
 			if (atoi(ime)){
@@ -277,7 +233,7 @@ void names(){
 					//printf("%s\n",filebuffer);	
 					int st= atoi(ime);
 					//printf("%d",st);	
-					array[stevec].stPid=st;
+					array[stevec].pid=st;
 					strcpy(array[stevec].imeProcesa,filebuffer);
 					//printf("%d %s\n",array[stevec].stPid,array[stevec].imeProcesa);	
 					strcpy(potComm,"proc-demo/");
@@ -288,10 +244,11 @@ void names(){
   	}
 	//qsort(array, stevec, sizeof(pidName), compare);
 	
+	printf("%d\n", stevec);
 	bubbleSort(array, stevec);
 	
 	for(int n = 0 ; n < stevec; n++ ) {   
-      printf("%d %s\n",array[n].stPid,array[n].imeProcesa);	
+      printf("%d %s\n",array[n].pid,array[n].imeProcesa);	
    	}
 	closedir(dr); 
 }

@@ -531,7 +531,7 @@ void psext(char* arg)
 }
 
 
-void forking(int i, int n, int* arr)
+void forking(int i, int n, int* arr, int prev)
 {
 	if (arr[i] == 0 || i >= n) {
 		return;
@@ -540,9 +540,7 @@ void forking(int i, int n, int* arr)
 	for (int j = 0; j < arr[i]; j++) {
 		int pid = fork();
 		if (pid == 0) {
-			printf("i + j + 1: %d\n", i + j + 1);
-			printf("array num: %d\n", arr[i] + i);
-			forking(arr[i] + i + j, n, arr);
+			forking(prev + j + 1, n, arr, prev + arr[i]);
 			sleep(SLEEP);
 			exit(0);
 		}
@@ -559,9 +557,62 @@ void forktree(int* arr, int n)
 	pid1 = fork();
 	if (pid1 != 0) {
 
-		forking(0, n, arr);
+		forking(0, n, arr, 0);
 		sleep(SLEEP);
 		exit(0);
+	}
+
+	char a[100];
+	sprintf(a, "%d", mainPid);
+	execlp("pstree", "pstree", "-c", a, NULL);
+}
+
+void forktree1()
+{
+	int mainPid = getpid();
+	int pid1, pid2, pid3, pid4;
+
+	pid1 = fork();
+	if (pid1 != 0) {
+
+		pid2 = fork();
+		if (pid2 == 0) {
+			sleep(SLEEP);
+			exit(0);
+		}
+
+		pid2 = fork();
+		if (pid2 == 0) {
+
+			pid3 = fork();
+			if (pid3 == 0) {
+				sleep(SLEEP);
+				exit(0);
+			}
+		}
+
+		if (pid2 == 0) {
+
+
+		}
+
+		sleep(SLEEP);
+		exit(0);
+	}
+
+	char a[100];
+	sprintf(a, "%d", mainPid);
+	execlp("pstree", "pstree", "-c", a, NULL);
+}
+
+void forktree2()
+{
+	int mainPid = getpid();
+	int pid1;
+
+	pid1 = fork();
+	if (pid1 != 0) {
+
 	}
 
 	char a[100];
@@ -609,14 +660,26 @@ int main(int argc, char* argv[])
 		int i = 0;
 		int c;
 		while ((c = getchar()) != EOF) {
+			// printf("%c\n", c);
 			if (c > 32) {
 				arr[i] = c - 48;
 				i += 1;
 			}
 		}
 
+		/*
+		if (arr[0] == 1) {
+			forktree1();
+		}
+		else {
+			forktree2();
+		}
+		*/
+
 		forktree(arr, i);
 	}
+	//1 2 3 4 5 0 0 0 0 1
+	//0 1 2 0 1 0 4 0 0 0 1
 
 	if (!strcmp(input, "sys")) {
 		sys();
