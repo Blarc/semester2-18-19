@@ -1,0 +1,11 @@
+--2019-05-20 20:53:33--  https://fcc-weather-api.glitch.me/api/current?lat=35
+Resolving fcc-weather-api.glitch.me (fcc-weather-api.glitch.me)... 18.205.74.164, 52.22.203.92
+Connecting to fcc-weather-api.glitch.me (fcc-weather-api.glitch.me)|18.205.74.164|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 82 [application/json]
+Saving to: ‘current?lat=35.1’
+
+current?lat=35.1      0%[                    ]       0  --.-KB/s               current?lat=35.1    100%[===================>]      82  --.-KB/s    in 0s      
+
+2019-05-20 20:53:34 (4,63 MB/s) - ‘current?lat=35.1’ saved [82/82]
+
