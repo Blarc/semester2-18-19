@@ -12,7 +12,7 @@
 #define LOCK_FILE "lovec.lock"
 #define LOG_FILE "lovec.log"
 
-int energy = 42;
+int energy = 12000;
 char* out = "*";
 char str[128];
 
@@ -35,6 +35,7 @@ void handler(int signum)
 		case SIGTERM:
 			energy += 10;
 			sprintf(str, "Abrakadabra! Bonus energy! (%d).\n", energy);
+			log_message(LOG_FILE, str);
 			break;
 
 		case SIGUSR1:
@@ -51,14 +52,17 @@ void handler(int signum)
 			if (childpid == 0) {
 				exit_status = (energy * 42) % 128;
 				sprintf(str, "Forked child %d.\n", exit_status);
+				log_message(LOG_FILE, str);
 				sleep(energy % 7 + 1);
 				sprintf(str, "Child exit with status %d.\n", exit_status);
+				log_message(LOG_FILE, str);
 				exit(exit_status);
 			}
 			break;
 
 		case SIGCHLD:
 			sprintf(str, "Zombie caught with status %d.\n", exit_status);
+			log_message(LOG_FILE, str);
 			wait(NULL);
 			break;
 	}
@@ -104,6 +108,7 @@ void daemonize()
 	}
 
 	sprintf(str, "%d\n", getpid());
+	printf("%s\n", str);
 	write(lfp, str, strlen(str));
 
 	signal(SIGTERM, handler);
@@ -114,6 +119,7 @@ void daemonize()
 
 int main()
 {
+	printf("%s\n", "Hello");
 	daemonize();
 	return 0;
 }
