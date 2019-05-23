@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9da91648-be1c-427f-92d3-cb60a7df257f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../TIS/dn_3/TIS-naloga3/naloga3.m" beforeDir="false" afterPath="$PROJECT_DIR$/../../TIS/dn_3/TIS-naloga3/naloga3.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/MatrixMultiplication$Matrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/MatrixMultiplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/NumberMultiplication$Number.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Naloga_2/NumberMultiplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OS/izziv_10/lovec.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/izziv_10/lovec.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/NumberMultiplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1681">
-              <caret line="216" column="21" selection-start-line="216" selection-start-column="21" selection-end-line="216" selection-end-column="21" />
+            <state relative-caret-position="3165">
+              <caret line="270" column="21" selection-start-line="270" selection-start-column="21" selection-end-line="270" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#9609#9610#0" expanded="true" />
@@ -35,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MatrixMultiplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4522">
+            <state relative-caret-position="3990">
               <caret line="278" column="9" selection-start-line="278" selection-start-column="9" selection-end-line="278" selection-end-column="9" />
               <folding>
                 <element signature="e#513#514#0" expanded="true" />
@@ -82,10 +87,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-572" />
-    <option name="width" value="1091" />
-    <option name="height" value="873" />
+    <option name="x" value="258" />
+    <option name="y" value="136" />
+    <option name="width" value="1151" />
+    <option name="height" value="655" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -93,6 +98,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -109,8 +116,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -182,16 +187,17 @@
       <workItem from="1557319861496" duration="17310000" />
       <workItem from="1557339791370" duration="23000" />
       <workItem from="1557590873321" duration="54000" />
+      <workItem from="1558526768883" duration="77000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129811000" />
+    <option name="totallyTimeSpent" value="129888000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-572" width="1096" height="1896" extended-state="6" />
+    <frame x="67" y="25" width="1533" height="875" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21235521" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21519838" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -230,221 +236,155 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>118</line>
-          <properties class="NumberMultiplication.Number" method="multiplyKaracuba">
+          <line>107</line>
+          <properties class="NumberMultiplication.Number">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>188</line>
-          <properties class="NumberMultiplication.Number" method="sub">
+          <line>238</line>
+          <properties class="NumberMultiplication.Number">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>124</line>
+          <line>112</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>127</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>122</line>
+          <line>110</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>142</line>
-          <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>143</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>146</line>
+          <line>114</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>147</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>148</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>150</line>
+          <line>116</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>149</line>
+          <line>115</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>157</line>
+          <line>129</line>
           <properties />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>164</line>
+          <line>172</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>134</line>
-          <properties />
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>135</line>
-          <properties />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>137</line>
-          <properties />
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>138</line>
-          <properties />
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>139</line>
-          <properties />
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>140</line>
-          <properties />
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>153</line>
+          <line>125</line>
           <properties />
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>154</line>
+          <line>126</line>
           <properties />
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>159</line>
+          <line>167</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>161</line>
+          <line>170</line>
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>160</line>
+          <line>169</line>
           <properties />
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>193</line>
+          <line>243</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>198</line>
+          <line>249</line>
           <properties />
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>200</line>
+          <line>253</line>
           <properties />
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>202</line>
+          <line>255</line>
           <properties />
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>204</line>
+          <line>257</line>
           <properties />
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>206</line>
+          <line>258</line>
           <properties />
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>208</line>
+          <line>260</line>
           <properties />
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>211</line>
+          <line>264</line>
           <properties />
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>215</line>
+          <line>269</line>
           <properties />
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>213</line>
+          <line>267</line>
           <properties />
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NumberMultiplication.java</url>
-          <line>219</line>
+          <line>270</line>
           <properties />
           <option name="timeStamp" value="62" />
         </line-breakpoint>
@@ -516,8 +456,8 @@ tmp.reduce(2);</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NumberMultiplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1681">
-          <caret line="216" column="21" selection-start-line="216" selection-start-column="21" selection-end-line="216" selection-end-column="21" />
+        <state relative-caret-position="3165">
+          <caret line="270" column="21" selection-start-line="270" selection-start-column="21" selection-end-line="270" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#9609#9610#0" expanded="true" />
@@ -530,7 +470,7 @@ tmp.reduce(2);</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MatrixMultiplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4522">
+        <state relative-caret-position="3990">
           <caret line="278" column="9" selection-start-line="278" selection-start-column="9" selection-end-line="278" selection-end-column="9" />
           <folding>
             <element signature="e#513#514#0" expanded="true" />

@@ -8,13 +8,16 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <ctype.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
 #define MAX_INPUT 256
 char name[64] = "myShell";
-char* tokens[20];
+char** tokens;
 
 int tokenize(char* line) {
-	*tokens = tokens[20];
+	free(tokens);
+	tokens = malloc(20 * sizeof(char*));
 	char* tmp = line;
 	int i = 0;
 
@@ -31,43 +34,28 @@ int tokenize(char* line) {
 		}
 
 		*tmp = '\0';
-		printf(": %s\n", tokens[i]);
 
 		tmp += sizeof(char);
 		i += 1;
 	}
-	printf("%d\n", i);
-}
-
-void printCharArr(char* line) {
-	for (int i = 0; i < MAX_INPUT && line[i] != '\0'; i++) {
-		printf("%c, ", line[i]);
-	}
-	printf("%c", '\n');
-}
-
-int readLine(char* line) {
-	char c;
-	int i = 0;
-	while((c = getchar()) != '\n') {
-		line[i] = c;
-		i += 1;
-	}
-	line[i] = '\0';
+	return i;
 }
 
 int main()
 {
+	unsigned long max_input = 256;
 	while(1) {
+		char* line = malloc(MAX_INPUT * sizeof(char));
 		printf("%s: ", name);
-		char line[MAX_INPUT];
-		readLine(line);
-		// printCharArr(line);
-		tokenize(line);
+		getline(&line, &max_input, stdin);
+		int num_tokens = tokenize(line);
+		free(line);
 
-		//for (int i = 0; i < 5; i++) {
-		//	printf("%s\n", tokens[i]);
-		//}
+		printf("%d\n", num_tokens);
+		for (int i = 0; i < num_tokens; i++) {
+			printf("%s\n", tokens[i]);
+		}
+		printf("%s\n", tokens[0]);
 
 	}
 }

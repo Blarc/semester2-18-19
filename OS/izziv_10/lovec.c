@@ -7,16 +7,16 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <time.h>
 
 #define DIR "/tmp"
 #define LOCK_FILE "lovec.lock"
 #define LOG_FILE "lovec.log"
 
-<<<<<<< HEAD
+time_t timer;
+char buffer[26];
+struct tm* tm_info;
 int energy = 12000;
-=======
-int energy = 42;
->>>>>>> 63f73365d14aa5462059c66d41d92b46471c0d32
 char* out = "*";
 char str[128];
 
@@ -26,6 +26,12 @@ void log_message(char* filename, char* message)
 	logfile = fopen(filename, "a");
 	if(!logfile)
 		return;
+
+	time(&timer);
+	tm_info = localtime(&timer);
+	strftime(buffer, 26, "%Y-%m-%d %H:%M:%S ", tm_info);
+	fprintf(logfile, "%s", buffer);
+
 	fprintf(logfile, "%s", message);
 	fclose(logfile);
 }
@@ -39,10 +45,7 @@ void handler(int signum)
 		case SIGTERM:
 			energy += 10;
 			sprintf(str, "Abrakadabra! Bonus energy! (%d).\n", energy);
-<<<<<<< HEAD
 			log_message(LOG_FILE, str);
-=======
->>>>>>> 63f73365d14aa5462059c66d41d92b46471c0d32
 			break;
 
 		case SIGUSR1:
@@ -59,25 +62,19 @@ void handler(int signum)
 			if (childpid == 0) {
 				exit_status = (energy * 42) % 128;
 				sprintf(str, "Forked child %d.\n", exit_status);
-<<<<<<< HEAD
 				log_message(LOG_FILE, str);
 				sleep(energy % 7 + 1);
 				sprintf(str, "Child exit with status %d.\n", exit_status);
 				log_message(LOG_FILE, str);
-=======
 				sleep(energy % 7 + 1);
 				sprintf(str, "Child exit with status %d.\n", exit_status);
->>>>>>> 63f73365d14aa5462059c66d41d92b46471c0d32
 				exit(exit_status);
 			}
 			break;
 
 		case SIGCHLD:
 			sprintf(str, "Zombie caught with status %d.\n", exit_status);
-<<<<<<< HEAD
 			log_message(LOG_FILE, str);
-=======
->>>>>>> 63f73365d14aa5462059c66d41d92b46471c0d32
 			wait(NULL);
 			break;
 	}
@@ -123,10 +120,7 @@ void daemonize()
 	}
 
 	sprintf(str, "%d\n", getpid());
-<<<<<<< HEAD
 	printf("%s\n", str);
-=======
->>>>>>> 63f73365d14aa5462059c66d41d92b46471c0d32
 	write(lfp, str, strlen(str));
 
 	signal(SIGTERM, handler);
@@ -137,10 +131,15 @@ void daemonize()
 
 int main()
 {
-<<<<<<< HEAD
 	printf("%s\n", "Hello");
-=======
->>>>>>> 63f73365d14aa5462059c66d41d92b46471c0d32
 	daemonize();
+
+	while(energy > 0) {
+		fflush(stdout);
+		sleep(1);
+		printf("%s", out);
+		energy -= 1;
+	}
+
 	return 0;
 }
