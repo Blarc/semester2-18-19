@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8959fd1-85c4-46a0-84ca-449983673d05" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/Naloga1.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-A.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-A.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-B.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-B.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-C.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-C.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-D.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-D.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-E.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-E.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-F.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-F.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-G.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-G.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-H.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-H.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-I.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_1/Naloga1/log/r52/test-I.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../izziv_11/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_11/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../izziv_11/out/production/izziv_11/Knapsack.class" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_11/out/production/izziv_11/Knapsack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../izziv_11/src/Knapsack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_11/src/Knapsack.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,7 +25,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Naloga1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="1099">
               <caret line="222" selection-start-line="222" selection-end-line="222" />
               <folding>
                 <element signature="class#NumericSort#0;class#Naloga1#0" />
@@ -48,25 +33,13 @@
                 <element signature="e#324#1518#0" />
                 <element signature="e#387#751#0" />
                 <element signature="e#836#1374#0" />
-                <element signature="class#BubbleSort#0;class#Naloga1#0" />
-                <element signature="method#BubbleSort#0;class#BubbleSort#0;class#Naloga1#0" />
-                <element signature="method#getNsUp#0;class#BubbleSort#0;class#Naloga1#0" />
-                <element signature="e#1757#2505#0" />
-                <element signature="e#1950#2412#1" />
-                <element signature="e#2101#2363#1" />
-                <element signature="e#2191#2341#1" />
                 <element signature="method#getNsDown#0;class#BubbleSort#0;class#Naloga1#0" />
                 <element signature="e#2581#3330#0" />
                 <element signature="e#2774#3237#1" />
                 <element signature="e#2925#3188#1" />
                 <element signature="e#3015#3166#1" />
-                <element signature="method#swap#0;class#BubbleSort#0;class#Naloga1#0" />
-                <element signature="method#bubblePrint#0;class#BubbleSort#0;class#Naloga1#0" />
                 <element signature="e#3564#3630#1" />
                 <element signature="e#3636#3700#1" />
-                <element signature="e#3751#3957#1" />
-                <element signature="e#3789#3864#1" />
-                <element signature="e#3870#3943#1" />
                 <element signature="class#SelectionSort#0;class#Naloga1#0" />
                 <element signature="method#SelectionSort#0;class#SelectionSort#0;class#Naloga1#0" />
                 <element signature="method#getNsUp#0;class#SelectionSort#0;class#Naloga1#0" />
@@ -225,7 +198,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
+            <state relative-caret-position="51">
               <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -265,10 +238,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="257" />
-    <option name="y" value="136" />
-    <option name="width" value="1141" />
-    <option name="height" value="655" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -301,7 +274,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554218697796" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../izziv_7" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
@@ -368,11 +341,12 @@
       <workItem from="1554880699968" duration="61000" />
       <workItem from="1554909044687" duration="34000" />
       <workItem from="1555762838031" duration="23000" />
+      <workItem from="1558506488607" duration="534000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54870000" />
+    <option name="totallyTimeSpent" value="55404000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -384,9 +358,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1533" height="875" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.058507062" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.059168443" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -425,7 +400,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Naloga1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="1099">
           <caret line="222" selection-start-line="222" selection-end-line="222" />
           <folding>
             <element signature="class#NumericSort#0;class#Naloga1#0" />
@@ -433,25 +408,13 @@
             <element signature="e#324#1518#0" />
             <element signature="e#387#751#0" />
             <element signature="e#836#1374#0" />
-            <element signature="class#BubbleSort#0;class#Naloga1#0" />
-            <element signature="method#BubbleSort#0;class#BubbleSort#0;class#Naloga1#0" />
-            <element signature="method#getNsUp#0;class#BubbleSort#0;class#Naloga1#0" />
-            <element signature="e#1757#2505#0" />
-            <element signature="e#1950#2412#1" />
-            <element signature="e#2101#2363#1" />
-            <element signature="e#2191#2341#1" />
             <element signature="method#getNsDown#0;class#BubbleSort#0;class#Naloga1#0" />
             <element signature="e#2581#3330#0" />
             <element signature="e#2774#3237#1" />
             <element signature="e#2925#3188#1" />
             <element signature="e#3015#3166#1" />
-            <element signature="method#swap#0;class#BubbleSort#0;class#Naloga1#0" />
-            <element signature="method#bubblePrint#0;class#BubbleSort#0;class#Naloga1#0" />
             <element signature="e#3564#3630#1" />
             <element signature="e#3636#3700#1" />
-            <element signature="e#3751#3957#1" />
-            <element signature="e#3789#3864#1" />
-            <element signature="e#3870#3943#1" />
             <element signature="class#SelectionSort#0;class#Naloga1#0" />
             <element signature="method#SelectionSort#0;class#SelectionSort#0;class#Naloga1#0" />
             <element signature="method#getNsUp#0;class#SelectionSort#0;class#Naloga1#0" />
@@ -608,7 +571,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
+        <state relative-caret-position="51">
           <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
