@@ -1,0 +1,12 @@
+Izvajanje test-J
+  Log datoteka: test-J.log
+  Izhod programa: test-J.out
+  Ukazna vrstica: ./Naloga3 
+  Izhodni status: 153
+  Realni cas izvajanja: 1687
+  Uporabniski cas izvajanja: 813
+  Sistemski cas izvajanja: 873
+  Procesorski cas izvajanja: 1686
+Preverjanje test-J
+  Izhodni status: err
+  Tocke: 0

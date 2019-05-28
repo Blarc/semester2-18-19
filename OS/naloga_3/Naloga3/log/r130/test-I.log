@@ -1,0 +1,12 @@
+Izvajanje test-I
+  Log datoteka: test-I.log
+  Izhod programa: test-I.out
+  Ukazna vrstica: ./Naloga3 
+  Izhodni status: 153
+  Realni cas izvajanja: 1710
+  Uporabniski cas izvajanja: 895
+  Sistemski cas izvajanja: 814
+  Procesorski cas izvajanja: 1709
+Preverjanje test-I
+  Izhodni status: err
+  Tocke: 0
