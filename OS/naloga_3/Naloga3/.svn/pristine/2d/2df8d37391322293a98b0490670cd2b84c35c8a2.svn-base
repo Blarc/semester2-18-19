@@ -1,0 +1,12 @@
+Izvajanje test-G
+  Log datoteka: test-G.log
+  Izhod programa: test-G.out
+  Ukazna vrstica: ./Naloga3 
+  Izhodni status: 153
+  Realni cas izvajanja: 1726
+  Uporabniski cas izvajanja: 797
+  Sistemski cas izvajanja: 929
+  Procesorski cas izvajanja: 1726
+Preverjanje test-G
+  Izhodni status: err
+  Tocke: 0

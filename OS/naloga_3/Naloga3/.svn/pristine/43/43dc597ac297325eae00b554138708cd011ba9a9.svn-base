@@ -1,0 +1,16 @@
+#
+dirmake
+dirchange
+dirmake
+dirmake
+dirmake
+dirlist
+.  ..  Silberschatz  Galvin  Gagne  
+dirremove
+dirremove
+rename
+dirlist
+.  ..  Stallings  
+dirremove
+dirchange
+dirremove

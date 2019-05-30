@@ -1,0 +1,31 @@
+#
+dirmake
+dirchange
+linkhard
+linkhard
+ln
+linksoft
+ln
+linksoft
+dirlist
+.  ..  trdi  dvojno_trdi  trojno_trdi  gesla  sifre  void  
+linkread
+/etc/passwd
+linkread
+gesla
+linkread
+null/nil/None
+linklist
+trdi dvojno_trdi trojno_trdi 
+linklist
+trdi dvojno_trdi trojno_trdi 
+unlink
+rm
+unlink
+unlink
+unlink
+rm
+dirlist
+.  ..  
+dirchange
+dirremove

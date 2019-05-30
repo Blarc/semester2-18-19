@@ -1,0 +1,55 @@
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+pipes
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+pipes
+pipes
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+pipes
+pipes
+pipes
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+pipes
+pipes
+pipes
+dirlist
+.  ..  hostname  fstab  h  f  hh  ff  
+cpcat
+cpcat: No such file or directory
+cpcat
+cpcat: No such file or directory
+cpcat
+cpcat: No such file or directory
+cpcat
+cpcat: No such file or directory
+unlink
+linkread: No such file or directory
+unlink
+linkread: No such file or directory
+unlink
+linkread: No such file or directory
+unlink
+linkread: No such file or directory
+dirchange
+dirremove
+dirremove: Directory not empty

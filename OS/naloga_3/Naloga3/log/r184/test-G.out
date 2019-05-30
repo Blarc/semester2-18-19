@@ -1,0 +1,9 @@
+Gori na gori gori >gori.txt
+cat: gori.txt: No such file or directory
+cat: <gori.txt: No such file or directory
+cat: <gori.txt: No such file or directory
+cat: >doli.txt: No such file or directory
+cat: doli.txt: No such file or directory
+cat: <doli.txt: No such file or directory
+linkread: No such file or directory
+linkread: No such file or directory

@@ -1,0 +1,35 @@
+rev: gori.txt: open failed: No such file or directory
+*** glibc detected *** ./Naloga3: double free or corruption (out): 0x00007ffcc3c34bf0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x75be6)[0x7f9d57c7ebe6]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x6c)[0x7f9d57c8398c]
+./Naloga3[0x401338]
+./Naloga3[0x4021d0]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd)[0x7f9d57c27ead]
+./Naloga3[0x4010c9]
+======= Memory map: ========
+00400000-00403000 r-xp 00000000 fd:02 134279405                          /home/test/src/Naloga3
+00602000-00603000 rw-p 00002000 fd:02 134279405                          /home/test/src/Naloga3
+00603000-00604000 rw-p 00000000 00:00 0 
+01aef000-01b10000 rw-p 00000000 00:00 0                                  [heap]
+7f9d50000000-7f9d50021000 rw-p 00000000 00:00 0 
+7f9d50021000-7f9d54000000 ---p 00000000 00:00 0 
+7f9d579f3000-7f9d57a08000 r-xp 00000000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f9d57a08000-7f9d57c08000 ---p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f9d57c08000-7f9d57c09000 rw-p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f9d57c09000-7f9d57d8a000 r-xp 00000000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7f9d57d8a000-7f9d57f8a000 ---p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7f9d57f8a000-7f9d57f8e000 r--p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7f9d57f8e000-7f9d57f8f000 rw-p 00185000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7f9d57f8f000-7f9d57f94000 rw-p 00000000 00:00 0 
+7f9d57f94000-7f9d57fb4000 r-xp 00000000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7f9d581ab000-7f9d581ae000 rw-p 00000000 00:00 0 
+7f9d581af000-7f9d581b3000 rw-p 00000000 00:00 0 
+7f9d581b3000-7f9d581b4000 r--p 0001f000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7f9d581b4000-7f9d581b5000 rw-p 00020000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7f9d581b5000-7f9d581b6000 rw-p 00000000 00:00 0 
+7ffcc3c15000-7ffcc3c36000 rw-p 00000000 00:00 0                          [stack]
+7ffcc3c6d000-7ffcc3c6f000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+dirmake: File exists
+Gori na gori gori >gori.txt

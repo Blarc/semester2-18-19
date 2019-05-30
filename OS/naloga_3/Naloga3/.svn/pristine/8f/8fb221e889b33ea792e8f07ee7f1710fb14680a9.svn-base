@@ -1,0 +1,34 @@
+/bin/ls
+*** glibc detected *** ./Naloga3: double free or corruption (out): 0x00007ffdb14af210 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x75be6)[0x7f5c3ecbdbe6]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x6c)[0x7f5c3ecc298c]
+./Naloga3[0x4012e8]
+./Naloga3[0x40216c]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd)[0x7f5c3ec66ead]
+./Naloga3[0x401079]
+======= Memory map: ========
+00400000-00403000 r-xp 00000000 fd:02 270323887                          /home/test/src/Naloga3
+00602000-00603000 rw-p 00002000 fd:02 270323887                          /home/test/src/Naloga3
+00603000-00604000 rw-p 00000000 00:00 0 
+01e81000-01ea2000 rw-p 00000000 00:00 0                                  [heap]
+7f5c38000000-7f5c38021000 rw-p 00000000 00:00 0 
+7f5c38021000-7f5c3c000000 ---p 00000000 00:00 0 
+7f5c3ea32000-7f5c3ea47000 r-xp 00000000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f5c3ea47000-7f5c3ec47000 ---p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f5c3ec47000-7f5c3ec48000 rw-p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f5c3ec48000-7f5c3edc9000 r-xp 00000000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7f5c3edc9000-7f5c3efc9000 ---p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7f5c3efc9000-7f5c3efcd000 r--p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7f5c3efcd000-7f5c3efce000 rw-p 00185000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7f5c3efce000-7f5c3efd3000 rw-p 00000000 00:00 0 
+7f5c3efd3000-7f5c3eff3000 r-xp 00000000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7f5c3f1ea000-7f5c3f1ed000 rw-p 00000000 00:00 0 
+7f5c3f1ee000-7f5c3f1f2000 rw-p 00000000 00:00 0 
+7f5c3f1f2000-7f5c3f1f3000 r--p 0001f000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7f5c3f1f3000-7f5c3f1f4000 rw-p 00020000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7f5c3f1f4000-7f5c3f1f5000 rw-p 00000000 00:00 0 
+7ffdb1490000-7ffdb14b1000 rw-p 00000000 00:00 0                          [stack]
+7ffdb15f8000-7ffdb15fa000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+Zacetek

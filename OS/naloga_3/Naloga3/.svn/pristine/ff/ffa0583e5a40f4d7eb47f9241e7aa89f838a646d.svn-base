@@ -1,0 +1,38 @@
+*** glibc detected *** ./Naloga3: free(): invalid next size (normal): 0x000000000208e0d0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x75be6)[0x7fb7ae996be6]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x6c)[0x7fb7ae99b98c]
+/lib/x86_64-linux-gnu/libc.so.6(closedir+0xd)[0x7fb7ae9c84ad]
+./Naloga3[0x40140e]
+./Naloga3[0x40147f]
+./Naloga3[0x401f4f]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd)[0x7fb7ae93fead]
+./Naloga3[0x400fd9]
+======= Memory map: ========
+00400000-00403000 r-xp 00000000 fd:02 270650546                          /home/test/src/Naloga3
+00602000-00603000 rw-p 00002000 fd:02 270650546                          /home/test/src/Naloga3
+00603000-00604000 rw-p 00000000 00:00 0 
+02086000-020a7000 rw-p 00000000 00:00 0                                  [heap]
+7fb7a8000000-7fb7a8021000 rw-p 00000000 00:00 0 
+7fb7a8021000-7fb7ac000000 ---p 00000000 00:00 0 
+7fb7ae70b000-7fb7ae720000 r-xp 00000000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fb7ae720000-7fb7ae920000 ---p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fb7ae920000-7fb7ae921000 rw-p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fb7ae921000-7fb7aeaa2000 r-xp 00000000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7fb7aeaa2000-7fb7aeca2000 ---p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7fb7aeca2000-7fb7aeca6000 r--p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7fb7aeca6000-7fb7aeca7000 rw-p 00185000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7fb7aeca7000-7fb7aecac000 rw-p 00000000 00:00 0 
+7fb7aecac000-7fb7aeccc000 r-xp 00000000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7fb7aeec3000-7fb7aeec6000 rw-p 00000000 00:00 0 
+7fb7aeec7000-7fb7aeecb000 rw-p 00000000 00:00 0 
+7fb7aeecb000-7fb7aeecc000 r--p 0001f000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7fb7aeecc000-7fb7aeecd000 rw-p 00020000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7fb7aeecd000-7fb7aeece000 rw-p 00000000 00:00 0 
+7ffed2ac9000-7ffed2aea000 rw-p 00000000 00:00 0                          [stack]
+7ffed2b57000-7ffed2b59000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+.  ..  trdi  dvojno_trdi  trojno_trdi  gesla  sifre  void  
+/etc/passwd
+gesla
+null/nil/None

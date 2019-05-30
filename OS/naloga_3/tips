@@ -1,0 +1,12 @@
+# Namigi za OS naloga 3
+
+QUICK TIP: Ne uporabljat perror za izpsiovanje errorjev,
+ temvec  printf("dirmake: %s\n", strerror(errno));
+Perror izpisuje na stderr in zato na lalgecu ne bo prav.
+
+gledat moreš če prideš do EOF in pol exitat
+
+int num_chars = getline(&line, &max_input, stdin);
+if (num_chars == -1) {
+  exit(0);
+}

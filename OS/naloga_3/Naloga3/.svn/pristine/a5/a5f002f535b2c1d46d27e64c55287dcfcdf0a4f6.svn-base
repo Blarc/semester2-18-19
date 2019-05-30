@@ -1,0 +1,12 @@
+Izvajanje test-H
+  Log datoteka: test-H.log
+  Izhod programa: test-H.out
+  Ukazna vrstica: ./Naloga3 
+  Izhodni status: 139
+  Realni cas izvajanja: 6
+  Uporabniski cas izvajanja: 4
+  Sistemski cas izvajanja: 1
+  Procesorski cas izvajanja: 5
+Preverjanje test-H
+  Izhodni status: err
+  Tocke: 0

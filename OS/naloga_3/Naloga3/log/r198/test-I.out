@@ -1,0 +1,54 @@
+rev: gori.txt: open failed: No such file or directory
+#
+dirmake
+dirmake: File exists
+dirchange
+echo
+Gori na gori gori >gori.txt
+rev
+cpcat
+cpcat: No such file or directory
+linkhard
+linkhard: No such file or directory
+linksoft
+unlink
+linkread: No such file or directory
+unlink
+linkread: No such file or directory
+unlink
+dirmake
+touch
+#
+dirmake
+dirmake: File exists
+dirchange
+echo
+Gori na gori gori >gori.txt
+rev
+cpcat
+cpcat: No such file or directory
+linkhard
+linkhard: No such file or directory
+linksoft
+unlink
+linkread: No such file or directory
+unlink
+linkread: No such file or directory
+unlink
+dirmake
+touch
+linksoft
+dirlist
+.  ..  blue sky  
+unlink
+linkread: No such file or directory
+linkread
+the/sky
+rename
+dirlist
+.  ..  gray sky  
+rm
+dirremove
+dirchange
+dirremove
+dirremove: Directory not empty

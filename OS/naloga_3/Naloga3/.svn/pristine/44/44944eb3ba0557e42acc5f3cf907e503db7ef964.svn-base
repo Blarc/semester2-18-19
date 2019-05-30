@@ -1,0 +1,12 @@
+Izvajanje test-D
+  Log datoteka: test-D.log
+  Izhod programa: test-D.out
+  Ukazna vrstica: ./Naloga3 
+  Izhodni status: 134
+  Realni cas izvajanja: 7
+  Uporabniski cas izvajanja: 3
+  Sistemski cas izvajanja: 4
+  Procesorski cas izvajanja: 7
+Preverjanje test-D
+  Izhodni status: err
+  Tocke: 0

@@ -1,0 +1,26 @@
+# echo in status
+
+print "Stejemo: "
+
+echo ena dva tri
+
+status
+
+
+
+echo "S     5 presledki" "In     se    vec    presledki"
+
+status
+
+
+
+dirmake /
+
+status
+
+
+17
+
+
+exit 123
+

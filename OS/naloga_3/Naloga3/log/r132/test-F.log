@@ -1,0 +1,12 @@
+Izvajanje test-F
+  Log datoteka: test-F.log
+  Izhod programa: test-F.out
+  Ukazna vrstica: ./Naloga3 
+  Izhodni status: 153
+  Realni cas izvajanja: 1738
+  Uporabniski cas izvajanja: 865
+  Sistemski cas izvajanja: 860
+  Procesorski cas izvajanja: 1725
+Preverjanje test-F
+  Izhodni status: err
+  Tocke: 0

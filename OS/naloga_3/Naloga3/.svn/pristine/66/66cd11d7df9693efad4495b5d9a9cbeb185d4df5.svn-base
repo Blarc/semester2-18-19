@@ -1,0 +1,13 @@
+/bin/ls
+dd: unrecognized operand `&'
+Try `dd --help' for more information.
+root:x:0:0:root:/root:/bin/bash
+#
+echo
+Zacetek
+which
+dd
+head
+echo
+Konec
+sleep

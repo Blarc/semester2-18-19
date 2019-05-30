@@ -1,0 +1,38 @@
+stroj
+# UNCONFIGURED FSTAB FOR BASE SYSTEM
+*** glibc detected *** ./Naloga3: free(): invalid next size (normal): 0x0000000000cda0d0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x75be6)[0x7fbd16ebebe6]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x6c)[0x7fbd16ec398c]
+/lib/x86_64-linux-gnu/libc.so.6(closedir+0xd)[0x7fbd16ef04ad]
+./Naloga3[0x4015f3]
+./Naloga3[0x4015c6]
+./Naloga3[0x40165d]
+./Naloga3[0x4020ed]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd)[0x7fbd16e67ead]
+./Naloga3[0x401079]
+======= Memory map: ========
+00400000-00403000 r-xp 00000000 fd:02 4744960                            /home/test/src/Naloga3
+00602000-00603000 rw-p 00002000 fd:02 4744960                            /home/test/src/Naloga3
+00603000-00604000 rw-p 00000000 00:00 0 
+00cd2000-00cf3000 rw-p 00000000 00:00 0                                  [heap]
+7fbd10000000-7fbd10021000 rw-p 00000000 00:00 0 
+7fbd10021000-7fbd14000000 ---p 00000000 00:00 0 
+7fbd16c33000-7fbd16c48000 r-xp 00000000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fbd16c48000-7fbd16e48000 ---p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fbd16e48000-7fbd16e49000 rw-p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fbd16e49000-7fbd16fca000 r-xp 00000000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7fbd16fca000-7fbd171ca000 ---p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7fbd171ca000-7fbd171ce000 r--p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7fbd171ce000-7fbd171cf000 rw-p 00185000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7fbd171cf000-7fbd171d4000 rw-p 00000000 00:00 0 
+7fbd171d4000-7fbd171f4000 r-xp 00000000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7fbd173eb000-7fbd173ee000 rw-p 00000000 00:00 0 
+7fbd173ef000-7fbd173f3000 rw-p 00000000 00:00 0 
+7fbd173f3000-7fbd173f4000 r--p 0001f000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7fbd173f4000-7fbd173f5000 rw-p 00020000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7fbd173f5000-7fbd173f6000 rw-p 00000000 00:00 0 
+7fff42438000-7fff42459000 rw-p 00000000 00:00 0                          [stack]
+7fff424ba000-7fff424bc000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+hostname h hh 

@@ -1,0 +1,31 @@
+#
+dirmake
+dirmake: File exists
+dirchange
+echo
+Gori na gori gori >gori.txt
+cpcat
+cpcat: No such file or directory
+cpcat
+cpcat: No such file or directory
+cpcat
+cpcat: No such file or directory
+cpcat
+cpcat: No such file or directory
+cpcat
+cpcat: No such file or directory
+cpcat
+cpcat: No such file or directory
+cpcat
+cpcat: No such file or directory
+cpcat
+cpcat: No such file or directory
+unlink
+linkread: No such file or directory
+unlink
+linkread: No such file or directory
+unlink
+linkread: No such file or directory
+dirchange
+dirremove
+dirremove: Directory not empty

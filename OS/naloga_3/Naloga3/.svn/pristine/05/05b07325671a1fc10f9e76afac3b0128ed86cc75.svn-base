@@ -1,0 +1,47 @@
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+dirlist
+.  ..  hostname  fstab  h  f  hh  ff  
+pipes
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+dirlist
+.  ..  hostname  fstab  h  f  hh  ff  
+pipes
+pipes
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+dirlist
+.  ..  hostname  fstab  h  f  hh  ff  
+pipes
+pipes
+pipes
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+dirlist
+.  ..  hostname  fstab  h  f  hh  ff  
+pipes
+pipes
+pipes
+unlink
+linkread: No such file or directory
+dirchange
+dirremove
+dirremove: Directory not empty

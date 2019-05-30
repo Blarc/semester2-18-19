@@ -1,0 +1,34 @@
+dirmake: File exists
+*** glibc detected *** ./Naloga3: double free or corruption (out): 0x00007fffa77ebab0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x75be6)[0x7faebfd9cbe6]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x6c)[0x7faebfda198c]
+./Naloga3[0x401338]
+./Naloga3[0x4021d0]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd)[0x7faebfd45ead]
+./Naloga3[0x4010c9]
+======= Memory map: ========
+00400000-00403000 r-xp 00000000 fd:02 1717109                            /home/test/src/Naloga3
+00602000-00603000 rw-p 00002000 fd:02 1717109                            /home/test/src/Naloga3
+00603000-00604000 rw-p 00000000 00:00 0 
+00d6b000-00d8c000 rw-p 00000000 00:00 0                                  [heap]
+7faeb8000000-7faeb8021000 rw-p 00000000 00:00 0 
+7faeb8021000-7faebc000000 ---p 00000000 00:00 0 
+7faebfb11000-7faebfb26000 r-xp 00000000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7faebfb26000-7faebfd26000 ---p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7faebfd26000-7faebfd27000 rw-p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7faebfd27000-7faebfea8000 r-xp 00000000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7faebfea8000-7faec00a8000 ---p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7faec00a8000-7faec00ac000 r--p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7faec00ac000-7faec00ad000 rw-p 00185000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7faec00ad000-7faec00b2000 rw-p 00000000 00:00 0 
+7faec00b2000-7faec00d2000 r-xp 00000000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7faec02c9000-7faec02cc000 rw-p 00000000 00:00 0 
+7faec02cd000-7faec02d1000 rw-p 00000000 00:00 0 
+7faec02d1000-7faec02d2000 r--p 0001f000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7faec02d2000-7faec02d3000 rw-p 00020000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7faec02d3000-7faec02d4000 rw-p 00000000 00:00 0 
+7fffa77cc000-7fffa77ed000 rw-p 00000000 00:00 0                          [stack]
+7fffa77fe000-7fffa7800000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+dirmake: File exists

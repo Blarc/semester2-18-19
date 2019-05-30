@@ -1,0 +1,12 @@
+Izvajanje test-E
+  Log datoteka: test-E.log
+  Izhod programa: test-E.out
+  Ukazna vrstica: ./Naloga3 
+  Izhodni status: 124
+  Realni cas izvajanja: 3003
+  Uporabniski cas izvajanja: 908
+  Sistemski cas izvajanja: 2091
+  Procesorski cas izvajanja: 2999
+Preverjanje test-E
+  Izhodni status: err
+  Tocke: 0

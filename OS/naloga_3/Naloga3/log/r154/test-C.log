@@ -1,0 +1,12 @@
+Izvajanje test-C
+  Log datoteka: test-C.log
+  Izhod programa: test-C.out
+  Ukazna vrstica: ./Naloga3 
+  Izhodni status: 124
+  Realni cas izvajanja: 3003
+  Uporabniski cas izvajanja: 826
+  Sistemski cas izvajanja: 2175
+  Procesorski cas izvajanja: 3001
+Preverjanje test-C
+  Izhodni status: err
+  Tocke: 0

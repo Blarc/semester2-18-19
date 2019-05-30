@@ -1,0 +1,84 @@
+*** glibc detected *** ./Naloga3: free(): invalid next size (normal): 0x0000000001fb70d0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x75be6)[0x7ff87500abe6]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x6c)[0x7ff87500f98c]
+/lib/x86_64-linux-gnu/libc.so.6(closedir+0xd)[0x7ff87503c4ad]
+./Naloga3[0x401400]
+./Naloga3[0x401471]
+./Naloga3[0x401f41]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd)[0x7ff874fb3ead]
+./Naloga3[0x400fd9]
+======= Memory map: ========
+00400000-00403000 r-xp 00000000 fd:02 402754587                          /home/test/src/Naloga3
+00602000-00603000 rw-p 00002000 fd:02 402754587                          /home/test/src/Naloga3
+00603000-00604000 rw-p 00000000 00:00 0 
+01faf000-01fd0000 rw-p 00000000 00:00 0                                  [heap]
+7ff870000000-7ff870021000 rw-p 00000000 00:00 0 
+7ff870021000-7ff874000000 ---p 00000000 00:00 0 
+7ff874d7f000-7ff874d94000 r-xp 00000000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7ff874d94000-7ff874f94000 ---p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7ff874f94000-7ff874f95000 rw-p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7ff874f95000-7ff875116000 r-xp 00000000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7ff875116000-7ff875316000 ---p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7ff875316000-7ff87531a000 r--p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7ff87531a000-7ff87531b000 rw-p 00185000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7ff87531b000-7ff875320000 rw-p 00000000 00:00 0 
+7ff875320000-7ff875340000 r-xp 00000000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7ff875537000-7ff87553a000 rw-p 00000000 00:00 0 
+7ff87553b000-7ff87553c000 rw-p 00000000 00:00 0 
+7ff87553c000-7ff87553f000 rw-p 00000000 00:00 0 
+7ff87553f000-7ff875540000 r--p 0001f000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7ff875540000-7ff875541000 rw-p 00020000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7ff875541000-7ff875542000 rw-p 00000000 00:00 0 
+7ffe51592000-7ffe515b3000 rw-p 00000000 00:00 0                          [stack]
+7ffe515e9000-7ffe515eb000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+.  ..  trdi  dvojno_trdi  trojno_trdi  gesla  sifre  void  
+/etc/passwd
+gesla
+null/nil/None
+ln: failed to create hard link `trojno_trdi': File exists
+ln: failed to create symbolic link `sifre': File exists
+*** glibc detected *** ./Naloga3: free(): invalid next size (normal): 0x0000000001fb70d0 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x75be6)[0x7ff87500abe6]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x6c)[0x7ff87500f98c]
+/lib/x86_64-linux-gnu/libc.so.6(closedir+0xd)[0x7ff87503c4ad]
+./Naloga3[0x401400]
+./Naloga3[0x401471]
+./Naloga3[0x401f41]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xfd)[0x7ff874fb3ead]
+./Naloga3[0x400fd9]
+======= Memory map: ========
+00400000-00403000 r-xp 00000000 fd:02 402754587                          /home/test/src/Naloga3
+00602000-00603000 rw-p 00002000 fd:02 402754587                          /home/test/src/Naloga3
+00603000-00604000 rw-p 00000000 00:00 0 
+01faf000-01fd0000 rw-p 00000000 00:00 0                                  [heap]
+7ff870000000-7ff870021000 rw-p 00000000 00:00 0 
+7ff870021000-7ff874000000 ---p 00000000 00:00 0 
+7ff874d7f000-7ff874d94000 r-xp 00000000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7ff874d94000-7ff874f94000 ---p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7ff874f94000-7ff874f95000 rw-p 00015000 fd:04 12583209                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7ff874f95000-7ff875116000 r-xp 00000000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7ff875116000-7ff875316000 ---p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7ff875316000-7ff87531a000 r--p 00181000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7ff87531a000-7ff87531b000 rw-p 00185000 fd:04 12583195                   /lib/x86_64-linux-gnu/libc-2.13.so
+7ff87531b000-7ff875320000 rw-p 00000000 00:00 0 
+7ff875320000-7ff875340000 r-xp 00000000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7ff875537000-7ff87553a000 rw-p 00000000 00:00 0 
+7ff87553b000-7ff87553f000 rw-p 00000000 00:00 0 
+7ff87553f000-7ff875540000 r--p 0001f000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7ff875540000-7ff875541000 rw-p 00020000 fd:04 12583179                   /lib/x86_64-linux-gnu/ld-2.13.so
+7ff875541000-7ff875542000 rw-p 00000000 00:00 0 
+7ffe51592000-7ffe515b3000 rw-p 00000000 00:00 0                          [stack]
+7ffe515e9000-7ffe515eb000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+dirmake: File exists
+linkhard: File exists
+linkhard: File exists
+linksoft: File exists
+linksoft: File exists
+.  ..  trdi  dvojno_trdi  trojno_trdi  gesla  sifre  void  
+/etc/passwd
+gesla
+null/nil/None

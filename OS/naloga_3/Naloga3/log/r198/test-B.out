@@ -1,0 +1,15 @@
+#
+print
+Stejemo: echo
+ena dva tri
+status
+0
+echo
+S     5 presledki In     se    vec    presledki
+status
+0
+dirmake
+dirmake: File exists
+status
+17
+exit

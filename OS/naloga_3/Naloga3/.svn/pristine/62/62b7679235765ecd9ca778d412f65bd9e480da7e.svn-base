@@ -1,0 +1,24 @@
+Gori na gori gori >gori.txt
+cat: gori.txt: No such file or directory
+cat: <gori.txt: No such file or directory
+cat: <gori.txt: No such file or directory
+cat: >doli.txt: No such file or directory
+cat: doli.txt: No such file or directory
+cat: <doli.txt: No such file or directory
+#
+dirmake
+dirmake: File exists
+dirchange
+/bin/echo
+cat
+cat
+cat
+cat
+cat
+unlink
+linkread: No such file or directory
+unlink
+linkread: No such file or directory
+dirchange
+dirremove
+dirremove: Directory not empty

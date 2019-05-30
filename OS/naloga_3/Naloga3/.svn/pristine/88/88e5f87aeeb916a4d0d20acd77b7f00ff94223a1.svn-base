@@ -1,0 +1,37 @@
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+pipes
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+pipes
+pipes
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+pipes
+pipes
+pipes
+#
+dirmake
+dirmake: File exists
+dirchange
+pipes
+pipes
+pipes
+pipes
+dirchange
+dirremove
+dirremove: Directory not empty

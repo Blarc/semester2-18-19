@@ -1,0 +1,18 @@
+# Zagon v ozadju
+
+echo "Zacetek"
+
+Zacetek
+which ls
+
+dd if=/dev/urandom of=/dev/null bs=1k count=2k status=noxfer &
+
+head -1 /etc/passwd
+
+echo "Konec"
+
+Konec
+sleep 1
+
+
+
