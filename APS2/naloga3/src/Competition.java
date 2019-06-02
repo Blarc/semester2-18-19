@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Competition {
+    private static long timeStart;
+    private static long iterations;
 
     static class Vertice {
         private int id;
@@ -37,6 +39,12 @@ public class Competition {
     }
 
     private static boolean descend(int k, Vertice[] vertices, int index) {
+        iterations += 1;
+        long time = System.currentTimeMillis();
+        if (iterations > 500000) {
+            return false;
+        }
+
         if (index == vertices.length) {
             return true;
         }
@@ -45,6 +53,7 @@ public class Competition {
             if (checkNeighbours(i, vertices[index], vertices)) {
                 vertices[index].color = i;
                 if(descend(k, vertices, index + 1)) {
+                    vertices[index].color = -1;
                     return true;
                 }
                 vertices[index].color = -1;
@@ -54,7 +63,8 @@ public class Competition {
     }
 
     public static void main(String[] args) throws IOException {
-//        long timeStart = System.currentTimeMillis();
+        timeStart = System.currentTimeMillis();
+        iterations = 0;
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -87,10 +97,13 @@ public class Competition {
 
         }
 
-        int k = 2;
-        while(!descend(k, vertices, 0)) {
-            k += 1;
+        int k = numV;
+        while(descend(k, vertices, 0)) {
+            iterations = 0;
+            k -= 1;
         }
+        k += 1;
+
 
         System.out.println(k);
 
