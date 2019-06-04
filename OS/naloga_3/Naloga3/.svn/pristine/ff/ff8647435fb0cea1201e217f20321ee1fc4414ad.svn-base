@@ -352,6 +352,7 @@ void dirlist() {
   printf("%s", "\n");
 
   exit_status = errno;
+  fflush(stdout);
 }
 
 void dirremove() {
@@ -510,8 +511,6 @@ int main() {
       } else if (strcmp(tokens[0], "cpcat") == 0) {
         remove_redirects();
         cpcat();
-        dup2(s_stdout, 1);
-        dup2(s_stdin, 0);
       } else if (strcmp(tokens[0], "pipes") == 0) {
         // pipes();
       } else if (strcmp(tokens[0], "#") != 0) {

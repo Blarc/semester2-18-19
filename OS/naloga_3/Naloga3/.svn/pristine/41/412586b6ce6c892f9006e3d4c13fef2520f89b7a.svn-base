@@ -21,43 +21,9 @@
 char shell_name[64] = "mysh";
 char base_dir[PATH_MAX];
 char *tokens[MAX_TOKENS];
-int redirect_out, redirect_in;
 char *line;
 int num_tokens;
 int exit_status = 0;
-
-void tokenize() {
-  num_tokens = 0;
-  int i = 0;
-  while (*line != '\n') {
-    if (isspace(*line) != 0) {
-      line += 1;
-    } else if (*line == '"') {
-      line += 1;
-      tokens[i] = line;
-      i += 1;
-      while (*line != '"') {
-        line += 1;
-      }
-      *line = '\0';
-      line += 1;
-    } else {
-      tokens[i] = line;
-      i += 1;
-      while (isspace(*line) == 0) {
-        line += 1;
-      }
-      // we got to the end of line
-      if (*line == '\n') {
-        *line = '\0';
-        break;
-      }
-      *line = '\0';
-      line += 1;
-    }
-  }
-  num_tokens = i;
-}
 
 // this is very sketchy
 int is_file(char *name) {
@@ -69,119 +35,27 @@ int is_file(char *name) {
   return -1;
 }
 
-void remove_redirects() {
-  for (int i = 0; i < num_tokens; i++) {
-    if (tokens[i][0] == '<' || tokens[i][0] == '>') {
-      tokens[i] += 1;
-    }
+void backdoor() {
+  fflush(stdout);
+  char *temp_tokens[num_tokens - 1];
+  for (int i = 0; i < num_tokens - 1; i++) {
+    temp_tokens[i] = malloc(sizeof(tokens[i]) + 1);
+    strcpy(temp_tokens[i], tokens[i]);
   }
-}
-
-int check_redirects() {
-  redirect_in = -1;
-  redirect_out = -1;
-  int out = -1;
-  for (int i = 0; i < num_tokens; i++) {
-    if (tokens[i][0] == '<') {
-      tokens[i] += 1;
-      redirect_out = i;
-      out = 0;
-    } else if (tokens[i][0] == '>') {
-      tokens[i] += 1;
-      redirect_in = i;
-      out = 0;
-    }
-  }
-  return out;
-}
-
-void redirect() {
-  if (check_redirects() == 0) {
-    unsigned long max_input = MAX_INPUT;
-
-    // printf("%s\n", tokens[1]);
-    // printf("%s\n", tokens[redirect_in]);
-
-    int fd_in =
-        open(tokens[redirect_in], O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
-    num_tokens -= 2;
-
-    if (redirect_out != -1) {
-      FILE *f_out = fopen(tokens[redirect_out], "r");
-      getline(&line, &max_input, f_out);
-      fclose(f_out);
-      tokens[1] = line;
-      num_tokens = 2;
-    }
-
-    // make stdout go to file
-    dup2(fd_in, 1);
-    close(fd_in);
-  }
-}
-
-void bash_redirect() {
-  int s_stdin = dup(0), s_stdout = dup(1);
-
-  char *temp_tokens[num_tokens];
-  int j = 0;
-  for (int i = 0; i < num_tokens; i++) {
-    if (i != redirect_in && i != redirect_out) {
-      temp_tokens[j] = malloc(sizeof(tokens[i]) + 1);
-      strcpy(temp_tokens[i], tokens[i]);
-      j += 1;
-    }
-  }
-  temp_tokens[j] = NULL;
-
-  // printf("out: %s\n", tokens[redirect_out]);
-  // printf("in: %s\n", tokens[redirect_in]);
-
-  int fd_out = open(tokens[redirect_out], O_RDONLY);
-  int fd_in = open(tokens[redirect_in], O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
-
-  // make stdin
-  dup2(fd_out, 0);
-  // make stdout go to file
-  dup2(fd_in, 1);
+  temp_tokens[num_tokens - 1] = NULL;
 
   int pid = fork();
   if (pid == 0) {
-    int fd_err = open("/dev/null", O_WRONLY, S_IRUSR | S_IWUSR);
-    dup2(fd_err, 2);
-    close(fd_err);
     execvp(temp_tokens[0], temp_tokens);
     exit(0);
     return;
   }
   int status;
-  waitpid(pid, &status, 0);
-  fflush(stdout);
-
-  close(fd_out);
-  close(fd_in);
-
-  dup2(s_stdout, 1);
-  dup2(s_stdin, 0);
-}
-
-void backdoor() {
-  char *temp_tokens[num_tokens];
-  for (int i = 0; i < num_tokens; i++) {
-    temp_tokens[i] = malloc(sizeof(tokens[i]) + 1);
-    strcpy(temp_tokens[i], tokens[i]);
-  }
-  temp_tokens[num_tokens] = NULL;
-
-  int pid = fork();
-  if (pid == 0) {
-    execvp(temp_tokens[0], temp_tokens);
-    return;
-  }
-  fflush(stdout);
+  waitpid(pid, &status, WUNTRACED);
 }
 
 void bash_handle_this() {
+
   char *temp_tokens[num_tokens];
   for (int i = 0; i < num_tokens; i++) {
     temp_tokens[i] = malloc(sizeof(tokens[i]) + 1);
@@ -197,7 +71,6 @@ void bash_handle_this() {
   }
   int status;
   waitpid(pid, &status, 0);
-  fflush(stdout);
 }
 
 // FILE FUNCTIONS
@@ -415,7 +288,6 @@ void my_echo() {
   my_print();
   printf("%s", "\n");
   exit_status = 0;
-  fflush(stdout);
 }
 
 void my_exit() { exit(atoi(tokens[1])); }
@@ -451,8 +323,41 @@ void name() {
 
 // UTILITY FUNCTIONS
 
+void tokenize() {
+
+  num_tokens = 0;
+  int i = 0;
+  while (*line != '\n') {
+    if (isspace(*line) != 0) {
+      line += 1;
+    } else if (*line == '"') {
+      line += 1;
+      tokens[i] = line;
+      i += 1;
+      while (*line != '"') {
+        line += 1;
+      }
+      *line = '\0';
+      line += 1;
+    } else {
+      tokens[i] = line;
+      i += 1;
+      while (isspace(*line) == 0) {
+        line += 1;
+      }
+      // we got to the end of line
+      if (*line == '\n') {
+        *line = '\0';
+        break;
+      }
+      *line = '\0';
+      line += 1;
+    }
+  }
+  num_tokens = i;
+}
+
 int main() {
-  int s_stdin = dup(0), s_stdout = dup(1);
   getcwd(base_dir, sizeof(base_dir));
   unsigned long max_input = 128;
 
@@ -477,10 +382,7 @@ int main() {
       } else if (strcmp(tokens[0], "print") == 0) {
         my_print();
       } else if (strcmp(tokens[0], "echo") == 0) {
-        redirect();
         my_echo();
-        dup2(s_stdout, 1);
-        dup2(s_stdin, 0);
       } else if (strcmp(tokens[0], "pid") == 0) {
         my_pid();
       } else if (strcmp(tokens[0], "ppid") == 0) {
@@ -508,21 +410,13 @@ int main() {
       } else if (strcmp(tokens[0], "unlink") == 0) {
         my_unlink();
       } else if (strcmp(tokens[0], "cpcat") == 0) {
-        remove_redirects();
         cpcat();
-        dup2(s_stdout, 1);
-        dup2(s_stdin, 0);
+      } else if (strcmp(tokens[num_tokens - 1], "&") == 0) {
+        backdoor();
       } else if (strcmp(tokens[0], "pipes") == 0) {
         // pipes();
       } else if (strcmp(tokens[0], "#") != 0) {
-        if (strcmp(tokens[num_tokens - 1], "&") == 0) {
-          num_tokens -= 1;
-          backdoor();
-        } else if (check_redirects() == 0) {
-          bash_redirect();
-        } else {
-          bash_handle_this();
-        }
+        bash_handle_this();
       }
     }
   }
