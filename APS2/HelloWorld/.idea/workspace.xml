@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="830103ab-915b-438e-8634-1326ff20814e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Naloga_2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Naloga_2/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Naloga_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Naloga_2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Naloga_2/out/production/Naloga_2/MatrixMultiplication$Matrix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Naloga_2/out/production/Naloga_2/MatrixMultiplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Naloga_2/out/production/Naloga_2/NumberMultiplication$Number.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Naloga_2/out/production/Naloga_2/NumberMultiplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/izziv_10/lovec" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/izziv_10/lovec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/izziv_10/lovec.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/izziv_10/lovec.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_3/mysh" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/naloga_3/mysh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../OS/naloga_3/mysh.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/naloga_3/mysh.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,7 +20,7 @@
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -58,14 +49,16 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../naloga3" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -108,16 +101,17 @@
       <updated>1558526845752</updated>
       <workItem from="1558526849753" duration="104000" />
       <workItem from="1558608063352" duration="62000" />
+      <workItem from="1559388856377" duration="87000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166000" />
+    <option name="totallyTimeSpent" value="253000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1533" height="875" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2528581" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25622058" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -155,7 +149,7 @@
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
