@@ -1,0 +1,65 @@
+
+while read line; do
+    echo $line
+done < ${path}
+
+----------------------------------------------------------------------------------------
+
+$RANDOM returns a different random integer at each invocation.
+# Nominal range: 0 - 32767 (signed 16-bit integer).
+
+-----------------------------------------------------------------------------------------
+
+while IFS=' ' read -ra line
+# reads line by line and splits it by delimter ' '
+
+sth=$(( (rnd % 5) + 1 ))
+
+-----------------------------------------------------------------------------------------
+
+The >> appends to a file or creates the file if it doesn't exist.
+The > overwrites the file if it exists or creates it if it doesn't exist.
+
+cmd > file    Redirect the standard output (stdout) of cmd to a file
+cmd 1> file   Same as cmd > file. 1 is the default file descriptor (fd) for stdout.
+cmd 2> file   Redirect the standard error (stderr) of cmd to a file. 2 is the default fd for stderr.
+cmd >> file   Append stdout of cmd to a file
+cmd 2>> file  Append stderr of cmd to a file
+cmd &> file   Redirect stdout and stderr of cmd to a file.
+
+cmd < file    Redirect the contents of the file to the standard input (stdin) of cmd
+cmd << EOL    Redirect a bunch of lines to the stdin. If 'EOL' is quoted, text is treated literally.
+line1         This is called a here-document.
+line2
+EOL
+
+cmd <<- EOL   Redirect a bunch of line to the stdin and strip the leading tabs.
+cmd <<< "string" Redirect a single line of text to the stdin of cmd. This is called a here-string.
+
+exec 2> file  Redirect stderr of all commands to a file forever.
+
+-----------------------------------------------------------------------------------------
+
+path="*"
+path=${1:-${path}}
+
+for file in ${path}; do
+  printf "%s\n" ${file}
+done
+
+-------------------------------------------------------------------------------------------
+
+# string concatenation
+
+path="${path}/*";
+
+--------------------------------------------------------------------------------------------
+
+# check is string contains substring
+
+string='My long string'
+if [[ $string == *"My long"* ]]; then
+  echo "It's there!"
+fi
+
+-----------------------------------------------------------------------------------------------

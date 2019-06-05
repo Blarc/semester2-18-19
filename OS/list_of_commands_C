@@ -1,0 +1,54 @@
+#include <dirent.h>
+
+struct dirent * d;
+d_ino
+d_off
+d_type (DT_REG, DT_DIR, DT_FIFO, DT_SOCK, DT_CHR, DT_BLK, DR_LNK)
+d_name
+
+DIR *dir = opendir("pathname");
+closedir(DIR *dir);
+while ((d = readdir(dir) != NULL);
+
+-----------------------------------------------------------------------------------------------
+
+# include <stdio.h>
+
+# declare NULL
+
+FILE *fopen(pathname, mode)
+mode - r / w / a
+int fclose(FILE *stream);
+
+-----------------------------------------------------------------------------------------------
+
+# include <unistd.h>
+
+int dup(int oldfd);
+int dup2(int oldfd, int newfd);
+
+-----------------------------------------------------------------------------------------------
+
+# include <fcntl.h>
+
+int open(char *path, int oflags);
+int open(char *path, int oflags, mode_t mode);
+
+int getpid
+int getppid
+
+// returns num of chars read, 0 if EOF, -1 if ERR
+ssize_t read(int, void *, size_t);
+ssize_t write(int, words, sizeof(words));
+
+oflags: O_RDONLY, O_WRONLY, O_RDWR, O_APPEND, O_TRUNC, O_CREAT, O_EXCL
+mode: S_IRUSR, USR, GRP, OTH
+
+-----------------------------------------------------------------------------------------------
+
+# include <stdlib.h>
+
+val = atoi(str) - string to integer
+int someInt = 368;
+char str[12];
+sprintf(str, "%d", someInt);
