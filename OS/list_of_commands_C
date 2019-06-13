@@ -52,3 +52,10 @@ val = atoi(str) - string to integer
 int someInt = 368;
 char str[12];
 sprintf(str, "%d", someInt);
+
+-----------------------------------------------------------------------------------------------
+
+int fd[2];
+pipe(fd);
+fd[0]; //-> for using read end
+fd[1]; //-> for using write end
