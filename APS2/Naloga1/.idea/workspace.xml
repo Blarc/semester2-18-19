@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8959fd1-85c4-46a0-84ca-449983673d05" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../izziv_11/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_11/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../izziv_11/out/production/izziv_11/Knapsack.class" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_11/out/production/izziv_11/Knapsack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../izziv_11/src/Knapsack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../izziv_11/src/Knapsack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam_prep/src/SortingAlgorithms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Naloga_2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Naloga_2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Naloga_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Naloga_2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../naloga3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../naloga3/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../naloga3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../naloga3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../naloga3/out/production/naloga3/ColoredGraphs$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../naloga3/out/production/naloga3/ColoredGraphs$Vertice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../naloga3/out/production/naloga3/ColoredGraphs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../naloga3/out/production/naloga3/Competition$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../naloga3/out/production/naloga3/Competition$Vertice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../naloga3/out/production/naloga3/Competition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OS/naloga_3/CLionProject/.idea/CLionProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/naloga_3/CLionProject/.idea/CLionProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../OS/naloga_3/CLionProject/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../OS/naloga_3/CLionProject/.idea/misc.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,172 +35,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Naloga1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1099">
-              <caret line="222" selection-start-line="222" selection-end-line="222" />
-              <folding>
-                <element signature="class#NumericSort#0;class#Naloga1#0" />
-                <element signature="method#sort#0;class#Naloga1#0" />
-                <element signature="e#324#1518#0" />
-                <element signature="e#387#751#0" />
-                <element signature="e#836#1374#0" />
-                <element signature="method#getNsDown#0;class#BubbleSort#0;class#Naloga1#0" />
-                <element signature="e#2581#3330#0" />
-                <element signature="e#2774#3237#1" />
-                <element signature="e#2925#3188#1" />
-                <element signature="e#3015#3166#1" />
-                <element signature="e#3564#3630#1" />
-                <element signature="e#3636#3700#1" />
-                <element signature="class#SelectionSort#0;class#Naloga1#0" />
-                <element signature="method#SelectionSort#0;class#SelectionSort#0;class#Naloga1#0" />
-                <element signature="method#getNsUp#0;class#SelectionSort#0;class#Naloga1#0" />
-                <element signature="e#4246#4776#0" />
-                <element signature="e#4398#4638#1" />
-                <element signature="method#getNsDown#0;class#SelectionSort#0;class#Naloga1#0" />
-                <element signature="e#4852#5382#0" />
-                <element signature="e#5004#5244#1" />
-                <element signature="method#swap#0;class#SelectionSort#0;class#Naloga1#0" />
-                <element signature="method#findMin#0;class#SelectionSort#0;class#Naloga1#0" />
-                <element signature="e#5733#5870#1" />
-                <element signature="e#5769#5856#1" />
-                <element signature="method#findMax#0;class#SelectionSort#0;class#Naloga1#0" />
-                <element signature="e#6078#6215#1" />
-                <element signature="e#6114#6201#1" />
-                <element signature="method#selectionPrint#0;class#SelectionSort#0;class#Naloga1#0" />
-                <element signature="e#6341#6407#1" />
-                <element signature="e#6413#6477#1" />
-                <element signature="e#6528#6734#1" />
-                <element signature="e#6566#6641#1" />
-                <element signature="e#6647#6720#1" />
-                <element signature="class#InsertionSort#0;class#Naloga1#0" />
-                <element signature="method#InsertionSort#0;class#InsertionSort#0;class#Naloga1#0" />
-                <element signature="method#getNsUp#0;class#InsertionSort#0;class#Naloga1#0" />
-                <element signature="e#7023#7763#0" />
-                <element signature="e#7164#7623#1" />
-                <element signature="e#7283#7605#1" />
-                <element signature="e#7373#7515#1" />
-                <element signature="e#7521#7583#1" />
-                <element signature="method#getNsDown#0;class#InsertionSort#0;class#Naloga1#0" />
-                <element signature="e#7839#8579#0" />
-                <element signature="e#7980#8439#1" />
-                <element signature="e#8099#8421#1" />
-                <element signature="e#8189#8331#1" />
-                <element signature="e#8337#8399#1" />
-                <element signature="method#swap#0;class#InsertionSort#0;class#Naloga1#0" />
-                <element signature="method#insertionPrint#0;class#InsertionSort#0;class#Naloga1#0" />
-                <element signature="e#8815#8881#1" />
-                <element signature="e#8887#8951#1" />
-                <element signature="e#9002#9208#1" />
-                <element signature="e#9040#9115#1" />
-                <element signature="e#9121#9194#1" />
-                <element signature="class#HeapSort#0;class#Naloga1#0" />
-                <element signature="method#HeapSort#0;class#HeapSort#0;class#Naloga1#0" />
-                <element signature="method#getNsUp#0;class#HeapSort#0;class#Naloga1#0" />
-                <element signature="e#9538#10122#0" />
-                <element signature="e#9602#9658#1" />
-                <element signature="e#9752#10004#1" />
-                <element signature="method#getNsDown#0;class#HeapSort#0;class#Naloga1#0" />
-                <element signature="e#10198#10786#0" />
-                <element signature="e#10262#10320#1" />
-                <element signature="e#10414#10668#1" />
-                <element signature="method#heapifyUp#0;class#HeapSort#0;class#Naloga1#0" />
-                <element signature="e#10988#11146#1" />
-                <element signature="e#11072#11132#1" />
-                <element signature="e#11180#11340#1" />
-                <element signature="e#11265#11326#1" />
-                <element signature="e#11372#11567#1" />
-                <element signature="method#heapifyDown#0;class#HeapSort#0;class#Naloga1#0" />
-                <element signature="e#11769#11927#1" />
-                <element signature="e#11853#11913#1" />
-                <element signature="e#11961#12121#1" />
-                <element signature="e#12046#12107#1" />
-                <element signature="e#12153#12350#1" />
-                <element signature="method#heapPrint#0;class#HeapSort#0;class#Naloga1#0" />
-                <element signature="e#12476#12753#1" />
-                <element signature="e#12537#12644#1" />
-                <element signature="e#12666#12739#1" />
-                <element signature="method#reset#0;class#HeapSort#0;class#Naloga1#0" />
-                <element signature="class#QuickSort#0;class#Naloga1#0" />
-                <element signature="method#QuickSort#0;class#QuickSort#0;class#Naloga1#0" />
-                <element signature="method#getNsUp#0;class#QuickSort#0;class#Naloga1#0" />
-                <element signature="e#13218#13419#0" />
-                <element signature="method#getNsDown#0;class#QuickSort#0;class#Naloga1#0" />
-                <element signature="e#13495#13697#0" />
-                <element signature="method#quickSortUp#0;class#QuickSort#0;class#Naloga1#0" />
-                <element signature="e#13783#13926#1" />
-                <element signature="method#quickSortDown#0;class#QuickSort#0;class#Naloga1#0" />
-                <element signature="e#14012#14161#1" />
-                <element signature="method#partitionUp#0;class#QuickSort#0;class#Naloga1#0" />
-                <element signature="e#14375#14832#1" />
-                <element signature="e#14447#14529#1" />
-                <element signature="e#14600#14682#1" />
-                <element signature="e#14711#14818#1" />
-                <element signature="method#partitionDown#0;class#QuickSort#0;class#Naloga1#0" />
-                <element signature="e#15208#15665#1" />
-                <element signature="e#15280#15362#1" />
-                <element signature="e#15433#15515#1" />
-                <element signature="e#15544#15651#1" />
-                <element signature="method#swap#0;class#QuickSort#0;class#Naloga1#0" />
-                <element signature="method#quickPrint#0;class#QuickSort#0;class#Naloga1#0" />
-                <element signature="e#16054#16213#1" />
-                <element signature="e#16086#16149#1" />
-                <element signature="e#16297#16456#1" />
-                <element signature="e#16329#16392#1" />
-                <element signature="method#reset#0;class#QuickSort#0;class#Naloga1#0" />
-                <element signature="class#MergeSort#0;class#Naloga1#0" />
-                <element signature="method#MergeSort#0;class#MergeSort#0;class#Naloga1#0" />
-                <element signature="method#getNsUp#0;class#MergeSort#0;class#Naloga1#0" />
-                <element signature="e#16937#17138#0" />
-                <element signature="method#getNsDown#0;class#MergeSort#0;class#Naloga1#0" />
-                <element signature="e#17214#17417#0" />
-                <element signature="method#mergeSortUp#0;class#MergeSort#0;class#Naloga1#0" />
-                <element signature="e#17503#17725#1" />
-                <element signature="method#mergeSortDown#0;class#MergeSort#0;class#Naloga1#0" />
-                <element signature="e#17811#18039#1" />
-                <element signature="method#mergeUp#0;class#MergeSort#0;class#Naloga1#0" />
-                <element signature="e#18240#18576#1" />
-                <element signature="e#18340#18428#1" />
-                <element signature="e#18450#18538#1" />
-                <element signature="e#18608#18738#1" />
-                <element signature="e#18767#18897#1" />
-                <element signature="e#18976#19056#1" />
-                <element signature="e#19058#19102#0" />
-                <element signature="method#mergeDown#0;class#MergeSort#0;class#Naloga1#0" />
-                <element signature="e#19396#19732#1" />
-                <element signature="e#19496#19584#1" />
-                <element signature="e#19606#19694#1" />
-                <element signature="e#19764#19894#1" />
-                <element signature="e#19923#20053#1" />
-                <element signature="e#20132#20212#1" />
-                <element signature="e#20214#20258#0" />
-                <element signature="method#mergePrint#0;class#MergeSort#0;class#Naloga1#0" />
-                <element signature="e#20441#20505#1" />
-                <element signature="method#dividePrint#0;class#MergeSort#0;class#Naloga1#0" />
-                <element signature="e#20651#20852#1" />
-                <element signature="e#20684#20759#1" />
-                <element signature="e#20765#20838#1" />
-                <element signature="method#reset#0;class#MergeSort#0;class#Naloga1#0" />
-                <element signature="class#CountingSort#0;class#Naloga1#0" />
-                <element signature="method#CountingSort#0;class#CountingSort#0;class#Naloga1#0" />
-                <element signature="method#getNsUp#0;class#CountingSort#0;class#Naloga1#0" />
-                <element signature="e#21370#22143#0" />
-                <element signature="e#21444#21572#1" />
-                <element signature="e#21695#21933#1" />
-                <element signature="e#22016#22090#1" />
-                <element signature="method#readArr#0;class#CountingSort#0;class#Naloga1#0" />
-                <element signature="e#22235#22356#1" />
-                <element signature="class#RadixSort#0;class#Naloga1#0" />
-                <element signature="method#RadixSort#0;class#RadixSort#0;class#Naloga1#0" />
-                <element signature="method#getNsUp#0;class#RadixSort#0;class#Naloga1#0" />
-                <element signature="e#22687#22843#0" />
-                <element signature="method#countingSort#0;class#RadixSort#0;class#Naloga1#0" />
-                <element signature="e#23062#23269#1" />
-                <element signature="e#23366#23482#1" />
-                <element signature="e#23597#23835#1" />
-                <element signature="e#23923#24027#1" />
-                <element signature="method#readArr#0;class#Naloga1#0" />
-                <element signature="e#24184#24230#1" />
-                <element signature="method#main#0;class#Naloga1#0" />
-              </folding>
+            <state relative-caret-position="1682">
+              <caret line="892" column="16" selection-start-line="892" selection-start-column="16" selection-end-line="892" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -198,7 +44,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="48">
               <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -238,10 +84,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="1912" />
+    <option name="y" value="-426" />
+    <option name="width" value="1096" />
+    <option name="height" value="1896" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -249,23 +95,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Naloga1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Naloga1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Naloga1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Naloga1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -342,11 +173,14 @@
       <workItem from="1554909044687" duration="34000" />
       <workItem from="1555762838031" duration="23000" />
       <workItem from="1558506488607" duration="534000" />
+      <workItem from="1559114445764" duration="1000" />
+      <workItem from="1565108142044" duration="239000" />
+      <workItem from="1565868288523" duration="66000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55404000" />
+    <option name="totallyTimeSpent" value="55710000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -358,10 +192,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="1912" y="-426" width="1096" height="1896" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.059168443" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1554054" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -392,6 +225,7 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32945737" />
       <window_info anchor="right" id="Maven" order="10" />
+      <window_info anchor="right" id="Codota" order="11" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,178 +234,14 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Naloga1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1099">
-          <caret line="222" selection-start-line="222" selection-end-line="222" />
-          <folding>
-            <element signature="class#NumericSort#0;class#Naloga1#0" />
-            <element signature="method#sort#0;class#Naloga1#0" />
-            <element signature="e#324#1518#0" />
-            <element signature="e#387#751#0" />
-            <element signature="e#836#1374#0" />
-            <element signature="method#getNsDown#0;class#BubbleSort#0;class#Naloga1#0" />
-            <element signature="e#2581#3330#0" />
-            <element signature="e#2774#3237#1" />
-            <element signature="e#2925#3188#1" />
-            <element signature="e#3015#3166#1" />
-            <element signature="e#3564#3630#1" />
-            <element signature="e#3636#3700#1" />
-            <element signature="class#SelectionSort#0;class#Naloga1#0" />
-            <element signature="method#SelectionSort#0;class#SelectionSort#0;class#Naloga1#0" />
-            <element signature="method#getNsUp#0;class#SelectionSort#0;class#Naloga1#0" />
-            <element signature="e#4246#4776#0" />
-            <element signature="e#4398#4638#1" />
-            <element signature="method#getNsDown#0;class#SelectionSort#0;class#Naloga1#0" />
-            <element signature="e#4852#5382#0" />
-            <element signature="e#5004#5244#1" />
-            <element signature="method#swap#0;class#SelectionSort#0;class#Naloga1#0" />
-            <element signature="method#findMin#0;class#SelectionSort#0;class#Naloga1#0" />
-            <element signature="e#5733#5870#1" />
-            <element signature="e#5769#5856#1" />
-            <element signature="method#findMax#0;class#SelectionSort#0;class#Naloga1#0" />
-            <element signature="e#6078#6215#1" />
-            <element signature="e#6114#6201#1" />
-            <element signature="method#selectionPrint#0;class#SelectionSort#0;class#Naloga1#0" />
-            <element signature="e#6341#6407#1" />
-            <element signature="e#6413#6477#1" />
-            <element signature="e#6528#6734#1" />
-            <element signature="e#6566#6641#1" />
-            <element signature="e#6647#6720#1" />
-            <element signature="class#InsertionSort#0;class#Naloga1#0" />
-            <element signature="method#InsertionSort#0;class#InsertionSort#0;class#Naloga1#0" />
-            <element signature="method#getNsUp#0;class#InsertionSort#0;class#Naloga1#0" />
-            <element signature="e#7023#7763#0" />
-            <element signature="e#7164#7623#1" />
-            <element signature="e#7283#7605#1" />
-            <element signature="e#7373#7515#1" />
-            <element signature="e#7521#7583#1" />
-            <element signature="method#getNsDown#0;class#InsertionSort#0;class#Naloga1#0" />
-            <element signature="e#7839#8579#0" />
-            <element signature="e#7980#8439#1" />
-            <element signature="e#8099#8421#1" />
-            <element signature="e#8189#8331#1" />
-            <element signature="e#8337#8399#1" />
-            <element signature="method#swap#0;class#InsertionSort#0;class#Naloga1#0" />
-            <element signature="method#insertionPrint#0;class#InsertionSort#0;class#Naloga1#0" />
-            <element signature="e#8815#8881#1" />
-            <element signature="e#8887#8951#1" />
-            <element signature="e#9002#9208#1" />
-            <element signature="e#9040#9115#1" />
-            <element signature="e#9121#9194#1" />
-            <element signature="class#HeapSort#0;class#Naloga1#0" />
-            <element signature="method#HeapSort#0;class#HeapSort#0;class#Naloga1#0" />
-            <element signature="method#getNsUp#0;class#HeapSort#0;class#Naloga1#0" />
-            <element signature="e#9538#10122#0" />
-            <element signature="e#9602#9658#1" />
-            <element signature="e#9752#10004#1" />
-            <element signature="method#getNsDown#0;class#HeapSort#0;class#Naloga1#0" />
-            <element signature="e#10198#10786#0" />
-            <element signature="e#10262#10320#1" />
-            <element signature="e#10414#10668#1" />
-            <element signature="method#heapifyUp#0;class#HeapSort#0;class#Naloga1#0" />
-            <element signature="e#10988#11146#1" />
-            <element signature="e#11072#11132#1" />
-            <element signature="e#11180#11340#1" />
-            <element signature="e#11265#11326#1" />
-            <element signature="e#11372#11567#1" />
-            <element signature="method#heapifyDown#0;class#HeapSort#0;class#Naloga1#0" />
-            <element signature="e#11769#11927#1" />
-            <element signature="e#11853#11913#1" />
-            <element signature="e#11961#12121#1" />
-            <element signature="e#12046#12107#1" />
-            <element signature="e#12153#12350#1" />
-            <element signature="method#heapPrint#0;class#HeapSort#0;class#Naloga1#0" />
-            <element signature="e#12476#12753#1" />
-            <element signature="e#12537#12644#1" />
-            <element signature="e#12666#12739#1" />
-            <element signature="method#reset#0;class#HeapSort#0;class#Naloga1#0" />
-            <element signature="class#QuickSort#0;class#Naloga1#0" />
-            <element signature="method#QuickSort#0;class#QuickSort#0;class#Naloga1#0" />
-            <element signature="method#getNsUp#0;class#QuickSort#0;class#Naloga1#0" />
-            <element signature="e#13218#13419#0" />
-            <element signature="method#getNsDown#0;class#QuickSort#0;class#Naloga1#0" />
-            <element signature="e#13495#13697#0" />
-            <element signature="method#quickSortUp#0;class#QuickSort#0;class#Naloga1#0" />
-            <element signature="e#13783#13926#1" />
-            <element signature="method#quickSortDown#0;class#QuickSort#0;class#Naloga1#0" />
-            <element signature="e#14012#14161#1" />
-            <element signature="method#partitionUp#0;class#QuickSort#0;class#Naloga1#0" />
-            <element signature="e#14375#14832#1" />
-            <element signature="e#14447#14529#1" />
-            <element signature="e#14600#14682#1" />
-            <element signature="e#14711#14818#1" />
-            <element signature="method#partitionDown#0;class#QuickSort#0;class#Naloga1#0" />
-            <element signature="e#15208#15665#1" />
-            <element signature="e#15280#15362#1" />
-            <element signature="e#15433#15515#1" />
-            <element signature="e#15544#15651#1" />
-            <element signature="method#swap#0;class#QuickSort#0;class#Naloga1#0" />
-            <element signature="method#quickPrint#0;class#QuickSort#0;class#Naloga1#0" />
-            <element signature="e#16054#16213#1" />
-            <element signature="e#16086#16149#1" />
-            <element signature="e#16297#16456#1" />
-            <element signature="e#16329#16392#1" />
-            <element signature="method#reset#0;class#QuickSort#0;class#Naloga1#0" />
-            <element signature="class#MergeSort#0;class#Naloga1#0" />
-            <element signature="method#MergeSort#0;class#MergeSort#0;class#Naloga1#0" />
-            <element signature="method#getNsUp#0;class#MergeSort#0;class#Naloga1#0" />
-            <element signature="e#16937#17138#0" />
-            <element signature="method#getNsDown#0;class#MergeSort#0;class#Naloga1#0" />
-            <element signature="e#17214#17417#0" />
-            <element signature="method#mergeSortUp#0;class#MergeSort#0;class#Naloga1#0" />
-            <element signature="e#17503#17725#1" />
-            <element signature="method#mergeSortDown#0;class#MergeSort#0;class#Naloga1#0" />
-            <element signature="e#17811#18039#1" />
-            <element signature="method#mergeUp#0;class#MergeSort#0;class#Naloga1#0" />
-            <element signature="e#18240#18576#1" />
-            <element signature="e#18340#18428#1" />
-            <element signature="e#18450#18538#1" />
-            <element signature="e#18608#18738#1" />
-            <element signature="e#18767#18897#1" />
-            <element signature="e#18976#19056#1" />
-            <element signature="e#19058#19102#0" />
-            <element signature="method#mergeDown#0;class#MergeSort#0;class#Naloga1#0" />
-            <element signature="e#19396#19732#1" />
-            <element signature="e#19496#19584#1" />
-            <element signature="e#19606#19694#1" />
-            <element signature="e#19764#19894#1" />
-            <element signature="e#19923#20053#1" />
-            <element signature="e#20132#20212#1" />
-            <element signature="e#20214#20258#0" />
-            <element signature="method#mergePrint#0;class#MergeSort#0;class#Naloga1#0" />
-            <element signature="e#20441#20505#1" />
-            <element signature="method#dividePrint#0;class#MergeSort#0;class#Naloga1#0" />
-            <element signature="e#20651#20852#1" />
-            <element signature="e#20684#20759#1" />
-            <element signature="e#20765#20838#1" />
-            <element signature="method#reset#0;class#MergeSort#0;class#Naloga1#0" />
-            <element signature="class#CountingSort#0;class#Naloga1#0" />
-            <element signature="method#CountingSort#0;class#CountingSort#0;class#Naloga1#0" />
-            <element signature="method#getNsUp#0;class#CountingSort#0;class#Naloga1#0" />
-            <element signature="e#21370#22143#0" />
-            <element signature="e#21444#21572#1" />
-            <element signature="e#21695#21933#1" />
-            <element signature="e#22016#22090#1" />
-            <element signature="method#readArr#0;class#CountingSort#0;class#Naloga1#0" />
-            <element signature="e#22235#22356#1" />
-            <element signature="class#RadixSort#0;class#Naloga1#0" />
-            <element signature="method#RadixSort#0;class#RadixSort#0;class#Naloga1#0" />
-            <element signature="method#getNsUp#0;class#RadixSort#0;class#Naloga1#0" />
-            <element signature="e#22687#22843#0" />
-            <element signature="method#countingSort#0;class#RadixSort#0;class#Naloga1#0" />
-            <element signature="e#23062#23269#1" />
-            <element signature="e#23366#23482#1" />
-            <element signature="e#23597#23835#1" />
-            <element signature="e#23923#24027#1" />
-            <element signature="method#readArr#0;class#Naloga1#0" />
-            <element signature="e#24184#24230#1" />
-            <element signature="method#main#0;class#Naloga1#0" />
-          </folding>
+        <state relative-caret-position="1682">
+          <caret line="892" column="16" selection-start-line="892" selection-start-column="16" selection-end-line="892" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state relative-caret-position="48">
           <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />

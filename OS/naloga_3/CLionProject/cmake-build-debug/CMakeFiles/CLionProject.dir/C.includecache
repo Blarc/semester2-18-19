@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/d/Jakob/2letnik/semester2/OS/naloga_3/CLionProject/main.c
+unistd.h
+-
+stdio.h
+-
+stdlib.h
+-
+signal.h
+-
+fcntl.h
+-
+sys/wait.h
+-
+string.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+ctype.h
+-
+
